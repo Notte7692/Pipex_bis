@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 15:44:04 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/15 17:01:50 by nassimsalhi      ###   ########.fr       */
+/*   Created: 2023/03/15 15:48:53 by nassimsalhi       #+#    #+#             */
+/*   Updated: 2023/03/15 16:15:57 by nassimsalhi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "../includes/pipex.h"
 
-# include "libft/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <string.h>
-#include <stdlib.h>
-
-typedef struct s_struct
+int	main(int ac, char **av)
 {
-	int	infile;
-	int	outfile;
-}	t_struct;
+	if (ac != 5)
+		ft_printf("Wrong number of argument");
+	else
+	{
 
-#endif
+	}
+}
