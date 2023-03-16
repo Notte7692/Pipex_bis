@@ -26,13 +26,9 @@ int	main(int ac, char **av, char **envp)
 	char		**tab_av;
 	int			i;
 
-//stocker les av
-
 	i = 1;
 	if (ac != 5)
 		ft_printf("Wrong number of argument");
-//recuperer le fd
-	tab_av = malloc(sizeof(char *) * (ac -1) + 1);
 	if (!tab_av)
 		return (NULL);
 	pipex.infile = open(av[1], O_RDONLY);
