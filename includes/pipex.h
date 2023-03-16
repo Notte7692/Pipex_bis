@@ -21,9 +21,13 @@
 
 typedef struct s_struct
 {
+	pid_t	pid1;
+	pid_t	pid2;
+	int		pipe[2];
 	int		infile;
 	int		outfile;
 	char	*path;
+	char	**cmd_path;
 }	t_struct;
 
 #endif
