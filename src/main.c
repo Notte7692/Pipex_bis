@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:48:53 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/15 17:05:29 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/03/17 11:40:04 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ char	*find_path(char **envp)
 int	main(int ac, char **av, char **envp)
 {
 	t_struct	pipex;
-	char		**tab_av;
-	int			i;
 
 	i = 1;
 	if (ac != 5)
@@ -45,10 +43,11 @@ int	main(int ac, char **av, char **envp)
 	}
 	pipex.path = find_path(envp);
 	pipex.cmd_path = ft_split(pipex.path, ":");
-	if (pipe(pipex.pipe) < 0)
+	if (pipe(pipex.pipefd) < 0)
 	{
 		ft_pritnf("error in pipe\n");
 		return (0);
 	}
-§
+	pipex.pid1 = fork();
+	
 }

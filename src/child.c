@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   child.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 15:44:04 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/17 14:30:16 by nsalhi           ###   ########.fr       */
+/*   Created: 2023/03/17 11:06:07 by nsalhi            #+#    #+#             */
+/*   Updated: 2023/03/17 14:34:02 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
 
-# include "libft/libft.h"x
-# include <unistd.h>
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
+#include "../includes/pipex.h"
 
-typedef struct s_struct
+void    first_child(t_struct pipex, char **av, char **envp)
 {
-	pid_t	pid1;
-	pid_t	pid2;
-	int		pipefd[2];
-	int		infile;
-	int		outfile;
-	char	*path;
-	char	**cmd_path;
-	char 	**cmd_arg;
-}	t_struct;
-
-#endif
+	dup2(pipex.pipefd[1], 1);
+	close(pipex.pipefd[0]);
+	dup2(pipex.infile, 0);
+	pipex.cmd_arg = ft_split(av[2], ' ');
+}
