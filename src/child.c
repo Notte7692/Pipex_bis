@@ -6,10 +6,18 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 11:06:07 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/03/17 14:34:02 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/03/17 16:36:20 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+char	*get_cmd(char **cmd_path, char *cmd)
+{
+	char	*tmp;
+	char	*cmd;
+	
+	
+}
 
 #include "../includes/pipex.h"
 
