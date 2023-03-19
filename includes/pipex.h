@@ -29,6 +29,23 @@ typedef struct s_struct
 	char	*path;
 	char	**cmd_path;
 	char 	**cmd_arg;
+	char	*cmd;
 }	t_struct;
+
+//child.c
+void    first_child(t_struct pipex, char **av, char **envp);
+void	second_child(t_struct pipex, char **av, char **envp);
+
+//error.c
+int 	mess_err(char *err);
+void    error(char *err);
+
+//free.c
+void	free_child(t_struct *pipex);
+void	free_parent(t_struct *pipex);
+
+//main.c
+char	*find_path(char **envp);
+void	close_pipe(t_struct *pipex);
 
 #endif

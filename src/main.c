@@ -19,35 +19,38 @@ char	*find_path(char **envp)
 	return (*envp + 5);
 }
 
+void	close_pipe(t_struct *pipex)
+{
+	close(pipex->pipefd[0]);
+	close(pipex->pipefd[1]);
+}
+
 //Main function of the progrann
 int	main(int ac, char **av, char **envp)
 {
 	t_struct	pipex;
 
-	i = 1;
 	if (ac != 5)
-		ft_printf("Wrong number of argument");
-	if (!tab_av)
-		return (NULL);
+		return(mess_err("Wrong numbers of args"));
 	pipex.infile = open(av[1], O_RDONLY);
 	if (pipex.infile < 0)
-	{
-		ft_printf("ERROR WITH THE FILE");
-		return (0);
-	}
+		error("Infile");
 	pipex.outfile = open(av[ac -1], O_TRUNC | O_CREAT | O_RDWR, 000644);
 	if (pipex.outfile < 0)
-	{
-		ft_printf("Error outfile");
-		return (0);
-	}
+		error("Outfile");
 	pipex.path = find_path(envp);
-	pipex.cmd_path = ft_split(pipex.path, ":");
+	pipex.cmd_path = ft_split(pipex.path, ':');
 	if (pipe(pipex.pipefd) < 0)
-	{
-		ft_pritnf("error in pipe\n");
-		return (0);
-	}
+		error("Error pipe");
 	pipex.pid1 = fork();
-	
+	if (pipex.pid1 == 0)
+		first_child(pipex, av, envp);
+	pipex.pid2 = fork();
+	if (pipex.pid2 == 0)
+		second_child(pipex, av, envp);
+	close_pipe(&pipex);
+	waitpid(pipex.pid1, NULL, 0);
+	waitpid(pipex.pid2, NULL, 0);
+	free_parent(&pipex);
+	return (0);
 }

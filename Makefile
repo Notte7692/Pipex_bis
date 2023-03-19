@@ -13,11 +13,14 @@
 NAME = pipex
 CC = gcc
 FLAGS = -wall -wextra -werror
-LIBFT_PATH = ./libft/
+LIBFT_PATH = ./includes/libft/
 
 LIBFT = $(LIBFT_PATH)libft.a
 
-SRC = ./src/
+SRC = ./src/child.c \
+	./src/error.c \
+	./src/free.c \
+	./src/main.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -35,6 +38,6 @@ fclean : clean
 	rm -f $(NAME)
 	make fclean -C $(LIBFT_PATH)
 
-re = fclean all
+re : fclean all
 
 .PHONY: all clean fclean re
