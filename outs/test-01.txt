@@ -1,0 +1,21 @@
+make: Entering directory '/mnt/nfs/homes/nsalhi/Documents/pipex_true'
+gcc    -c -o src/free.o src/free.c
+In file included from src/free.c:13:
+src/../includes/pipex.h:16:26: warning: extra tokens at end of #include directive
+   16 | # include "libft/libft.h"x
+      |                          ^
+gcc    -c -o src/main.o src/main.c
+In file included from src/main.c:13:
+src/../includes/pipex.h:16:26: warning: extra tokens at end of #include directive
+   16 | # include "libft/libft.h"x
+      |                          ^
+src/main.c: In function ‘main’:
+src/main.c:52:2: warning: implicit declaration of function ‘waitpid’ [-Wimplicit-function-declaration]
+   52 |  waitpid(pipex.pid1, NULL, 0);
+      |  ^~~~~~~
+make -C ./includes/libft/
+make[1]: Entering directory '/mnt/nfs/homes/nsalhi/Documents/pipex_true/includes/libft'
+make[1]: 'libft.a' is up to date.
+make[1]: Leaving directory '/mnt/nfs/homes/nsalhi/Documents/pipex_true/includes/libft'
+gcc  ./src/child.o ./src/error.o ./src/free.o ./src/main.o ./includes/libft/libft.a -o pipex
+make: Leaving directory '/mnt/nfs/homes/nsalhi/Documents/pipex_true'
