@@ -30,6 +30,10 @@ int	main(int ac, char **av, char **envp)
 {
 	t_struct	pipex;
 
+	if (envp == NULL || *envp == NULL)
+	{
+		return (0);
+	}
 	if (ac != 5)
 		return(mess_err("Wrong numbers of args"));
 	pipex.infile = open(av[1], O_RDONLY);
