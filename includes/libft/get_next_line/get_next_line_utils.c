@@ -68,3 +68,17 @@ char	*ft_strjoin_mod(char *left_str, char *buff)
 	free(left_str);
 	return (str);
 }
+
+int	find_nwl(char *str)
+{
+	if (str)
+	{
+		while (*str)
+		{
+			if (*str == '\n')
+				return (1);
+			str++;
+		}
+	}
+	return (0);
+}

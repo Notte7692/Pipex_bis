@@ -20,13 +20,13 @@ char	*ft_get_line(char *left_str)
 	i = 0;
 	if (!left_str[i])
 		return (NULL);
-	while (left_str[i] && left_str[i] != '\n')
+	while (left_str[i] && left_str[i] != '\n' && left_str[i] != '\0')
 		i++;
 	str = (char *)malloc(sizeof(char) * (i + 2));
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (left_str[i] && left_str[i] != '\n')
+	while (left_str[i] && left_str[i] != '\n' & left_str[i] != '\0')
 	{
 		str[i] = left_str[i];
 		i++;
@@ -79,7 +79,7 @@ char	*ft_read_left_str(int fd, char *left_str)
 	while (!ft_strchr(left_str, '\n') && rd_bytes != 0)
 	{
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
-		if (rd_bytes == -1)
+		if (rd_bytes < 0)
 		{
 			free(buff);
 			return (NULL);
@@ -91,17 +91,39 @@ char	*ft_read_left_str(int fd, char *left_str)
 	return (left_str);
 }
 
-char	*get_next_line(int fd)
+int	error(char *str)
 {
-	char		*line;
+	if (str)
+		free(str);
+	return (-1);
+}
+
+int	*get_next_line(int fd, char **line)
+{
 	static char	*left_str;
+	int			rd_bytes;
+	char		*buff;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (-1);
 	left_str = ft_read_left_str(fd, left_str);
 	if (!left_str)
+		return (error(left_str));
+	rd_bytes = 1;
+	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buff)
 		return (NULL);
+	while (!find_nwl(left_str) && rd_bytes > 0)
+	{
+		rd_bytes = read(fd, buff, BUFFER_SIZE);
+		if (rd_bytes < 0)
+			return (error(buff));
+		buff[rd_bytes] = '\0';
+		left_str = ft_strjoin_mod(left_str, buff);
+	}
 	line = ft_get_line(left_str);
 	left_str = ft_new_left_str(left_str);
-	return (line);
+	if (rd_bytes == 0 && !left_str)
+		return (0);
+	return (1);
 }

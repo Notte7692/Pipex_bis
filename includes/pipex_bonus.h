@@ -30,6 +30,8 @@ typedef struct s_struct
 	char	*cmd;
 	char	**cmd_arg;
 	int		here_doc;
+	int		nb_cmd;
+	int		nb_pipe;
 }	t_struct;
 
 #endif

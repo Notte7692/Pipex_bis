@@ -26,6 +26,13 @@ int	min_arg(char *av, t_struct *pipex)
 	}
 }
 
+char	*find_path(char **envp)
+{
+	while(ft_strncmp("PATH", *envp, 4))
+		envp++;
+	return (*envp + 5);
+}
+
 int	main(int ac, char **av, char **envp)
 {
 	t_struct	pipex;
@@ -35,4 +42,8 @@ int	main(int ac, char **av, char **envp)
 		ft_prntf("wrong number of arguments");
 		return (0);
 	}
+	get_infile(av, &pipex);
+	get_outfile(av[ac - 1], &pipex);
+	pipex.nb_cmb = ac - 3 - pipex.here_doc;
+	pipex.nb_pipe = 2 (pipex.nb_cmb - 1);
 }
