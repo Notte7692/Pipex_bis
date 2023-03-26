@@ -45,5 +45,10 @@ int	main(int ac, char **av, char **envp)
 	get_infile(av, &pipex);
 	get_outfile(av[ac - 1], &pipex);
 	pipex.nb_cmb = ac - 3 - pipex.here_doc;
-	pipex.nb_pipe = 2 (pipex.nb_cmb - 1);
+	pipex.nb_pipe = 2 * (pipex.nb_cmb - 1);
+	pipex.pipe = (int *)malloc(sizeof(int) * pipex.nb_pipe);
+	if (!pipex.pipe)
+		msg_error("pipe");
+	pipex.env_path = find_path(envp);
+	pipex.cmd_path = ft_split(pipex.env_path);
 }

@@ -32,6 +32,8 @@ typedef struct s_struct
 	int		here_doc;
 	int		nb_cmd;
 	int		nb_pipe;
+	int		*pipe;
+	char	*env_path;
 }	t_struct;
 
 #endif
