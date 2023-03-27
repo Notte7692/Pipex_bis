@@ -41,7 +41,7 @@ void    child(t_struct pipex, char **av, char **envp)
         pipex.cmd = get_cmd(pipex.path, pipex.cmd_arg[0]);
         if (!pipex.cmd)
         {
-            msg_pipe(pipex.cmd_aarg[0]);
+            msg_pipe(pipex.cmd_arg[0]);
             free_child(&pipex);
             exit(1);
         }
