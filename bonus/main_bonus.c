@@ -33,6 +33,31 @@ char	*find_path(char **envp)
 	return (*envp + 5);
 }
 
+static void	create_pipes(t_struct *pipex)
+{
+	int	i;
+	
+	i = 0;
+	while (i < pipex->nb_cmd - 1)
+	{
+		if (pipe(pipex->pipe + 2 * i) < 0)
+			free_parent(pipex);
+		i++;
+	}
+}
+
+void	close_pipes(t_struct *pipex)
+{
+	int	i;
+
+	i = 0;
+	while (i < pipex->nb_pipe)
+	{
+		close(pipex->pipe[i]);
+		i++;
+	}
+}
+
 int	main(int ac, char **av, char **envp)
 {
 	t_struct	pipex;
@@ -51,4 +76,14 @@ int	main(int ac, char **av, char **envp)
 		msg_error("pipe");
 	pipex.env_path = find_path(envp);
 	pipex.cmd_path = ft_split(pipex.env_path);
+	if (!pipex.cmd_path)
+		free_pipe(&pipex);
+	create_pipes(&pipex);
+	pipex.index = -1;
+	while (++(pipex.index < pipex.nb_cmd))
+		child(pipex, av, envp);
+	close_pipes(&pipex);
+	waitpid(-1, NULL, 0);
+	free_parent(&pipex);
+	return (0);
 }

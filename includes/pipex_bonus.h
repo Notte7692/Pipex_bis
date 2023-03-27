@@ -34,6 +34,7 @@ typedef struct s_struct
 	int		nb_pipe;
 	int		*pipe;
 	char	*env_path;
+	int		index;
 }	t_struct;
 
 #endif
