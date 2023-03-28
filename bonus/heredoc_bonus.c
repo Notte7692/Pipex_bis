@@ -7,10 +7,7 @@ void	here_doc(char *av, t_struct *pipex)
 
 	fd = open(".here_doc_tmp", O_CREAT | O_TRUNC | O_WRONLY, 0644),
 	if (fd < 0)
-	{
-		ft_printf("Error can't ope file");
-		return (0);
-	}
+		msg_error("here_doc");
 	while (1)
 	{
 		write(1, "heredoc> ", 9);

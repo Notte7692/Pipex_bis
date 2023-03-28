@@ -63,10 +63,7 @@ int	main(int ac, char **av, char **envp)
 	t_struct	pipex;
 
 	if (ac < min_arg(av[1], &pipex))
-	{
-		ft_prntf("wrong number of arguments");
-		return (0);
-	}
+		return(msg("invalid number of args"))
 	get_infile(av, &pipex);
 	get_outfile(av[ac - 1], &pipex);
 	pipex.nb_cmb = ac - 3 - pipex.here_doc;
