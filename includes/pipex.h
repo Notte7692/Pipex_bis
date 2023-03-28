@@ -40,7 +40,7 @@ void	second_child(t_struct pipex, char **av, char **envp);
 
 //error.c
 int 	mess_err(char *err);
-void    error(char *err);
+void    error_b(char *err);
 
 //free.c
 void	free_child(t_struct *pipex);

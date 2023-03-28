@@ -1,4 +1,4 @@
-#include "../includes/pipex_bonus.c"
+#include "../includes/pipex_bonus.h"
 
 int	msg(char *error)
 {
@@ -15,6 +15,6 @@ void	msg_pipe(char *arg)
 
 void	msg_error(char *error)
 {
-	perror(err);
+	perror(error);
 	exit (1);
 }

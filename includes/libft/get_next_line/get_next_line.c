@@ -26,7 +26,7 @@ char	*ft_get_line(char *left_str)
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (left_str[i] && left_str[i] != '\n' & left_str[i] != '\0')
+	while (left_str[i] && left_str[i] != '\n' && left_str[i] != '\0')
 	{
 		str[i] = left_str[i];
 		i++;
@@ -98,7 +98,7 @@ int	error(char *str)
 	return (-1);
 }
 
-int	*get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*left_str;
 	int			rd_bytes;
@@ -112,7 +112,7 @@ int	*get_next_line(int fd, char **line)
 	rd_bytes = 1;
 	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buff)
-		return (NULL);
+		return (0);
 	while (!find_nwl(left_str) && rd_bytes > 0)
 	{
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
@@ -121,7 +121,7 @@ int	*get_next_line(int fd, char **line)
 		buff[rd_bytes] = '\0';
 		left_str = ft_strjoin_mod(left_str, buff);
 	}
-	line = ft_get_line(left_str);
+	*line = ft_get_line(left_str);
 	left_str = ft_new_left_str(left_str);
 	if (rd_bytes == 0 && !left_str)
 		return (0);

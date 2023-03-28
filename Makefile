@@ -11,7 +11,8 @@
 # **************************************************************************** #
 
 NAME = pipex
-CC = gcc
+NAME_BONUS = pipex_bonus
+CC = cc
 FLAGS = -wall -wextra -werror
 LIBFT_PATH = ./includes/libft/
 
@@ -22,20 +23,36 @@ SRC = ./src/child.c \
 	./src/free.c \
 	./src/main.c \
 
+BONUS_SRC = ./bonus/child_bonus.c \
+	./bonus/error_bonus.c \
+	./bonus/free_bonus.c \
+	./bonus/get_file_bonus.c \
+	./bonus/heredoc_bonus.c \
+	./bonus/main_bonus.c \
+
 OBJ = $(SRC:.c=.o)
+
+
+BONUSOBJ = $(BONUS_SRC:.c=.o)
 
 $(NAME) : $(OBJ)
 	make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
+$(NAME_BONUS) : $(BONUSOBJ)
+	make -C $(LIBFT_PATH)
+	$(CC) $(CFLAGS) $(BONUSOBJ) $(LIBFT) -o $(NAME_BONUS)
+
+bonus : $(NAME_BONUS)
+
 all : $(NAME)
 
 clean :
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(BONUSOBJ)
 	make clean -C $(LIBFT_PATH)
 
 fclean : clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 	make fclean -C $(LIBFT_PATH)
 
 re : fclean all

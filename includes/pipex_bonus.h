@@ -37,4 +37,29 @@ typedef struct s_struct
 	int		index;
 }	t_struct;
 
+//chidl_bonus.c
+void    child(t_struct pipex, char **av, char **envp);
+
+//error_bonus.c
+int		msg(char *error);
+void	msg_pipe(char *arg);
+void	msg_error(char *error);
+
+//free_bonus.c
+void    free_pipe(t_struct *pipex);
+void    free_parent(t_struct *pipex);
+void    free_child(t_struct *pipex);
+
+//get_gile_bonus.c
+void	get_infile(char **av, t_struct *pipex);
+void	get_outfile(char *av, t_struct *pipex);
+
+//heredoc_bonus.c
+void	here_doc(char *av, t_struct *pipex);
+
+//main_bonus.c
+int		min_arg(char *av, t_struct *pipex);
+char	*find_path(char **envp);
+void	close_pipes(t_struct *pipex);
+
 #endif

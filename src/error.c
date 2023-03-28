@@ -19,7 +19,7 @@ int mess_err(char *err)
     return (1);
 }
 
-void    error(char *err)
+void    error_b(char *err)
 {
     perror(err);
     exit (1);
