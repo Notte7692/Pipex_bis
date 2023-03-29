@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsalhi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:31:09 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/02/20 17:30:15 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/03/29 15:51:26 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ char	*ft_read_left_str(int fd, char *left_str)
 	return (left_str);
 }
 
-int	error(char *str)
+int	error()//char *str)
 {
-	if (str)
-		free(str);
+	//if (str)
+	//	free(str);
 	return (-1);
 }
 

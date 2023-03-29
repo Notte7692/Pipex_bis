@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:48:00 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/23 16:48:33 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/03/29 14:05:51 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char **av, char **envp)
 	get_infile(av, &pipex);
 	get_outfile(av[ac - 1], &pipex);
 	pipex.nb_cmd = ac - 3 - pipex.here_doc;
-	pipex.nb_pipe = 2 * (pipex.nb_cmd - 1);
+	pipex.nb_pipe = 2 * (pipex.nb_cmd);
 	pipex.pipe = (int *)malloc(sizeof(int) * pipex.nb_pipe);
 	if (!pipex.pipe)
 		msg_error("pipe");

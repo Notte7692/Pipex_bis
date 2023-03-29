@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 15:25:32 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/20 13:44:34 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/03/29 16:03:25 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int mess_err(char *err)
 {
     write(2, err, ft_strlen_mod(err));
+    write(1, "\n", 1);
     return (1);
 }
 

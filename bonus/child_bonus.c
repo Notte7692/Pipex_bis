@@ -1,8 +1,10 @@
 #include "../includes/pipex_bonus.h"
+#include <errno.h>
 
 static void sub_dup2(int zero, int first)
 {
-    dup2(zero, 0);
+    
+    (zero, 0);
     dup2(first, 1);
 }
 
