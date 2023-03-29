@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:42:50 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/23 16:47:13 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/03/29 16:36:45 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_struct
 	int		nb_cmd;
 	int		nb_pipe;
 	int		*pipe;
+	int 	pipe[2];
 	char	*env_path;
 	int		index;
 }	t_struct;

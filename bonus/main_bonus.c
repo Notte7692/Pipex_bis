@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 16:48:00 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/29 14:05:51 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/03/29 17:13:39 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int	main(int ac, char **av, char **envp)
 	get_infile(av, &pipex);
 	get_outfile(av[ac - 1], &pipex);
 	pipex.nb_cmd = ac - 3 - pipex.here_doc;
-	pipex.nb_pipe = 2 * (pipex.nb_cmd);
 	pipex.pipe = (int *)malloc(sizeof(int) * pipex.nb_pipe);
 	if (!pipex.pipe)
 		msg_error("pipe");
@@ -83,4 +82,44 @@ int	main(int ac, char **av, char **envp)
 	waitpid(-1, NULL, 0);
 	free_parent(&pipex);
 	return (0);
+	while (i < pipex->nbcmds)
+	{
+		if (pipe(pipex->fd) < 0)
+			return (0);
+		pid[i] == fork();
+		if (pid[i] < 0)
+			return ;
+		if (pid[i] == 0)
+		{
+			if (i == 0)
+			{
+				dup2(infile, 0);
+				close(infile);
+			}
+			if (i != 0)
+			{
+				dup2(pipex->prev_pipes, 0);
+				close(prev_pipes);
+			}
+			if (i != pipex->nbcmds - 1)
+			{
+				dup2(pipex->fd[1], 1);
+				close(fd[1]);
+			}
+			if (i == pipex->nbcmds - 1)
+			{
+				dup2(outfile, 1);
+				close(outfile);
+			}
+			close(pipex->fd[0]);
+			close(fd[1]);
+		}
+		else
+		{
+			if (pipex->prev_pipes != -1)
+				close(pipex->prev_pipes);
+			pipex->prev_pipes = pipex->pipe[0];
+		}
+		i++;
+	}
 }
