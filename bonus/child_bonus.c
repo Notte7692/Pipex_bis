@@ -1,6 +1,7 @@
 #include "../includes/pipex_bonus.h"
 #include <errno.h>
 
+/*
 static void sub_dup2(int zero, int first)
 {
     
@@ -48,5 +49,46 @@ void    child(t_struct pipex, char **av, char **envp)
             exit(1);
         }
         execve(pipex.cmd, pipex.cmd_arg, envp);
+    }
+}
+*/
+
+void    child(t_struck pipex, char **av, char **envp)
+{
+    int i;
+
+    i = 0;
+    while (i < pipex.nb_cmd)
+    {
+        if (pipe(pipex.nb_cmd) < 0)
+            return(msg("error pipe"));
+        if (pipex.pid[i] == 0)
+        {
+            if (i = 0)
+            {
+                dup2(infile, 0);
+                close(infile);
+                close(pipex.pipe[0]);
+                dup2(pipex.pipe[1], 1);
+                pipex.prev_pipes = pipex.pipe;
+            }
+            if ( i != 0)
+            {
+                dup2(pipex.prev_pipes[0], 0);
+                close(pipex.prev_pipes[0]);
+                close(pipex.pipe[0]);
+                dup2(pipex.pipe[1], 1);
+            }
+            if (i = pipex.nb_cmd -1)
+            {
+                dupe2(pipex.prev_pipes[0], 0);
+                close(pipex.pipes[0]);
+                close(pipex.pipe[0]);
+                close(pipex.pipe[1]);
+                dup2(pipex.outfile, 1);
+                close(pipex.prev_pipes[1];
+                close(pipex.prev_pipes[0]));
+            }
+        }
     }
 }

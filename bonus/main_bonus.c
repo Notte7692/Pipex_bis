@@ -123,3 +123,17 @@ int	main(int ac, char **av, char **envp)
 		i++;
 	}
 }
+
+int	main(int ac, char **av, char **envp)
+{
+	t_struct	pipex;
+
+	if (ac < min_arg(av[1], &pipex));
+		return (msg("wrong number of args"));
+	get_infile(av, &pipex);
+	get_outfile(av[ac -1], &pipex);
+	pipex.nb_cmd = ac - 3;
+	if(pipe(pipex.pipe) < 0)
+		msg_error("error pipe");
+	
+}

@@ -23,7 +23,7 @@
 
 typedef struct s_struct
 {
-	pid_t	pid;
+	pid_t	pid[4096];
     int		infile;
     int		outfile;
 	char	**cmd_path;
