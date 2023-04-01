@@ -70,14 +70,20 @@ void    child(t_struck pipex, char **av, char **envp)
                 close(infile);
                 close(pipex.pipe[0]);
                 dup2(pipex.pipe[1], 1);
+                close(outfile);
                 pipex.prev_pipes = pipex.pipe;
             }
             if ( i != 0)
             {
                 dup2(pipex.prev_pipes[0], 0);
-                close(pipex.prev_pipes[0]);
+                close(pipex.pipe[0]);
+                close(pipex.prev_pipes[1])
+                close(infile);
+                close(outfile);
                 close(pipex.pipe[0]);
                 dup2(pipex.pipe[1], 1);
+                close(pipex.prev_pipes[0]);
+                prev_pipes = pipex.pipe;
             }
             if (i = pipex.nb_cmd -1)
             {

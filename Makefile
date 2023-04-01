@@ -13,7 +13,7 @@
 NAME = pipex
 NAME_BONUS = pipex_bonus
 CC = cc
-FLAGS = -wall -wextra -werror
+FLAGS = -wall -wextra -werror -g3
 LIBFT_PATH = ./includes/libft/
 
 LIBFT = $(LIBFT_PATH)libft.a
@@ -23,12 +23,8 @@ SRC = ./src/child.c \
 	./src/free.c \
 	./src/main.c \
 
-BONUS_SRC = ./bonus/child_bonus.c \
-	./bonus/error_bonus.c \
-	./bonus/free_bonus.c \
-	./bonus/get_file_bonus.c \
-	./bonus/heredoc_bonus.c \
-	./bonus/main_bonus.c \
+BONUS_SRC = ./bonus/pipex_bonus_bis.c \
+	
 
 OBJ = $(SRC:.c=.o)
 

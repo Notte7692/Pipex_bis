@@ -27,7 +27,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin_mod(char *left_str, char *buff);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
-int	    error(char *str);
+int	    error();//char *str);
 int	    find_nwl(char *str);
 
 #endif
