@@ -16,7 +16,6 @@ typedef struct  s_pipex
     char    *cmd;
     char    **env;
     char    **paths;
-    char    **commands;
     int     fds[4];
 } t_pipex;
 

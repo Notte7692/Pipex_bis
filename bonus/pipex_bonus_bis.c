@@ -55,19 +55,6 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 	return (NULL);
 }
 
-void	free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
 void close_all_fds(t_pipex *command)
 {
 	close(command->out);
@@ -109,12 +96,9 @@ int execute_command(t_pipex *command, int* current_pipe, int *previous_pipe)
 		}
 		else
 		{
-			free_tab(args);
-			free(full_path_command);
 			exit(EXIT_FAILURE);
 		}
     }
-	free_tab(args);
 	return (pid);
 }
 
@@ -140,27 +124,40 @@ void wait_for_pids(int *pids, int size)
 
 int main(int ac, char **av, char **envp)
 {
+    char        **commands;
     t_pipex     cmd;
     int         i;
     int         current_pipe[2];
 	int			previous_pipe[2];
+	char		**paths;
 	int			*pids;
 
-    cmd.commands = parse_command(ac, av);
-    if (cmd.commands == NULL)
+    commands = parse_command(ac, av);
+    if (commands == NULL)
+	{
         return (EXIT_FAILURE);
+    }
+
 	pids = malloc(sizeof(int) * ac - 3);
+	paths = extract_path(envp);
     i = 0;
 
     while (i < ac - 3)
     {
-        cmd.cmd = cmd.commands[i];
+        cmd.cmd = commands[i];
         if (i == 0)
+        {
             cmd.in = open(av[1], O_RDONLY);
+        }
         else
+        {
             cmd.in = previous_pipe[0];
+        }
+
         if (i == ac - 4)
+        {
             cmd.out = open(av[ac - 1], O_TRUNC | O_CREAT | O_RDWR, 0644);
+        }
         else
 		{
  	       	pipe(current_pipe);
@@ -168,15 +165,14 @@ int main(int ac, char **av, char **envp)
 			swap_pipe(&previous_pipe, &current_pipe);
         }
         cmd.env = envp;
-		cmd.paths = extract_path(envp);
+		cmd.paths = paths;
 		copy_fds(&cmd, current_pipe, previous_pipe);
        	pids[i] = execute_command(&cmd, current_pipe, previous_pipe);
 		close(cmd.in);
 		close(cmd.out);
-		close_all_fds(&cmd);
-		free_tab(cmd.paths);
 		i++;
     }
+	free(cmd.paths);
 	close_all_fds(&cmd);
 	wait_for_pids(pids, ac - 3);
 	free(pids);
