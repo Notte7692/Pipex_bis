@@ -1,5 +1,18 @@
 #include "../includes/pipex_bonus_bis.h"
 
+void	free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
 char **parse_command(int ac, char **av)
 {
     char    **command;
@@ -96,9 +109,12 @@ int execute_command(t_pipex *command, int* current_pipe, int *previous_pipe)
 		}
 		else
 		{
+			free_tab(args);
+			free(full_path_command);
 			exit(EXIT_FAILURE);
 		}
     }
+	free_tab(args);
 	return (pid);
 }
 
@@ -129,7 +145,6 @@ int main(int ac, char **av, char **envp)
     int         i;
     int         current_pipe[2];
 	int			previous_pipe[2];
-	char		**paths;
 	int			*pids;
 
     commands = parse_command(ac, av);
@@ -139,7 +154,6 @@ int main(int ac, char **av, char **envp)
     }
 
 	pids = malloc(sizeof(int) * ac - 3);
-	paths = extract_path(envp);
     i = 0;
 
     while (i < ac - 3)
@@ -165,11 +179,12 @@ int main(int ac, char **av, char **envp)
 			swap_pipe(&previous_pipe, &current_pipe);
         }
         cmd.env = envp;
-		cmd.paths = paths;
+		cmd.paths = extract_path(envp);
 		copy_fds(&cmd, current_pipe, previous_pipe);
        	pids[i] = execute_command(&cmd, current_pipe, previous_pipe);
 		close(cmd.in);
 		close(cmd.out);
+		free_tab(cmd.paths);
 		i++;
     }
 	free(cmd.paths);
