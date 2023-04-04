@@ -145,7 +145,7 @@ int main(int ac, char **av, char **envp)
     int         i;
     int         current_pipe[2];
 	int			previous_pipe[2];
-	int			*pids;
+	//int			*pids;
 
     commands = parse_command(ac, av);
     if (commands == NULL)
@@ -153,7 +153,7 @@ int main(int ac, char **av, char **envp)
         return (EXIT_FAILURE);
     }
 
-	pids = malloc(sizeof(int) * ac - 3);
+	cmd.pids = malloc(sizeof(pid_t) * ac - 3);
     i = 0;
 
     while (i < ac - 3)
@@ -181,14 +181,14 @@ int main(int ac, char **av, char **envp)
         cmd.env = envp;
 		cmd.paths = extract_path(envp);
 		copy_fds(&cmd, current_pipe, previous_pipe);
-       	pids[i] = execute_command(&cmd, current_pipe, previous_pipe);
+       	cmd.pids[i] = execute_command(&cmd, current_pipe, previous_pipe);
 		close(cmd.in);
 		close(cmd.out);
 		free_tab(cmd.paths);
 		i++;
     }
 	close_all_fds(&cmd);
-	wait_for_pids(pids, ac - 3);
+	wait_for_pids(cmd.pids, ac - 3);
 	free(pids);
 	return 0;
 }
