@@ -187,7 +187,6 @@ int main(int ac, char **av, char **envp)
 		free_tab(cmd.paths);
 		i++;
     }
-	free(cmd.paths);
 	close_all_fds(&cmd);
 	wait_for_pids(pids, ac - 3);
 	free(pids);
