@@ -16,8 +16,9 @@ void	free_tab(char **tab)
 char **parse_command(int ac, char **av)
 {
     char    **command;
-    
-    if (ac < 5)
+	if (av[1] && !ft_strncmp("here_doc", av[1], 9))
+		return (&av[3]);
+    else if (ac < 5)
         return (NULL);
 
     return &av[2];
@@ -70,6 +71,9 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 
 void close_all_fds(t_pipex *command)
 {
+	int i;
+
+	i = 0;
 	close(command->out);
 	close(command->in);
 	close(command->fds[0]);
@@ -157,7 +161,6 @@ int main(int ac, char **av, char **envp)
 
 	pids = malloc(sizeof(int) * ac - 3);
     i = 0;
-
     while (i < ac - 3)
     {
         cmd.cmd = commands[i];

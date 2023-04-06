@@ -17,7 +17,7 @@ typedef struct  s_pipex
     char    **env;
     char    **paths;
     int     fds[4];
-    int		pids;
+ 
 } t_pipex;
 
 typedef struct  s_fork
