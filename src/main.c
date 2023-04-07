@@ -6,7 +6,7 @@
 /*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:56:39 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/04/06 20:58:47 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/04/07 09:51:46 by nassimsalhi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ void	close_pipe(t_struct *pipex)
 	close(pipex->infile);
 }
 
+static void	core_pipex(t_struct pipex, char **av, char **envp)
+{
+	pipex.path = find_path(envp);
+	pipex.cmd_path = ft_split(pipex.path, ':');
+	if (pipe(pipex.pipefd) < 0)
+		error("Error pipe");
+	pipex.pid1 = fork();
+	if (pipex.pid1 == 0)
+		first_child(pipex, av, envp);
+	pipex.pid2 = fork();
+	if (pipex.pid2 == 0)
+		second_child(pipex, av, envp);
+	close_pipe(&pipex);
+	waitpid(pipex.pid1, NULL, 0);
+	waitpid(pipex.pid2, NULL, 0);
+	free_parent(&pipex);
+}
+
 //Main function of the progrann
 int	main(int ac, char **av, char **envp)
 {
@@ -42,19 +60,6 @@ int	main(int ac, char **av, char **envp)
 	pipex.outfile = open(av[ac -1], O_TRUNC | O_CREAT | O_RDWR, 000644);
 	if (pipex.outfile < 0)
 		error("Outfile");
-	pipex.path = find_path(envp);
-	pipex.cmd_path = ft_split(pipex.path, ':');
-	if (pipe(pipex.pipefd) < 0)
-		error("Error pipe");
-	pipex.pid1 = fork();
-	if (pipex.pid1 == 0)
-		first_child(pipex, av, envp);
-	pipex.pid2 = fork();
-	if (pipex.pid2 == 0)
-		second_child(pipex, av, envp);
-	close_pipe(&pipex);
-	waitpid(pipex.pid1, NULL, 0);
-	waitpid(pipex.pid2, NULL, 0);
-	free_parent(&pipex);
+	core_pipex(pipex, av, envp);
 	return (0);
 }
