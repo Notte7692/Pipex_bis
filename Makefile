@@ -12,7 +12,7 @@
 
 NAME = pipex
 NAME_BONUS = pipex_bonus
-CC = cc
+CC = gcc
 FLAGS = -wall -wextra -werror -g3
 LIBFT_PATH = ./includes/libft/
 

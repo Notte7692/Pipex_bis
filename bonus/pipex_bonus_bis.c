@@ -17,7 +17,7 @@ char **parse_command(int ac, char **av)
 {
     char    **command;
 	if (av[1] && !ft_strncmp("here_doc", av[1], 9))
-		return (&av[3]);
+		return (&av[2]);
     else if (ac < 5)
         return (NULL);
 
@@ -90,7 +90,7 @@ void copy_fds(t_pipex *command, int* current_pipe, int *previous_pipe)
 		command->fds[3] = previous_pipe[1];
 }
 
-int execute_command(t_pipex *command, int* current_pipe, int *previous_pipe)
+int execute_command(t_pipex *command, int* current_pipe, int *previous_pipe, int i)
 {
     int pid;
 	char *full_path_command;
@@ -108,7 +108,15 @@ int execute_command(t_pipex *command, int* current_pipe, int *previous_pipe)
 			printf("-> %d)\n", command->out);
 			dup2(command->out, 1);
 			dup2(command->in, 0);
-			close_all_fds(command);
+			if (i == 0)
+			{
+				close(command->out);
+				close(command->in);
+				close(command->fds[2]);
+				close(command->fds[3]);
+			}
+			else
+				close_all_fds(command);
 			execve(full_path_command, args, command->env);
 		}
 		else
@@ -142,6 +150,35 @@ void wait_for_pids(int *pids, int size)
 	}
 }
 
+void	here_doc(char *av, t_pipex *cmd)
+{
+	int		file;
+	char	*buf;
+
+	file = open(".heredoc_tmp", O_CREAT | O_WRONLY | O_TRUNC, 0000644);
+	if (file < 0)
+		ft_printf("ERR_HEREDOC");
+	while (1)
+	{
+		write(1, "heredoc> ", 9);
+		if (get_next_line(0, &buf) < 0)
+			exit(1);
+		if (!ft_strncmp(av, buf, ft_strlen(av) + 1))
+			break ;
+		write(file, buf, ft_strlen(buf));
+		write(file, "\n", 1);
+		free(buf);
+	}
+	free(buf);
+	close(file);
+	cmd->in = open(".heredoc_tmp", O_RDONLY);
+	if (cmd->in < 0)
+	{
+		unlink(".heredoc_tmp");
+		ft_printf("ERR_HEREDOC");
+	}
+}
+
 int main(int ac, char **av, char **envp)
 {
     char        **commands;
@@ -151,7 +188,7 @@ int main(int ac, char **av, char **envp)
 	int			previous_pipe[2];
 	int			*pids;
 
-	if (open(av[1], O_RDONLY) < 0)
+	if (open(av[1], O_RDONLY) < 0 || !ft_strncmp("here_doc", av[1], 9))
 		return (0);
     commands = parse_command(ac, av);
     if (commands == NULL)
@@ -166,7 +203,10 @@ int main(int ac, char **av, char **envp)
         cmd.cmd = commands[i];
         if (i == 0)
         {
-            cmd.in = open(av[1], O_RDONLY);
+			if (ft_strncmp("here_doc", av[1], 9) == 0)
+				here_doc(av[2], &cmd);
+			else
+            	cmd.in = open(av[1], O_RDONLY);
         }
         else
         {
@@ -186,7 +226,7 @@ int main(int ac, char **av, char **envp)
         cmd.env = envp;
 		cmd.paths = extract_path(envp);
 		copy_fds(&cmd, current_pipe, previous_pipe);
-       	pids[i] = execute_command(&cmd, current_pipe, previous_pipe);
+       	pids[i] = execute_command(&cmd, current_pipe, previous_pipe, i);
 		close(cmd.in);
 		close(cmd.out);
 		free_tab(cmd.paths);

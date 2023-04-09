@@ -22,7 +22,7 @@ int	ft_strlen_mod(char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_bis(const char *s, int c)
 {
 	char	*str;
 	int		x;
