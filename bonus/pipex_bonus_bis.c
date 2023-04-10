@@ -15,7 +15,6 @@ void	free_tab(char **tab)
 
 char **parse_command(int ac, char **av)
 {
-    char    **command;
 	if (av[1] && !ft_strncmp("here_doc", av[1], 9))
 		return (&av[2]);
     else if (ac < 5)
@@ -71,9 +70,6 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 
 void close_all_fds(t_pipex *command)
 {
-	int i;
-
-	i = 0;
 	close(command->out);
 	close(command->in);
 	close(command->fds[0]);
@@ -82,7 +78,7 @@ void close_all_fds(t_pipex *command)
 	close(command->fds[3]);
 }
 
-void copy_fds(t_pipex *command, int* current_pipe, int *previous_pipe)
+void copy_fds(t_pipex *command, int *current_pipe, int *previous_pipe)
 {
 		command->fds[0] = current_pipe[0];
 		command->fds[1] = current_pipe[1];
@@ -90,7 +86,7 @@ void copy_fds(t_pipex *command, int* current_pipe, int *previous_pipe)
 		command->fds[3] = previous_pipe[1];
 }
 
-int execute_command(t_pipex *command, int* current_pipe, int *previous_pipe, int i)
+int execute_command(t_pipex *command, int i)
 {
     int pid;
 	char *full_path_command;
@@ -227,12 +223,12 @@ int main(int ac, char **av, char **envp)
 		{
  	       	pipe(current_pipe);
             cmd.out = current_pipe[1];
-			swap_pipe(&previous_pipe, &current_pipe);
+			swap_pipe(previous_pipe, current_pipe);
         }
         cmd.env = envp;
 		cmd.paths = extract_path(envp);
 		copy_fds(&cmd, current_pipe, previous_pipe);
-       	pids[i] = execute_command(&cmd, current_pipe, previous_pipe, i);
+       	pids[i] = execute_command(&cmd, i);
 		close(cmd.in);
 		close(cmd.out);
 		free_tab(cmd.paths);
