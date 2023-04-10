@@ -29,11 +29,3 @@ typedef struct  s_fork
 
 
 #endif
-
-
-	// #./bonus/child_bonus.c \
-	// #./bonus/error_bonus.c \
-	// #./bonus/free_bonus.c \
-	// #./bonus/get_file_bonus.c \
-	// #./bonus/heredoc_bonus.c \
-	// #./bonus/main_bonus.c \#

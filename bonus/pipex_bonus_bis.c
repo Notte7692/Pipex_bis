@@ -186,7 +186,7 @@ int main(int ac, char **av, char **envp)
 	int			*pids;
 
 	fd = open(av[1], O_RDONLY);
-	if (!ft_strncmp("here_doc", av[1], 9) || fd < 0)
+	if (ft_strncmp("here_doc", av[1], 9) != 0 && fd < 0)
 	{
 		close(fd);
 		return (0);

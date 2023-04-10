@@ -39,6 +39,7 @@ void    first_child(t_struct pipex, char **av, char **envp);
 void	second_child(t_struct pipex, char **av, char **envp);
 
 //error.c
+int		ft_strlen_mod(char *str);
 int 	mess_err(char *err);
 void    error_b(char *err);
 

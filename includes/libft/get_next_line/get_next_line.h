@@ -13,21 +13,23 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# include <sys/types.h>
+# include <sys/uio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
 # include "../libft.h"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 100
 # endif
 
-int	    get_next_line(int fd, char **line);
-char	*ft_strchr_bis(const char *s, int c);
-char	*ft_strjoin_mod(char *left_str, char *buff);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
-int	    error(char *str);
-int	    find_nwl(char *str);
+int		get_next_line(int fd, char **line);
+size_t	ft_strlen_m(const char *s);
+int		find_nl(char *str);
+char	*str_join(char *s1, char *s2);
+char	*get_line(char *str);
+char	*trim_rem(char *str);
+int		some_error(char *str);
 
 #endif

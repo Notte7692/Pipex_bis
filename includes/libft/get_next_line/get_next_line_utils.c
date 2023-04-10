@@ -12,64 +12,18 @@
 
 #include "get_next_line.h"
 
-int	ft_strlen_mod(char *str)
+size_t	ft_strlen_m(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0')
-		i++;
+	if (s)
+		while (s[i])
+			i++;
 	return (i);
 }
 
-char	*ft_strchr_bis(const char *s, int c)
-{
-	char	*str;
-	int		x;
-
-	if (!s)
-		return (NULL);
-	str = (char *)s;
-	x = ft_strlen_mod(str) + 1;
-	while (x-- > 0)
-	{
-		if (*str == (char)c)
-			return (str);
-		str++;
-	}
-	return (NULL);
-}
-
-char	*ft_strjoin_mod(char *left_str, char *buff)
-{
-	size_t	i;
-	size_t	j;
-	char	*str;
-
-	if (!left_str)
-	{
-		left_str = (char *)malloc(1 * sizeof(char));
-		left_str[0] = '\0';
-	}
-	if (!left_str || !buff)
-		return (NULL);
-	str = malloc(sizeof(char) * (
-				(ft_strlen_mod(left_str) + ft_strlen_mod(buff)) + 1));
-	if (str == NULL)
-		return (NULL);
-	i = -1;
-	j = 0;
-	if (left_str)
-		while (left_str[++i] != '\0')
-			str[i] = left_str[i];
-	while (buff[j] != '\0')
-		str[i++] = buff[j++];
-	str[ft_strlen_mod(left_str) + ft_strlen_mod(buff)] = '\0';
-	free(left_str);
-	return (str);
-}
-
-int	find_nwl(char *str)
+int	find_nl(char *str)
 {
 	if (str)
 	{
@@ -81,4 +35,81 @@ int	find_nwl(char *str)
 		}
 	}
 	return (0);
+}
+
+char	*str_join(char *s1, char *s2)
+{
+	char	*str;
+	size_t	i;
+	size_t	j;
+
+	i = -1;
+	j = -1;
+	str = (char *)malloc(ft_strlen_m(s1) + ft_strlen_m(s2) + 1);
+	if (!str)
+		return (NULL);
+	if (s1)
+		while (s1[++i])
+			str[i] = s1[i];
+	else
+		i = 0;
+	if (s2)
+		while (s2[++j])
+			str[i + j] = s2[j];
+	else
+		j = 0;
+	str[i + j] = '\0';
+	if (s1)
+		free(s1);
+	return (str);
+}
+
+char	*trim_rem(char *str)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	if (!str)
+		return (NULL);
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	if (str[i] == '\0')
+	{
+		free(str);
+		return (NULL);
+	}
+	i++;
+	while (str[i + j])
+	{
+		str[j] = str[i + j];
+		j++;
+	}
+	str[j] = '\0';
+	return (str);
+}
+
+char	*get_line(char *str)
+{
+	size_t	i;
+	size_t	j;
+	char	*new_line;
+
+	i = 0;
+	j = 0;
+	if (!str)
+		return (NULL);
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	new_line = (char *)malloc(i + 1);
+	if (!new_line)
+		return (NULL);
+	while (str[j] != '\n' && str[j] != '\0')
+	{
+		new_line[j] = str[j];
+		j++;
+	}
+	new_line[j] = '\0';
+	return (new_line);
 }
