@@ -91,10 +91,10 @@ char	*ft_read_left_str(int fd, char *left_str)
 	return (left_str);
 }
 
-int	error()//char *str)
+int	error(char *str)
 {
-	//if (str)
-	//	free(str);
+	if (str)
+		free(str);
 	return (-1);
 }
 
