@@ -51,8 +51,8 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 {
 	char	*tmp;
 	char	*command;
-	
-	if (access(cmd, 0) == 0)
+
+	if (cmd != NULL && access(cmd, 0) == 0)
 		return (cmd);
 	
 	while (*cmd_path)
@@ -60,8 +60,8 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 		tmp = ft_strjoin(*cmd_path, "/");
 		command = ft_strjoin(tmp, cmd);
 		free(tmp);
-		if (access(command, 0) == 0)
-			return (command);
+		if (command != NULL && access(command, 0) == 0)
+				return (command);		
 		free(command);
 		cmd_path++;
 	}
@@ -162,7 +162,6 @@ void	here_doc(char *av, t_pipex *cmd)
 		if (!ft_strncmp(av, buf, ft_strlen(av) + 1))
 			break ;
 		write(file, buf, ft_strlen(buf));
-		write(file, "\n", 1);
 		free(buf);
 	}
 	free(buf);
