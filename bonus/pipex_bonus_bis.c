@@ -94,7 +94,7 @@ int execute_command(t_pipex *command, int i)
 	
 	args = get_command_args(command->cmd);
     pid = fork();
-    if (pid == 0)
+    if (pid == 0 && args[0] != NULL)
     {
 		full_path_command = get_cmd(command->paths, args[0]);
 		if (full_path_command != NULL)
@@ -183,7 +183,7 @@ int main(int ac, char **av, char **envp)
     int         current_pipe[2];
 	int			previous_pipe[2];
 	int			*pids;
-
+	
 	fd = open(av[1], O_RDONLY);
 	if (ft_strncmp("here_doc", av[1], 9) != 0 && fd < 0)
 	{
@@ -224,10 +224,13 @@ int main(int ac, char **av, char **envp)
             cmd.out = current_pipe[1];
 			swap_pipe(previous_pipe, current_pipe);
         }
-        cmd.env = envp;
-		cmd.paths = extract_path(envp);
-		copy_fds(&cmd, current_pipe, previous_pipe);
-       	pids[i] = execute_command(&cmd, i);
+		if (cmd.cmd != NULL)
+		{
+        	cmd.env = envp;
+			cmd.paths = extract_path(envp);
+			copy_fds(&cmd, current_pipe, previous_pipe);
+       		pids[i] = execute_command(&cmd, i);
+		}
 		close(cmd.in);
 		close(cmd.out);
 		free_tab(cmd.paths);
