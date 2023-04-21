@@ -59,9 +59,12 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 	{
 		tmp = ft_strjoin(*cmd_path, "/");
 		command = ft_strjoin(tmp, cmd);
-		free(tmp);
 		if (command != NULL && access(command, 0) == 0)
-				return (command);		
+		{
+			free(tmp);
+			return (command);
+		}
+		free(tmp);		
 		free(command);
 		cmd_path++;
 	}
@@ -174,6 +177,31 @@ void	here_doc(char *av, t_pipex *cmd)
 	}
 }
 
+int	check_args(char **av, char **envp, int ac)
+{
+	char	**paths;
+	int		i;
+	char	*cmd;
+
+	paths = extract_path(envp);
+	i = 2;
+	while (i < ac -1)
+	{
+		cmd = get_cmd(paths, av[i]);
+		if (cmd == NULL || av[i] == NULL || av[i][0] == '\0')
+		{
+			free(cmd);
+			free_tab(paths);
+			return (0);
+		}
+		free(cmd);
+		i++;
+	}
+	
+	free_tab(paths); 
+	return (1);
+}
+
 int main(int ac, char **av, char **envp)
 {
     char        **commands;
@@ -184,6 +212,11 @@ int main(int ac, char **av, char **envp)
 	int			previous_pipe[2];
 	int			*pids;
 	
+	if (check_args(av, envp, ac) == 0)
+	{
+		ft_printf("Error arg not found\n");
+		return (0);
+	}
 	fd = open(av[1], O_RDONLY);
 	if (ft_strncmp("here_doc", av[1], 9) != 0 && fd < 0)
 	{
