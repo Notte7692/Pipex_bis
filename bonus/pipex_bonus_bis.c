@@ -185,10 +185,12 @@ int	check_args(char **av, char **envp, int ac)
 
 	paths = extract_path(envp);
 	i = 2;
+	if (ft_strncmp(av[1], "here_doc", 9) == 0)
+		i = 3;
 	while (i < ac -1)
 	{
 		cmd = get_cmd(paths, av[i]);
-		if (cmd == NULL || av[i] == NULL || av[i][0] == '\0')
+		if (cmd == NULL)
 		{
 			free(cmd);
 			free_tab(paths);
@@ -212,11 +214,13 @@ int main(int ac, char **av, char **envp)
 	int			previous_pipe[2];
 	int			*pids;
 	
+	
 	if (check_args(av, envp, ac) == 0)
 	{
-		ft_printf("Error arg not found\n");
+		ft_printf("Error command not found\n");
 		return (0);
 	}
+	
 	fd = open(av[1], O_RDONLY);
 	if (ft_strncmp("here_doc", av[1], 9) != 0 && fd < 0)
 	{
