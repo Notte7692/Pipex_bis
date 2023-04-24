@@ -216,12 +216,12 @@ int main(int ac, char **av, char **envp)
 	int			previous_pipe[2];
 	int			*pids;
 	
-	if (envp == NULL || *envp == NULL)
+	if (!envp[0])
 	{
 		ft_printf("no envirennonnement\n");
 		return (0);
 	}
-	if ((!av[1]  || ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6))
+	if (!av[1]  || (ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6))
 		return (0);
 	if (ac < 5)
 		return (0);
