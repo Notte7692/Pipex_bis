@@ -1,2 +1,2 @@
-Exit status: 139
+Exit status: 0
 Expected: <128

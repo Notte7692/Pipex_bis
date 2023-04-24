@@ -216,22 +216,20 @@ int main(int ac, char **av, char **envp)
 	int			previous_pipe[2];
 	int			*pids;
 	
-	if (ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6)
+	if (envp == NULL || *envp == NULL)
 	{
-		write(1, "ok1\n", 4);
+		ft_printf("no envirennonnement\n");
 		return (0);
 	}
+	if ((!av[1]  || ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6))
+		return (0);
 	if (ac < 5)
-	{
-		write(1, "ok2\n", 4);
 		return (0);
-	}
 	if (check_args(av, envp, ac) == 0)
 	{
 		ft_printf("Error command not found\n");
 		return (0);
 	}
-
 	fd = open(av[1], O_RDONLY);
 	if (ft_strncmp("here_doc", av[1], 9) != 0 && fd < 0)
 	{

@@ -1,49 +1,49 @@
-==521761== Memcheck, a memory error detector
-==521761== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==521761== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==521761== Command: ../Pipex_true/pipex assets/deepthought.txt   outs/test-34.txt
-==521761== 
+==545729== Memcheck, a memory error detector
+==545729== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==545729== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==545729== Command: ../Pipex_true/pipex assets/deepthought.txt   outs/test-34.txt
+==545729== 
 successfully executed 0
-successfully executed 521764
+successfully executed 545734
 successfully executed 0
 successfully executed 0
-==521765== 
-==521765== HEAP SUMMARY:
-==521765==     in use at exit: 0 bytes in 0 blocks
-==521765==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
-==521765== 
-==521765== All heap blocks were freed -- no leaks are possible
-==521765== 
-==521765== For lists of detected and suppressed errors, rerun with: -s
-==521765== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==521766== 
-==521766== HEAP SUMMARY:
-==521766==     in use at exit: 0 bytes in 0 blocks
-==521766==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
-==521766== 
-==521766== All heap blocks were freed -- no leaks are possible
-==521766== 
-==521766== For lists of detected and suppressed errors, rerun with: -s
-==521766== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-successfully executed 521766
+==545735== 
+==545735== HEAP SUMMARY:
+==545735==     in use at exit: 0 bytes in 0 blocks
+==545735==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
+==545735== 
+==545735== All heap blocks were freed -- no leaks are possible
+==545735== 
+==545735== For lists of detected and suppressed errors, rerun with: -s
+==545735== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==545736== 
+==545736== HEAP SUMMARY:
+==545736==     in use at exit: 0 bytes in 0 blocks
+==545736==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
+==545736== 
+==545736== All heap blocks were freed -- no leaks are possible
+==545736== 
+==545736== For lists of detected and suppressed errors, rerun with: -s
+==545736== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+successfully executed 545736
 successfully executed 0
-==521764== 
-==521764== HEAP SUMMARY:
-==521764==     in use at exit: 0 bytes in 0 blocks
-==521764==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
-==521764== 
-==521764== All heap blocks were freed -- no leaks are possible
-==521764== 
-==521764== For lists of detected and suppressed errors, rerun with: -s
-==521764== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-successfully executed 521765
-successfully executed 521764
-==521761== 
-==521761== HEAP SUMMARY:
-==521761==     in use at exit: 0 bytes in 0 blocks
-==521761==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
-==521761== 
-==521761== All heap blocks were freed -- no leaks are possible
-==521761== 
-==521761== For lists of detected and suppressed errors, rerun with: -s
-==521761== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==545734== 
+==545734== HEAP SUMMARY:
+==545734==     in use at exit: 0 bytes in 0 blocks
+==545734==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
+==545734== 
+==545734== All heap blocks were freed -- no leaks are possible
+==545734== 
+==545734== For lists of detected and suppressed errors, rerun with: -s
+==545734== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+successfully executed 545735
+successfully executed 545734
+==545729== 
+==545729== HEAP SUMMARY:
+==545729==     in use at exit: 0 bytes in 0 blocks
+==545729==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
+==545729== 
+==545729== All heap blocks were freed -- no leaks are possible
+==545729== 
+==545729== For lists of detected and suppressed errors, rerun with: -s
+==545729== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,13 +1,11 @@
 make: Entering directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true'
 Makefile:37: warning: overriding recipe for target 'pipex'
 Makefile:33: warning: ignoring old recipe for target 'pipex'
-gcc -Wall -Wextra -Werror -g3   -c -o src/child.o src/child.c
-gcc -Wall -Wextra -Werror -g3   -c -o src/error.o src/error.c
-gcc -Wall -Wextra -Werror -g3   -c -o src/free.o src/free.c
-gcc -Wall -Wextra -Werror -g3   -c -o src/main.o src/main.c
-make -C ./includes/libft/
-make[1]: Entering directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true/includes/libft'
-make[1]: 'libft.a' is up to date.
-make[1]: Leaving directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true/includes/libft'
-gcc -Wall -Wextra -Werror -g3 ./bonus/pipex_bonus_bis.o ./includes/libft/libft.a -o pipex
+gcc -Wall -Wextra -Werror -g   -c -o bonus/pipex_bonus_bis.o bonus/pipex_bonus_bis.c
+bonus/pipex_bonus_bis.c: In function ‘main’:
+bonus/pipex_bonus_bis.c:224:56: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
+  224 |  if ((!av[1]  || ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6))
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [<builtin>: bonus/pipex_bonus_bis.o] Error 1
 make: Leaving directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true'
