@@ -54,7 +54,7 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 
 	if (cmd != NULL && access(cmd, 0) == 0)
 		return (cmd);
-	
+
 	while (*cmd_path)
 	{
 		tmp = ft_strjoin(*cmd_path, "/");
@@ -64,7 +64,7 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 			free(tmp);
 			return (command);
 		}
-		free(tmp);		
+		free(tmp);
 		free(command);
 		cmd_path++;
 	}
@@ -94,7 +94,7 @@ int execute_command(t_pipex *command, int i)
     int pid;
 	char *full_path_command;
 	char **args;
-	
+
 	args = get_command_args(command->cmd);
     pid = fork();
     if (pid == 0 && args[0] != NULL)
@@ -154,20 +154,20 @@ void	here_doc(char *av, t_pipex *cmd)
 	int		file;
 	char	*buf;
 
-	file = open(".heredoc_tmp", O_CREAT | O_WRONLY | O_TRUNC, 0000644);
+	file = open(".heredoc_tmp", O_CREAT | O_RDWR, 0000644);
 	if (file < 0)
 		ft_printf("ERR_HEREDOC");
 	while (1)
 	{
 		write(1, "heredoc> ", 9);
-		if (get_next_line(0, &buf) < 0)
-			exit(1);
-		if (!ft_strncmp(av, buf, ft_strlen(av) + 1))
+		buf = get_next_line(0, 0);
+		if (!buf || ft_strncmp(buf, av, ft_strlen(av)) == 0)
 			break ;
 		write(file, buf, ft_strlen(buf));
 		free(buf);
 	}
 	free(buf);
+	get_next_line(0, 1);
 	close(file);
 	cmd->in = open(".heredoc_tmp", O_RDONLY);
 	if (cmd->in < 0)
@@ -199,8 +199,8 @@ int	check_args(char **av, char **envp, int ac)
 		free(cmd);
 		i++;
 	}
-	
-	free_tab(paths); 
+
+	free_tab(paths);
 	return (1);
 }
 
@@ -213,14 +213,14 @@ int main(int ac, char **av, char **envp)
     int         current_pipe[2];
 	int			previous_pipe[2];
 	int			*pids;
-	
-	
+
+
 	if (check_args(av, envp, ac) == 0)
 	{
 		ft_printf("Error command not found\n");
 		return (0);
 	}
-	
+
 	fd = open(av[1], O_RDONLY);
 	if (ft_strncmp("here_doc", av[1], 9) != 0 && fd < 0)
 	{

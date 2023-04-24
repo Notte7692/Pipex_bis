@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nsalhi <<marvin@42.fr>>                    +#+  +:+       +#+         #
+#    By: wnaseeve <wnaseeve@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 15:42:51 by nsalhi            #+#    #+#              #
-#    Updated: 2023/01/03 11:04:17 by nsalhi           ###   ########.fr        #
+#    Updated: 2023/04/23 21:36:09 by wnaseeve         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,8 @@ SRC = 	ft_isalpha.c \
 	ft_printf/ft_printf.c \
 	ft_printf/ft_strlen.c \
 	ft_printf/ft_word.c \
-	get_next_line/get_next_line_utils.c \
-	get_next_line/get_next_line.c \
+	get_next_line_utils.c \
+	get_next_line.c \
 
 BONUSSRC =	ft_lstnew.c \
 		ft_lstadd_front.c \

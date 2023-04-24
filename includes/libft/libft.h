@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsalhi <<marvin@42.fr>>                    +#+  +:+       +#+        */
+/*   By: wnaseeve <wnaseeve@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:46:12 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/02/20 17:18:40 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/04/23 21:29:28 by wnaseeve         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <limits.h>
 # include <stdint.h>
 # include "ft_printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
 # include <fcntl.h>
 
 typedef struct s_list
@@ -27,6 +26,18 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_gnl
+{
+	char		*buf;
+	char		*line;
+	int			r_read;
+}	t_gnl;
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+
+# endif
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -82,5 +93,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_strlen_mod(char *str);
+
+int		ft_findnl(char *stash);
+size_t	ft_strlen_gnl(const char *s);
+char	*ft_strjoin_gnl(const char *s1, const char *s2);
+char	*ft_strdup_gnl(char *s);
+char	*get_next_line(int fd, int boolean);
 
 #endif
