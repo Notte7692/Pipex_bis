@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:57:20 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/04/24 14:57:11 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/04/24 16:28:11 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int ac, char **av, char **envp)
 {
 	t_struct	pipex;
 
-	if (envp == NULL || *envp == NULL)
+	if (!envp[0])
 		return (0);
 	if (ac != 5)
 		return (mess_err("Wrong numbers of args"));

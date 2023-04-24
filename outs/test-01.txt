@@ -2,10 +2,56 @@ make: Entering directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true'
 Makefile:37: warning: overriding recipe for target 'pipex'
 Makefile:33: warning: ignoring old recipe for target 'pipex'
 gcc -Wall -Wextra -Werror -g   -c -o bonus/pipex_bonus_bis.o bonus/pipex_bonus_bis.c
-bonus/pipex_bonus_bis.c: In function ‘main’:
-bonus/pipex_bonus_bis.c:224:56: error: suggest parentheses around ‘&&’ within ‘||’ [-Werror=parentheses]
-  224 |  if ((!av[1]  || ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6))
-      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
-cc1: all warnings being treated as errors
-make: *** [<builtin>: bonus/pipex_bonus_bis.o] Error 1
+gcc -Wall -Wextra -Werror -g   -c -o src/child.o src/child.c
+gcc -Wall -Wextra -Werror -g   -c -o src/error.o src/error.c
+gcc -Wall -Wextra -Werror -g   -c -o src/free.o src/free.c
+gcc -Wall -Wextra -Werror -g   -c -o src/main.o src/main.c
+make -C ./includes/libft/
+make[1]: Entering directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true/includes/libft'
+gcc -Werror -Wextra -Wall   -c -o ft_isalpha.o ft_isalpha.c
+gcc -Werror -Wextra -Wall   -c -o ft_memcpy.o ft_memcpy.c
+gcc -Werror -Wextra -Wall   -c -o ft_memmove.o ft_memmove.c
+gcc -Werror -Wextra -Wall   -c -o ft_strlcpy.o ft_strlcpy.c
+gcc -Werror -Wextra -Wall   -c -o ft_strrchr.o ft_strrchr.c
+gcc -Werror -Wextra -Wall   -c -o ft_atoi.o ft_atoi.c
+gcc -Werror -Wextra -Wall   -c -o ft_isascii.o ft_isascii.c
+gcc -Werror -Wextra -Wall   -c -o ft_memchr.o ft_memchr.c
+gcc -Werror -Wextra -Wall   -c -o ft_memset.o ft_memset.c
+gcc -Werror -Wextra -Wall   -c -o ft_strlen.o ft_strlen.c
+gcc -Werror -Wextra -Wall   -c -o ft_tolower.o ft_tolower.c
+gcc -Werror -Wextra -Wall   -c -o ft_bzero.o ft_bzero.c
+gcc -Werror -Wextra -Wall   -c -o ft_isdigit.o ft_isdigit.c
+gcc -Werror -Wextra -Wall   -c -o ft_memcmp.o ft_memcmp.c
+gcc -Werror -Wextra -Wall   -c -o ft_strchr.o ft_strchr.c
+gcc -Werror -Wextra -Wall   -c -o ft_strncmp.o ft_strncmp.c
+gcc -Werror -Wextra -Wall   -c -o ft_toupper.o ft_toupper.c
+gcc -Werror -Wextra -Wall   -c -o ft_isalnum.o ft_isalnum.c
+gcc -Werror -Wextra -Wall   -c -o ft_isprint.o ft_isprint.c
+gcc -Werror -Wextra -Wall   -c -o ft_strlcat.o ft_strlcat.c
+gcc -Werror -Wextra -Wall   -c -o ft_strnstr.o ft_strnstr.c
+gcc -Werror -Wextra -Wall   -c -o ft_calloc.o ft_calloc.c
+gcc -Werror -Wextra -Wall   -c -o ft_strdup.o ft_strdup.c
+gcc -Werror -Wextra -Wall   -c -o ft_substr.o ft_substr.c
+gcc -Werror -Wextra -Wall   -c -o ft_strjoin.o ft_strjoin.c
+gcc -Werror -Wextra -Wall   -c -o ft_strtrim.o ft_strtrim.c
+gcc -Werror -Wextra -Wall   -c -o ft_split.o ft_split.c
+gcc -Werror -Wextra -Wall   -c -o ft_itoa.o ft_itoa.c
+gcc -Werror -Wextra -Wall   -c -o ft_strmapi.o ft_strmapi.c
+gcc -Werror -Wextra -Wall   -c -o ft_striteri.o ft_striteri.c
+gcc -Werror -Wextra -Wall   -c -o ft_putchar_fd.o ft_putchar_fd.c
+gcc -Werror -Wextra -Wall   -c -o ft_putstr_fd.o ft_putstr_fd.c
+gcc -Werror -Wextra -Wall   -c -o ft_putendl_fd.o ft_putendl_fd.c
+gcc -Werror -Wextra -Wall   -c -o ft_putnbr_fd.o ft_putnbr_fd.c
+gcc -Werror -Wextra -Wall   -c -o ft_printf/ft_base.o ft_printf/ft_base.c
+gcc -Werror -Wextra -Wall   -c -o ft_printf/ft_hexa_octa.o ft_printf/ft_hexa_octa.c
+gcc -Werror -Wextra -Wall   -c -o ft_printf/ft_number.o ft_printf/ft_number.c
+gcc -Werror -Wextra -Wall   -c -o ft_printf/ft_pointer.o ft_printf/ft_pointer.c
+gcc -Werror -Wextra -Wall   -c -o ft_printf/ft_printf.o ft_printf/ft_printf.c
+gcc -Werror -Wextra -Wall   -c -o ft_printf/ft_strlen.o ft_printf/ft_strlen.c
+gcc -Werror -Wextra -Wall   -c -o ft_printf/ft_word.o ft_printf/ft_word.c
+gcc -Werror -Wextra -Wall   -c -o get_next_line_utils.o get_next_line_utils.c
+gcc -Werror -Wextra -Wall   -c -o get_next_line.o get_next_line.c
+ar rcs libft.a ft_isalpha.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_strrchr.o ft_atoi.o ft_isascii.o ft_memchr.o ft_memset.o ft_strlen.o ft_tolower.o ft_bzero.o ft_isdigit.o ft_memcmp.o ft_strchr.o ft_strncmp.o ft_toupper.o ft_isalnum.o ft_isprint.o ft_memcpy.o ft_strlcat.o ft_strnstr.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_printf/ft_base.o ft_printf/ft_hexa_octa.o ft_printf/ft_number.o ft_printf/ft_pointer.o ft_printf/ft_printf.o ft_printf/ft_strlen.o ft_printf/ft_word.o get_next_line_utils.o get_next_line.o
+make[1]: Leaving directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true/includes/libft'
+gcc -Wall -Wextra -Werror -g ./bonus/pipex_bonus_bis.o ./includes/libft/libft.a -o pipex
 make: Leaving directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true'

@@ -1,1 +1,1 @@
-./tester.sh: line 604: ./assets/env_var: Permission denied
+tester.sh: line 604: ./assets/env_var: Permission denied

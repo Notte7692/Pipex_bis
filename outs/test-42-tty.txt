@@ -1,17 +1,17 @@
-==545835== Memcheck, a memory error detector
-==545835== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==545835== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==545835== Command: ../Pipex_true/pipex /dev/stdin cat cat ls outs/test-42.txt
-==545835== 
-successfully executed 545842
-successfully executed 545841
-successfully executed 545840
-==545835== 
-==545835== HEAP SUMMARY:
-==545835==     in use at exit: 0 bytes in 0 blocks
-==545835==   total heap usage: 82 allocs, 82 frees, 9,650 bytes allocated
-==545835== 
-==545835== All heap blocks were freed -- no leaks are possible
-==545835== 
-==545835== For lists of detected and suppressed errors, rerun with: -s
-==545835== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==550093== Memcheck, a memory error detector
+==550093== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==550093== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==550093== Command: ../Pipex_true/pipex /dev/stdin cat cat ls outs/test-42.txt
+==550093== 
+successfully executed 550098
+successfully executed 550097
+successfully executed 550096
+==550093== 
+==550093== HEAP SUMMARY:
+==550093==     in use at exit: 0 bytes in 0 blocks
+==550093==   total heap usage: 82 allocs, 82 frees, 9,650 bytes allocated
+==550093== 
+==550093== All heap blocks were freed -- no leaks are possible
+==550093== 
+==550093== For lists of detected and suppressed errors, rerun with: -s
+==550093== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

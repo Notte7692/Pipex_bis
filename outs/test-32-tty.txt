@@ -1,18 +1,18 @@
-==545703== Memcheck, a memory error detector
-==545703== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==545703== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==545703== Command: ../Pipex_true/pipex assets/deepthought.txt yes head outs/test-32.txt
-==545703== 
+==549956== Memcheck, a memory error detector
+==549956== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==549956== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==549956== Command: ../Pipex_true/pipex assets/deepthought.txt yes head outs/test-32.txt
+==549956== 
 head: error reading 'standard input': Bad file descriptor
 head: -: Bad file descriptor
-successfully executed 545707
-successfully executed 545706
-==545703== 
-==545703== HEAP SUMMARY:
-==545703==     in use at exit: 0 bytes in 0 blocks
-==545703==   total heap usage: 59 allocs, 59 frees, 9,248 bytes allocated
-==545703== 
-==545703== All heap blocks were freed -- no leaks are possible
-==545703== 
-==545703== For lists of detected and suppressed errors, rerun with: -s
-==545703== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+successfully executed 549963
+successfully executed 549962
+==549956== 
+==549956== HEAP SUMMARY:
+==549956==     in use at exit: 0 bytes in 0 blocks
+==549956==   total heap usage: 59 allocs, 59 frees, 9,248 bytes allocated
+==549956== 
+==549956== All heap blocks were freed -- no leaks are possible
+==549956== 
+==549956== For lists of detected and suppressed errors, rerun with: -s
+==549956== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

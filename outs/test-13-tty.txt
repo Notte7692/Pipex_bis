@@ -1,67 +1,67 @@
-==545485== Memcheck, a memory error detector
-==545485== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==545485== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==545485== Command: ../Pipex_true/pipex /dev/null env_var cat outs/test-13.txt
-==545485== 
+==549742== Memcheck, a memory error detector
+==549742== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==549742== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==549742== Command: ../Pipex_true/pipex /dev/null env_var cat outs/test-13.txt
+==549742== 
 cat: -: Bad file descriptor
 cat: closing standard input: Bad file descriptor
 cat: -: Bad file descriptor
 cat: closing standard input: Bad file descriptor
-==545490== 
-==545490== Process terminating with default action of signal 13 (SIGPIPE)
-==545490==    at 0x4988A37: write (write.c:26)
-==545490==    by 0x48FEF6C: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
-==545490==    by 0x4900A60: new_do_write (fileops.c:448)
-==545490==    by 0x4900A60: _IO_new_do_write (fileops.c:425)
-==545490==    by 0x4900A60: _IO_do_write@@GLIBC_2.2.5 (fileops.c:422)
-==545490==    by 0x4902A41: _IO_flush_all_lockp (genops.c:706)
-==545490==    by 0x4902BFD: _IO_cleanup (genops.c:866)
-==545490==    by 0x48B9541: __run_exit_handlers (exit.c:134)
-==545490==    by 0x48B960F: exit (exit.c:143)
-==545490==    by 0x489DD96: (below main) (libc_start_call_main.h:74)
-==545490== 
-==545490== HEAP SUMMARY:
-==545490==     in use at exit: 8,250 bytes in 2 blocks
-==545490==   total heap usage: 58 allocs, 56 frees, 9,566 bytes allocated
-==545490== 
-==545490== 58 bytes in 1 blocks are definitely lost in loss record 1 of 2
-==545490==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==545490==    by 0x109F46: ft_strjoin_aux (in /mnt/nfs/homes/nsalhi/Documents/Pipex_true/pipex)
-==545490==    by 0x10A040: ft_strjoin (in /mnt/nfs/homes/nsalhi/Documents/Pipex_true/pipex)
-==545490==    by 0x109568: get_cmd (pipex_bonus_bis.c:61)
-==545490==    by 0x1096E4: execute_command (pipex_bonus_bis.c:102)
-==545490==    by 0x109DA6: main (pipex_bonus_bis.c:276)
-==545490== 
-==545490== 8,192 bytes in 1 blocks are still reachable in loss record 2 of 2
-==545490==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==545490==    by 0x48F2C74: _IO_file_doallocate (filedoalloc.c:101)
-==545490==    by 0x4901D5F: _IO_doallocbuf (genops.c:347)
-==545490==    by 0x4900FDF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
-==545490==    by 0x48FF754: _IO_new_file_xsputn (fileops.c:1243)
-==545490==    by 0x48FF754: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==545490==    by 0x48E91CC: outstring_func (vfprintf-internal.c:239)
-==545490==    by 0x48E91CC: __vfprintf_internal (vfprintf-internal.c:1263)
-==545490==    by 0x48D481E: printf (printf.c:33)
-==545490==    by 0x10970C: execute_command (pipex_bonus_bis.c:105)
-==545490==    by 0x109DA6: main (pipex_bonus_bis.c:276)
-==545490== 
-==545490== LEAK SUMMARY:
-==545490==    definitely lost: 58 bytes in 1 blocks
-==545490==    indirectly lost: 0 bytes in 0 blocks
-==545490==      possibly lost: 0 bytes in 0 blocks
-==545490==    still reachable: 8,192 bytes in 1 blocks
-==545490==         suppressed: 0 bytes in 0 blocks
-==545490== 
-==545490== For lists of detected and suppressed errors, rerun with: -s
-==545490== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-successfully executed 545491
-successfully executed 545490
-==545485== 
-==545485== HEAP SUMMARY:
-==545485==     in use at exit: 0 bytes in 0 blocks
-==545485==   total heap usage: 56 allocs, 56 frees, 9,457 bytes allocated
-==545485== 
-==545485== All heap blocks were freed -- no leaks are possible
-==545485== 
-==545485== For lists of detected and suppressed errors, rerun with: -s
-==545485== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==549745== 
+==549745== Process terminating with default action of signal 13 (SIGPIPE)
+==549745==    at 0x4988A37: write (write.c:26)
+==549745==    by 0x48FEF6C: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
+==549745==    by 0x4900A60: new_do_write (fileops.c:448)
+==549745==    by 0x4900A60: _IO_new_do_write (fileops.c:425)
+==549745==    by 0x4900A60: _IO_do_write@@GLIBC_2.2.5 (fileops.c:422)
+==549745==    by 0x4902A41: _IO_flush_all_lockp (genops.c:706)
+==549745==    by 0x4902BFD: _IO_cleanup (genops.c:866)
+==549745==    by 0x48B9541: __run_exit_handlers (exit.c:134)
+==549745==    by 0x48B960F: exit (exit.c:143)
+==549745==    by 0x489DD96: (below main) (libc_start_call_main.h:74)
+==549745== 
+==549745== HEAP SUMMARY:
+==549745==     in use at exit: 8,250 bytes in 2 blocks
+==549745==   total heap usage: 58 allocs, 56 frees, 9,566 bytes allocated
+==549745== 
+==549745== 58 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==549745==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==549745==    by 0x109F88: ft_strjoin_aux (in /mnt/nfs/homes/nsalhi/Documents/Pipex_true/pipex)
+==549745==    by 0x10A082: ft_strjoin (in /mnt/nfs/homes/nsalhi/Documents/Pipex_true/pipex)
+==549745==    by 0x109568: get_cmd (pipex_bonus_bis.c:61)
+==549745==    by 0x1096E4: execute_command (pipex_bonus_bis.c:102)
+==549745==    by 0x109DE8: main (pipex_bonus_bis.c:278)
+==549745== 
+==549745== 8,192 bytes in 1 blocks are still reachable in loss record 2 of 2
+==549745==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==549745==    by 0x48F2C74: _IO_file_doallocate (filedoalloc.c:101)
+==549745==    by 0x4901D5F: _IO_doallocbuf (genops.c:347)
+==549745==    by 0x4900FDF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==549745==    by 0x48FF754: _IO_new_file_xsputn (fileops.c:1243)
+==549745==    by 0x48FF754: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==549745==    by 0x48E91CC: outstring_func (vfprintf-internal.c:239)
+==549745==    by 0x48E91CC: __vfprintf_internal (vfprintf-internal.c:1263)
+==549745==    by 0x48D481E: printf (printf.c:33)
+==549745==    by 0x10970C: execute_command (pipex_bonus_bis.c:105)
+==549745==    by 0x109DE8: main (pipex_bonus_bis.c:278)
+==549745== 
+==549745== LEAK SUMMARY:
+==549745==    definitely lost: 58 bytes in 1 blocks
+==549745==    indirectly lost: 0 bytes in 0 blocks
+==549745==      possibly lost: 0 bytes in 0 blocks
+==549745==    still reachable: 8,192 bytes in 1 blocks
+==549745==         suppressed: 0 bytes in 0 blocks
+==549745== 
+==549745== For lists of detected and suppressed errors, rerun with: -s
+==549745== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+successfully executed 549746
+successfully executed 549745
+==549742== 
+==549742== HEAP SUMMARY:
+==549742==     in use at exit: 0 bytes in 0 blocks
+==549742==   total heap usage: 56 allocs, 56 frees, 9,457 bytes allocated
+==549742== 
+==549742== All heap blocks were freed -- no leaks are possible
+==549742== 
+==549742== For lists of detected and suppressed errors, rerun with: -s
+==549742== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
