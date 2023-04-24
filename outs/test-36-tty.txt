@@ -1,101 +1,15 @@
-==550019== Memcheck, a memory error detector
-==550019== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==550019== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==550019== Command: ../Pipex_true/pipex assets/deepthought.txt    outs/test-36.txt
-==550019== 
-successfully executed 0
-successfully executed 550024
-successfully executed 550023
-successfully executed 0
-successfully executed 0
-successfully executed 550023
-successfully executed 0
-successfully executed 0
-successfully executed 0
-==550025== 
-==550025== HEAP SUMMARY:
-==550025==     in use at exit: 0 bytes in 0 blocks
-==550025==   total heap usage: 61 allocs, 61 frees, 9,353 bytes allocated
-==550025== 
-==550025== All heap blocks were freed -- no leaks are possible
-==550025== 
-==550025== For lists of detected and suppressed errors, rerun with: -s
-==550025== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==550029== 
-==550029== HEAP SUMMARY:
-==550029==     in use at exit: 0 bytes in 0 blocks
-==550029==   total heap usage: 61 allocs, 61 frees, 9,353 bytes allocated
-==550029== 
-==550029== All heap blocks were freed -- no leaks are possible
-==550029== 
-==550029== For lists of detected and suppressed errors, rerun with: -s
-==550029== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==550028== 
-==550028== HEAP SUMMARY:
-==550028==     in use at exit: 0 bytes in 0 blocks
-==550028==   total heap usage: 61 allocs, 61 frees, 9,353 bytes allocated
-==550028== 
-==550028== All heap blocks were freed -- no leaks are possible
-==550028== 
-==550028== For lists of detected and suppressed errors, rerun with: -s
-==550028== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-successfully executed 0
-successfully executed 550026
-successfully executed 0
-successfully executed 550029
-successfully executed 0
-successfully executed 0
-successfully executed 550028
-successfully executed 0
-successfully executed 550023
-==550027== 
-==550027== HEAP SUMMARY:
-==550027==     in use at exit: 0 bytes in 0 blocks
-==550027==   total heap usage: 61 allocs, 61 frees, 9,353 bytes allocated
-==550027== 
-==550027== All heap blocks were freed -- no leaks are possible
-==550027== 
-==550027== For lists of detected and suppressed errors, rerun with: -s
-==550027== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==550026== 
-==550026== HEAP SUMMARY:
-==550026==     in use at exit: 0 bytes in 0 blocks
-==550026==   total heap usage: 61 allocs, 61 frees, 9,353 bytes allocated
-==550026== 
-==550026== All heap blocks were freed -- no leaks are possible
-==550026== 
-==550026== For lists of detected and suppressed errors, rerun with: -s
-==550026== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==550024== 
-==550024== HEAP SUMMARY:
-==550024==     in use at exit: 0 bytes in 0 blocks
-==550024==   total heap usage: 61 allocs, 61 frees, 9,353 bytes allocated
-==550024== 
-==550024== All heap blocks were freed -- no leaks are possible
-==550024== 
-==550024== For lists of detected and suppressed errors, rerun with: -s
-==550024== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-successfully executed 550027
-successfully executed 550026
-successfully executed 0
-==550023== 
-==550023== HEAP SUMMARY:
-==550023==     in use at exit: 0 bytes in 0 blocks
-==550023==   total heap usage: 61 allocs, 61 frees, 9,353 bytes allocated
-==550023== 
-==550023== All heap blocks were freed -- no leaks are possible
-==550023== 
-==550023== For lists of detected and suppressed errors, rerun with: -s
-==550023== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-successfully executed 550025
-successfully executed 550024
-successfully executed 550023
-==550019== 
-==550019== HEAP SUMMARY:
-==550019==     in use at exit: 0 bytes in 0 blocks
-==550019==   total heap usage: 61 allocs, 61 frees, 9,353 bytes allocated
-==550019== 
-==550019== All heap blocks were freed -- no leaks are possible
-==550019== 
-==550019== For lists of detected and suppressed errors, rerun with: -s
-==550019== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10397== Memcheck, a memory error detector
+==10397== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10397== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==10397== Command: ../Pipex_true/pipex assets/deepthought.txt    outs/test-36.txt
+==10397== 
+Wrong numbers of args
+==10397== 
+==10397== HEAP SUMMARY:
+==10397==     in use at exit: 0 bytes in 0 blocks
+==10397==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==10397== 
+==10397== All heap blocks were freed -- no leaks are possible
+==10397== 
+==10397== For lists of detected and suppressed errors, rerun with: -s
+==10397== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

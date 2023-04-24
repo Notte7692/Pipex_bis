@@ -23,21 +23,21 @@ SRC = ./src/child.c \
 	./src/free.c \
 	./src/main.c \
 
-BONUS_SRC = ./bonus/pipex_bonus_bis.c \
+#BONUS_SRC = ./bonus/pipex_bonus_bis.c \
 
 OBJ = $(SRC:.c=.o)
 
-BONUSOBJ = $(BONUS_SRC:.c=.o)
+#BONUSOBJ = $(BONUS_SRC:.c=.o)
 
 $(NAME) : $(OBJ)
 	make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
-$(NAME_BONUS) : $(BONUSOBJ)
-	make -C $(LIBFT_PATH)
-	$(CC) $(CFLAGS) $(BONUSOBJ) $(LIBFT) -o $(NAME_BONUS)
+#$(NAME_BONUS) : $(BONUSOBJ)
+#	make -C $(LIBFT_PATH)
+#	$(CC) $(CFLAGS) $(BONUSOBJ) $(LIBFT) -o $(NAME_BONUS)
 
-bonus : $(NAME_BONUS)
+#bonus : $(NAME_BONUS)
 
 all : $(NAME)
 

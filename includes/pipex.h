@@ -37,6 +37,7 @@ typedef struct s_struct
 //child.c
 void    first_child(t_struct pipex, char **av, char **envp);
 void	second_child(t_struct pipex, char **av, char **envp);
+char	*get_cmd(char **cmd_path, char *cmd);
 
 //error.c
 int		ft_strlen_mod(char *str);
@@ -46,6 +47,7 @@ void    error_b(char *err);
 //free.c
 void	free_child(t_struct *pipex);
 void	free_parent(t_struct *pipex);
+void	free_tab(char **tab);
 
 //main.c
 char	*find_path(char **envp);

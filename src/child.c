@@ -12,21 +12,23 @@
 
 #include "../includes/pipex.h"
 
-static char	*get_cmd(char **cmd_path, char *cmd)
+char	*get_cmd(char **cmd_path, char *cmd)
 {
 	char	*tmp;
 	char	*command;
 
 	if (cmd != NULL && access(cmd, 0) == 0)
 		return (cmd);
-	
 	while (*cmd_path)
 	{
 		tmp = ft_strjoin(*cmd_path, "/");
 		command = ft_strjoin(tmp, cmd);
-		free(tmp);
 		if (command != NULL && access(command, 0) == 0)
-				return (command);		
+		{
+			free(tmp);
+			return (command);
+		}
+		free(tmp);
 		free(command);
 		cmd_path++;
 	}

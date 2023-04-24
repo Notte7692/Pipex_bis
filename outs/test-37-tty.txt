@@ -1,18 +1,14 @@
-==550038== Memcheck, a memory error detector
-==550038== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==550038== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==550038== Command: ../Pipex_true/pipex assets/deepthought.txt cat /cat outs/test-37.txt
-==550038== 
-/cat: -: Bad file descriptor
-/cat: closing standard input: Bad file descriptor
-successfully executed 550046
-successfully executed 550045
-==550038== 
-==550038== HEAP SUMMARY:
-==550038==     in use at exit: 0 bytes in 0 blocks
-==550038==   total heap usage: 59 allocs, 59 frees, 9,248 bytes allocated
-==550038== 
-==550038== All heap blocks were freed -- no leaks are possible
-==550038== 
-==550038== For lists of detected and suppressed errors, rerun with: -s
-==550038== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10408== Memcheck, a memory error detector
+==10408== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10408== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==10408== Command: ../Pipex_true/pipex assets/deepthought.txt cat /cat outs/test-37.txt
+==10408== 
+==10408== 
+==10408== HEAP SUMMARY:
+==10408==     in use at exit: 0 bytes in 0 blocks
+==10408==   total heap usage: 11 allocs, 11 frees, 197 bytes allocated
+==10408== 
+==10408== All heap blocks were freed -- no leaks are possible
+==10408== 
+==10408== For lists of detected and suppressed errors, rerun with: -s
+==10408== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -40,3 +40,16 @@ void	free_parent(t_struct *pipex)
 	}
 	free(pipex->cmd_path);
 }
+
+void	free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}

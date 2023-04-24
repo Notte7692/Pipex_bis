@@ -1,12 +1,10 @@
 assets
 bonus
-fileuh
 includes
 infile.txt
 Makefile
 out
 outfile.keke
-outfileuhleuh
 outs
 pipex
 src

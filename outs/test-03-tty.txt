@@ -1,15 +1,52 @@
-==549634== Memcheck, a memory error detector
-==549634== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==549634== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==549634== Command: ../Pipex_true/pipex assets/deepthought.txt grep\ Now exit_status outs/test-03.txt
-==549634== 
-Error command not found
-==549634== 
-==549634== HEAP SUMMARY:
-==549634==     in use at exit: 0 bytes in 0 blocks
-==549634==   total heap usage: 34 allocs, 34 frees, 731 bytes allocated
-==549634== 
-==549634== All heap blocks were freed -- no leaks are possible
-==549634== 
-==549634== For lists of detected and suppressed errors, rerun with: -s
-==549634== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10028== Memcheck, a memory error detector
+==10028== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10028== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==10028== Command: ../Pipex_true/pipex assets/deepthought.txt grep\ Now exit_status outs/test-03.txt
+==10028== 
+==10032== 
+==10032== HEAP SUMMARY:
+==10032==     in use at exit: 81 bytes in 3 blocks
+==10032==   total heap usage: 16 allocs, 13 frees, 369 bytes allocated
+==10032== 
+==10032== 12 bytes in 1 blocks are indirectly lost in loss record 1 of 3
+==10032==    at 0x4865058: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-arm64-linux.so)
+==10032==    by 0x109717: ft_split_aux (in /home/nassim/Documents/Pipex_true/pipex)
+==10032==    by 0x10986B: ft_split (in /home/nassim/Documents/Pipex_true/pipex)
+==10032==    by 0x108D8F: second_child (child.c:64)
+==10032==    by 0x109143: pipex_aux (main.c:41)
+==10032==    by 0x109283: main (main.c:63)
+==10032== 
+==10032== 28 (16 direct, 12 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 3
+==10032==    at 0x4865058: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-arm64-linux.so)
+==10032==    by 0x109843: ft_split (in /home/nassim/Documents/Pipex_true/pipex)
+==10032==    by 0x108D8F: second_child (child.c:64)
+==10032==    by 0x109143: pipex_aux (main.c:41)
+==10032==    by 0x109283: main (main.c:63)
+==10032== 
+==10032== 53 bytes in 1 blocks are definitely lost in loss record 3 of 3
+==10032==    at 0x4865058: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-arm64-linux.so)
+==10032==    by 0x1093BB: ft_strjoin_aux (in /home/nassim/Documents/Pipex_true/pipex)
+==10032==    by 0x1094E3: ft_strjoin (in /home/nassim/Documents/Pipex_true/pipex)
+==10032==    by 0x108BF3: get_cmd (child.c:26)
+==10032==    by 0x108DAB: second_child (child.c:65)
+==10032==    by 0x109143: pipex_aux (main.c:41)
+==10032==    by 0x109283: main (main.c:63)
+==10032== 
+==10032== LEAK SUMMARY:
+==10032==    definitely lost: 69 bytes in 2 blocks
+==10032==    indirectly lost: 12 bytes in 1 blocks
+==10032==      possibly lost: 0 bytes in 0 blocks
+==10032==    still reachable: 0 bytes in 0 blocks
+==10032==         suppressed: 0 bytes in 0 blocks
+==10032== 
+==10032== For lists of detected and suppressed errors, rerun with: -s
+==10032== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==10028== 
+==10028== HEAP SUMMARY:
+==10028==     in use at exit: 0 bytes in 0 blocks
+==10028==   total heap usage: 12 allocs, 12 frees, 246 bytes allocated
+==10028== 
+==10028== All heap blocks were freed -- no leaks are possible
+==10028== 
+==10028== For lists of detected and suppressed errors, rerun with: -s
+==10028== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

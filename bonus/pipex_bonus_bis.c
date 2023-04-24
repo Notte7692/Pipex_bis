@@ -218,7 +218,7 @@ int main(int ac, char **av, char **envp)
 	
 	if (!envp[0])
 	{
-		ft_printf("no envirennonnement\n");
+		ft_printf("no environement\n");
 		return (0);
 	}
 	if (!av[1]  || (ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6))
