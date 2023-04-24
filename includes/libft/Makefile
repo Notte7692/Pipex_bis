@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wnaseeve <wnaseeve@student.42.fr>          +#+  +:+       +#+         #
+#    By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 15:42:51 by nsalhi            #+#    #+#              #
-#    Updated: 2023/04/23 21:36:09 by wnaseeve         ###   ########.fr        #
+#    Updated: 2023/04/24 13:42:01 by nsalhi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 	libft.a
-CC = 	cc
+CC = 	gcc
 AR =	ar rcs
 SRC = 	ft_isalpha.c \
 	ft_memcpy.c \

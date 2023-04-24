@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+         #
+#    By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:37:00 by nassimsalhi       #+#    #+#              #
-#    Updated: 2023/04/10 17:04:50 by nassimsalhi      ###   ########.fr        #
+#    Updated: 2023/04/24 14:49:10 by nsalhi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
-NAME_BONUS = pipex_bonus
+NAME_BONUS = pipex
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 LIBFT_PATH = ./includes/libft/
@@ -24,10 +24,8 @@ SRC = ./src/child.c \
 	./src/main.c \
 
 BONUS_SRC = ./bonus/pipex_bonus_bis.c \
-	
 
 OBJ = $(SRC:.c=.o)
-
 
 BONUSOBJ = $(BONUS_SRC:.c=.o)
 

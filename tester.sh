@@ -6,13 +6,13 @@
 #    By: nserve <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 15:52:37 by nserve            #+#    #+#              #
-#    Updated: 2023/03/20 10:51:35 by nsalhi           ###   ########.fr        #
+#    Updated: 2023/04/24 14:13:30 by nsalhi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/bin/bash
 
-PROJECT_DIRECTORY="../pipex_true"
+PROJECT_DIRECTORY="../Pipex_true"
 
 NC="\033[0m"
 BOLD="\033[1m"
@@ -150,7 +150,7 @@ description="The program compiles"
 printf "${BLUE}# $num: %-69s  []${NC}" "$description"
 if should_execute "${num##0}" "${test_suites[@]}"
 then
-	make -C $PROJECT_DIRECTORY > outs/test-$num.txt 2>&1
+	make bonus -C $PROJECT_DIRECTORY > outs/test-$num.txt 2>&1
 	status_code=$?
 	echo -e "Exit status: $status_code`[ $status_code -eq $LEAK_RETURN ] && printf " (Leak special exit code)"`\nExpected: 0" > outs/test-$num-exit.txt
 	if [ $status_code -eq 0 ]

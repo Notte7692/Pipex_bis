@@ -1,6 +1,6 @@
-==3141060== Memcheck, a memory error detector
-==3141060== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3141060== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3141060== Command: env -i ../pipex_true/pipex assets/deepthought.txt grep\ Now wc\ -w outs/test-12.txt
-==3141060== 
-tester.sh: line 125: 3141060 Segmentation fault      (core dumped) $MEMLEAKS "$@"
+==521497== Memcheck, a memory error detector
+==521497== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==521497== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==521497== Command: env -i ../Pipex_true/pipex assets/deepthought.txt grep\ Now wc\ -w outs/test-12.txt
+==521497== 
+./tester.sh: line 125: 521497 Segmentation fault      (core dumped) $MEMLEAKS "$@"

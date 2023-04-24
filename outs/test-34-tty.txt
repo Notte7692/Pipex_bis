@@ -1,78 +1,49 @@
-==3141435== Memcheck, a memory error detector
-==3141435== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3141435== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3141435== Command: ../pipex_true/pipex assets/deepthought.txt   outs/test-34.txt
-==3141435== 
-==3141438== Syscall param access(pathname) points to unaddressable byte(s)
-==3141438==    at 0x4988AFB: access (access.c:27)
-==3141438==    by 0x10926C: get_cmd (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141438==    by 0x109308: first_child (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141438==    by 0x109707: main (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141438==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==3141438== 
-Error command not found==3141439== Syscall param access(pathname) points to unaddressable byte(s)
-==3141439==    at 0x4988AFB: access (access.c:27)
-==3141439==    by 0x10926C: get_cmd (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141439==    by 0x1093BC: second_child (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141439==    by 0x109746: main (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141439==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==3141439== 
-Error command not found==3141438== 
-==3141438== HEAP SUMMARY:
-==3141438==     in use at exit: 247 bytes in 12 blocks
-==3141438==   total heap usage: 24 allocs, 12 frees, 417 bytes allocated
-==3141438== 
-==3141438== 96 bytes in 1 blocks are still reachable in loss record 1 of 2
-==3141438==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3141438==    by 0x109A4B: ft_split (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141438==    by 0x1096A8: main (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141438== 
-==3141438== 151 bytes in 11 blocks are still reachable in loss record 2 of 2
-==3141438==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3141438==    by 0x109C16: ft_split_aux (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141438==    by 0x109A78: ft_split (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141438==    by 0x1096A8: main (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141438== 
-==3141438== LEAK SUMMARY:
-==3141438==    definitely lost: 0 bytes in 0 blocks
-==3141438==    indirectly lost: 0 bytes in 0 blocks
-==3141438==      possibly lost: 0 bytes in 0 blocks
-==3141438==    still reachable: 247 bytes in 12 blocks
-==3141438==         suppressed: 0 bytes in 0 blocks
-==3141438== 
-==3141438== For lists of detected and suppressed errors, rerun with: -s
-==3141438== ERROR SUMMARY: 13 errors from 3 contexts (suppressed: 0 from 0)
-==3141439== 
-==3141439== HEAP SUMMARY:
-==3141439==     in use at exit: 247 bytes in 12 blocks
-==3141439==   total heap usage: 24 allocs, 12 frees, 417 bytes allocated
-==3141439== 
-==3141439== 96 bytes in 1 blocks are still reachable in loss record 1 of 2
-==3141439==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3141439==    by 0x109A4B: ft_split (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141439==    by 0x1096A8: main (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141439== 
-==3141439== 151 bytes in 11 blocks are still reachable in loss record 2 of 2
-==3141439==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3141439==    by 0x109C16: ft_split_aux (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141439==    by 0x109A78: ft_split (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141439==    by 0x1096A8: main (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141439== 
-==3141439== LEAK SUMMARY:
-==3141439==    definitely lost: 0 bytes in 0 blocks
-==3141439==    indirectly lost: 0 bytes in 0 blocks
-==3141439==      possibly lost: 0 bytes in 0 blocks
-==3141439==    still reachable: 247 bytes in 12 blocks
-==3141439==         suppressed: 0 bytes in 0 blocks
-==3141439== 
-==3141439== For lists of detected and suppressed errors, rerun with: -s
-==3141439== ERROR SUMMARY: 13 errors from 3 contexts (suppressed: 0 from 0)
-==3141435== 
-==3141435== HEAP SUMMARY:
-==3141435==     in use at exit: 0 bytes in 0 blocks
-==3141435==   total heap usage: 12 allocs, 12 frees, 247 bytes allocated
-==3141435== 
-==3141435== All heap blocks were freed -- no leaks are possible
-==3141435== 
-==3141435== For lists of detected and suppressed errors, rerun with: -s
-==3141435== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==521761== Memcheck, a memory error detector
+==521761== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==521761== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==521761== Command: ../Pipex_true/pipex assets/deepthought.txt   outs/test-34.txt
+==521761== 
+successfully executed 0
+successfully executed 521764
+successfully executed 0
+successfully executed 0
+==521765== 
+==521765== HEAP SUMMARY:
+==521765==     in use at exit: 0 bytes in 0 blocks
+==521765==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
+==521765== 
+==521765== All heap blocks were freed -- no leaks are possible
+==521765== 
+==521765== For lists of detected and suppressed errors, rerun with: -s
+==521765== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==521766== 
+==521766== HEAP SUMMARY:
+==521766==     in use at exit: 0 bytes in 0 blocks
+==521766==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
+==521766== 
+==521766== All heap blocks were freed -- no leaks are possible
+==521766== 
+==521766== For lists of detected and suppressed errors, rerun with: -s
+==521766== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+successfully executed 521766
+successfully executed 0
+==521764== 
+==521764== HEAP SUMMARY:
+==521764==     in use at exit: 0 bytes in 0 blocks
+==521764==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
+==521764== 
+==521764== All heap blocks were freed -- no leaks are possible
+==521764== 
+==521764== For lists of detected and suppressed errors, rerun with: -s
+==521764== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+successfully executed 521765
+successfully executed 521764
+==521761== 
+==521761== HEAP SUMMARY:
+==521761==     in use at exit: 0 bytes in 0 blocks
+==521761==   total heap usage: 45 allocs, 45 frees, 9,040 bytes allocated
+==521761== 
+==521761== All heap blocks were freed -- no leaks are possible
+==521761== 
+==521761== For lists of detected and suppressed errors, rerun with: -s
+==521761== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

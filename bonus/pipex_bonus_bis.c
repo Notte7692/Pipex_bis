@@ -15,11 +15,12 @@ void	free_tab(char **tab)
 
 char **parse_command(int ac, char **av)
 {
-	if (av[1] && !ft_strncmp("here_doc", av[1], 9))
+	if (av[1] && ft_strncmp("here_doc", av[1], 9) != 0)
 		return (&av[2]);
     else if (ac < 5)
         return (NULL);
-
+	else if (av[1] && ft_strncmp("here_doc", av[1], 9) == 0)
+		return(&av[3]);
     return &av[2];
 }
 
@@ -54,7 +55,6 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 
 	if (cmd != NULL && access(cmd, 0) == 0)
 		return (cmd);
-
 	while (*cmd_path)
 	{
 		tmp = ft_strjoin(*cmd_path, "/");
@@ -162,7 +162,9 @@ void	here_doc(char *av, t_pipex *cmd)
 		write(1, "heredoc> ", 9);
 		buf = get_next_line(0, 0);
 		if (!buf || ft_strncmp(buf, av, ft_strlen(av)) == 0)
+		{
 			break ;
+		}
 		write(file, buf, ft_strlen(buf));
 		free(buf);
 	}
@@ -213,8 +215,17 @@ int main(int ac, char **av, char **envp)
     int         current_pipe[2];
 	int			previous_pipe[2];
 	int			*pids;
-
-
+	
+	if (ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6)
+	{
+		write(1, "ok1\n", 4);
+		return (0);
+	}
+	if (ac < 5)
+	{
+		write(1, "ok2\n", 4);
+		return (0);
+	}
 	if (check_args(av, envp, ac) == 0)
 	{
 		ft_printf("Error command not found\n");

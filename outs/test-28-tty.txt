@@ -1,39 +1,15 @@
-==3141325== Memcheck, a memory error detector
-==3141325== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3141325== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3141325== Command: ../pipex_true/pipex assets/deepthought.txt grep\ Now /usr/bin/cat outs/test-28.txt
-==3141325== 
-Error command not found==3141348== 
-==3141348== HEAP SUMMARY:
-==3141348==     in use at exit: 247 bytes in 12 blocks
-==3141348==   total heap usage: 36 allocs, 24 frees, 732 bytes allocated
-==3141348== 
-==3141348== 96 bytes in 1 blocks are still reachable in loss record 1 of 2
-==3141348==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3141348==    by 0x109A4B: ft_split (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141348==    by 0x1096A8: main (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141348== 
-==3141348== 151 bytes in 11 blocks are still reachable in loss record 2 of 2
-==3141348==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3141348==    by 0x109C16: ft_split_aux (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141348==    by 0x109A78: ft_split (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141348==    by 0x1096A8: main (in /mnt/nfs/homes/nsalhi/Documents/pipex_true/pipex)
-==3141348== 
-==3141348== LEAK SUMMARY:
-==3141348==    definitely lost: 0 bytes in 0 blocks
-==3141348==    indirectly lost: 0 bytes in 0 blocks
-==3141348==      possibly lost: 0 bytes in 0 blocks
-==3141348==    still reachable: 247 bytes in 12 blocks
-==3141348==         suppressed: 0 bytes in 0 blocks
-==3141348== 
-==3141348== For lists of detected and suppressed errors, rerun with: -s
-==3141348== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==3141325== 
-==3141325== HEAP SUMMARY:
-==3141325==     in use at exit: 0 bytes in 0 blocks
-==3141325==   total heap usage: 12 allocs, 12 frees, 247 bytes allocated
-==3141325== 
-==3141325== All heap blocks were freed -- no leaks are possible
-==3141325== 
-==3141325== For lists of detected and suppressed errors, rerun with: -s
-==3141325== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==521684== Memcheck, a memory error detector
+==521684== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==521684== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==521684== Command: ../Pipex_true/pipex assets/deepthought.txt grep\ Now /usr/bin/cat outs/test-28.txt
+==521684== 
+Error command not found
+==521684== 
+==521684== HEAP SUMMARY:
+==521684==     in use at exit: 0 bytes in 0 blocks
+==521684==   total heap usage: 31 allocs, 31 frees, 563 bytes allocated
+==521684== 
+==521684== All heap blocks were freed -- no leaks are possible
+==521684== 
+==521684== For lists of detected and suppressed errors, rerun with: -s
+==521684== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
