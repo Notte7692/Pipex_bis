@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:57:20 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/04/24 16:28:11 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/04/25 09:59:58 by nassimsalhi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,14 @@ static void	pipex_aux(char **av, char **envp, t_struct pipex)
 	free_parent(&pipex);
 }
 
-static char **extract_path(char **envp)
+char	**extract_path(char **envp)
 {
-    char *paths = find_path(envp);
-    char **paths_splitted = ft_split(paths, ':');
-    return paths_splitted;
-}
+	char	*paths;
+	char	**paths_splitted;
 
-int	check_args(char **av, char **envp, int ac)
-{
-	char	**paths;
-	int		i;
-	char	*cmd;
-
-	paths = extract_path(envp);
-	i = 2;
-	while (i < ac -1)
-	{
-		cmd = get_cmd(paths, av[i]);
-		if (cmd == NULL)
-		{
-			free(cmd);
-			free_tab(paths);
-			return (0);
-		}
-		free(cmd);
-		i++;
-	}
-
-	free_tab(paths);
-	return (1);
+	paths = find_path(envp);
+	paths_splitted = ft_split(paths, ':');
+	return (paths_splitted);
 }
 
 //Main function of the progrann

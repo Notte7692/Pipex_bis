@@ -43,6 +43,7 @@ char	*get_cmd(char **cmd_path, char *cmd);
 int		ft_strlen_mod(char *str);
 int 	mess_err(char *err);
 void    error_b(char *err);
+int    check_args(char **av, char **envp, int ac);
 
 //free.c
 void	free_child(t_struct *pipex);
@@ -52,5 +53,5 @@ void	free_tab(char **tab);
 //main.c
 char	*find_path(char **envp);
 void	close_pipe(t_struct *pipex);
-
+char    **extract_path(char **envp);
 #endif
