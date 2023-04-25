@@ -12,11 +12,18 @@
 typedef struct  s_pipex
 {
     int     in;
+    int     ac;
+    int     dc_file;
+    int     previous_pipes;
+    int     heredoc;
     int     out;
     char    *cmd;
     char    **env;
     char    **paths;
-    int     fds[4];
+    int     *pids;
+    char    *infile;
+    char    *outfile;
+    int     fds[2];
  
 } t_pipex;
 

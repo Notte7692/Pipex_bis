@@ -1,4 +1,14 @@
 #include "../includes/pipex_bonus_bis.h"
+#include <errno.h>
+
+void	close_fd(int *fd)
+{
+	if (*fd < 0)
+		return ;
+	close(*fd);
+	*fd = -1;
+}
+
 
 void	free_tab(char **tab)
 {
@@ -13,27 +23,13 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-char **parse_command(int ac, char **av)
+char **parse_command(char **av, int doc)
 {
-	if (av[1] && ft_strncmp("here_doc", av[1], 9) != 0)
-		return (&av[2]);
-    else if (ac < 5)
-        return (NULL);
-	else if (av[1] && ft_strncmp("here_doc", av[1], 9) == 0)
+	if (doc)
 		return(&av[3]);
     return &av[2];
 }
 
-void swap_pipe(int *pipe1, int *pipe2)
-{
-	int fd0 = pipe1[0];
-	int fd1 = pipe1[1];
-
-	pipe1[0] = pipe2[0];
-	pipe1[1] = pipe2[1];
-	pipe2[0] = fd0;
-	pipe2[1] = fd1;
-}
 
 char	*find_path(char **envp)
 {
@@ -68,26 +64,10 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 		free(command);
 		cmd_path++;
 	}
-	return (NULL);
+	return (ft_strjoin("", cmd));
 }
 
-void close_all_fds(t_pipex *command)
-{
-	close(command->out);
-	close(command->in);
-	close(command->fds[0]);
-	close(command->fds[1]);
-	close(command->fds[2]);
-	close(command->fds[3]);
-}
 
-void copy_fds(t_pipex *command, int *current_pipe, int *previous_pipe)
-{
-		command->fds[0] = current_pipe[0];
-		command->fds[1] = current_pipe[1];
-		command->fds[2] = previous_pipe[0];
-		command->fds[3] = previous_pipe[1];
-}
 
 int execute_command(t_pipex *command, int i)
 {
@@ -97,33 +77,39 @@ int execute_command(t_pipex *command, int i)
 
 	args = get_command_args(command->cmd);
     pid = fork();
-    if (pid == 0 && args[0] != NULL)
+    if (pid == 0)
     {
-		full_path_command = get_cmd(command->paths, args[0]);
-		if (full_path_command != NULL)
+		if (i == 0)
 		{
-			printf("(%d -> ", command->in);
-			printf("[%s] ", command->cmd);
-			printf("-> %d)\n", command->out);
-			dup2(command->out, 1);
-			dup2(command->in, 0);
-			if (i == 0)
-			{
-				close(command->out);
-				close(command->in);
-				close(command->fds[2]);
-				close(command->fds[3]);
-			}
-			else
-				close_all_fds(command);
-			execve(full_path_command, args, command->env);
+			if (command->heredoc == 0)
+				command->in = open(command->infile, O_RDONLY);
+			close_fd(&command->fds[0]);
+			dup2(command->in, STDIN_FILENO);
+			close_fd(&command->in);
+			dup2(command->fds[1], STDOUT_FILENO);
+			close_fd(&command->fds[1]);
+		}
+		else if (i == command-> ac - 1)
+		{
+			command->out = open(command->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+			dup2(command->previous_pipes, STDIN_FILENO);
+			close_fd(&command->previous_pipes);
+			dup2(command->out, STDOUT_FILENO);
+			close_fd(&command->out);
 		}
 		else
 		{
-			free_tab(args);
-			free(full_path_command);
-			exit(EXIT_FAILURE);
+			close_fd(&command->fds[0]);
+			dup2(command->previous_pipes, STDIN_FILENO);
+			close_fd(&command->previous_pipes);
+			dup2(command->fds[1], STDOUT_FILENO);
+			close_fd(&command->fds[1]);
 		}
+		full_path_command = get_cmd(command->paths, args[0]);
+		execve(full_path_command, args, command->env);
+		free_tab(args);
+		free(full_path_command);
+		exit(EXIT_FAILURE);
     }
 	free_tab(args);
 	return (pid);
@@ -140,43 +126,29 @@ void wait_for_pids(int *pids, int size)
 {
 	int i;
 
-	i = size - 1;
-	while (i >= 0)
-	{
+	i = -1;
+	while (++i < size)
 		waitpid(pids[i], NULL, 0);
-		printf("successfully executed %d\n", pids[i]);
-		i--;
-	}
 }
 
 void	here_doc(char *av, t_pipex *cmd)
 {
-	int		file;
 	char	*buf;
 
-	file = open(".heredoc_tmp", O_CREAT | O_RDWR, 0000644);
-	if (file < 0)
-		ft_printf("ERR_HEREDOC");
+	pipe(cmd->fds);
 	while (1)
 	{
 		write(1, "heredoc> ", 9);
 		buf = get_next_line(0, 0);
 		if (!buf || ft_strncmp(buf, av, ft_strlen(av)) == 0)
-		{
 			break ;
-		}
-		write(file, buf, ft_strlen(buf));
+		write(cmd->fds[1], buf, ft_strlen(buf));
 		free(buf);
 	}
 	free(buf);
 	get_next_line(0, 1);
-	close(file);
-	cmd->in = open(".heredoc_tmp", O_RDONLY);
-	if (cmd->in < 0)
-	{
-		unlink(".heredoc_tmp");
-		ft_printf("ERR_HEREDOC");
-	}
+	close(cmd->fds[1]);
+	cmd->in = cmd->fds[0];
 }
 
 int	check_args(char **av, char **envp, int ac)
@@ -184,106 +156,89 @@ int	check_args(char **av, char **envp, int ac)
 	char	**paths;
 	int		i;
 	char	*cmd;
+	char	**args;
 
 	paths = extract_path(envp);
 	i = 2;
 	if (ft_strncmp(av[1], "here_doc", 9) == 0)
 		i = 3;
+	
 	while (i < ac -1)
 	{
-		cmd = get_cmd(paths, av[i]);
-		if (cmd == NULL)
+		args = get_command_args(av[i]);
+		cmd = get_cmd(paths, args[0]);
+		if (cmd == 0)
 		{
 			free(cmd);
 			free_tab(paths);
+			free_tab(args);
 			return (0);
 		}
+		free_tab(args);
 		free(cmd);
 		i++;
 	}
-
 	free_tab(paths);
 	return (1);
 }
+
+void	init(t_pipex *cmd, char **av, int ac)
+{
+	ft_memset(cmd, 0, sizeof(t_pipex));
+	if (ft_strcmp("here_doc", av[1]) == 0)
+	{
+		if (ac < 6)
+			exit (0);
+		here_doc(av[2], cmd);
+		cmd->heredoc = 1;
+	}
+	cmd->previous_pipes = -1;
+	cmd->ac = ac - (3 + cmd->heredoc);
+	cmd->infile = av[1];
+	cmd->outfile = av[ac - 1];
+	cmd->pids = malloc(sizeof(int) * ac - (3 + cmd->heredoc == 1));
+	if (cmd->pids == NULL)
+		exit(1);
+}
+
 
 int main(int ac, char **av, char **envp)
 {
     char        **commands;
     t_pipex     cmd;
     int         i;
-	int			fd;
-    int         current_pipe[2];
-	int			previous_pipe[2];
-	int			*pids;
-	
-	if (!envp[0])
-	{
-		ft_printf("no environement\n");
-		return (0);
-	}
-	if (!av[1]  || (ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6))
-		return (0);
-	if (ac < 5)
-		return (0);
-	if (check_args(av, envp, ac) == 0)
-	{
-		ft_printf("Error command not found\n");
-		return (0);
-	}
-	fd = open(av[1], O_RDONLY);
-	if (ft_strncmp("here_doc", av[1], 9) != 0 && fd < 0)
-	{
-		close(fd);
-		return (0);
-	}
-	close(fd);
-    commands = parse_command(ac, av);
-    if (commands == NULL)
-	{
-        return (EXIT_FAILURE);
-    }
+	int			len;
 
-	pids = malloc(sizeof(int) * ac - 3);
-    i = 0;
-    while (i < ac - 3)
-    {
-        cmd.cmd = commands[i];
-        if (i == 0)
-        {
-			if (ft_strncmp("here_doc", av[1], 9) == 0)
-				here_doc(av[2], &cmd);
-			else
-            	cmd.in = open(av[1], O_RDONLY);
-        }
-        else
-        {
-            cmd.in = previous_pipe[0];
-        }
-
-        if (i == ac - 4)
-        {
-            cmd.out = open(av[ac - 1], O_TRUNC | O_CREAT | O_RDWR, 0644);
-        }
-        else
+	i = 0;
+	if (ac >= 5)
+	{
+		init(&cmd, av, ac);
+		commands = parse_command(av, cmd.heredoc);
+		if (envp[0])
 		{
- 	       	pipe(current_pipe);
-            cmd.out = current_pipe[1];
-			swap_pipe(previous_pipe, current_pipe);
-        }
-		if (cmd.cmd != NULL)
-		{
-        	cmd.env = envp;
+			cmd.env = envp;
 			cmd.paths = extract_path(envp);
-			copy_fds(&cmd, current_pipe, previous_pipe);
-       		pids[i] = execute_command(&cmd, i);
 		}
-		close(cmd.in);
-		close(cmd.out);
+		len = ac - (3 + cmd.heredoc); 
+		while (i < len)
+		{
+			cmd.cmd = commands[i];
+			if (i != ac - 4)
+				pipe(cmd.fds);
+			cmd.pids[i] = execute_command(&cmd, i);
+			close_fd(&cmd.fds[1]);
+			if (cmd.previous_pipes != -1)
+				close_fd(&cmd.previous_pipes);
+			if (cmd.heredoc)
+			{
+				close_fd(&cmd.in);
+				cmd.heredoc = 0;
+			}
+			cmd.previous_pipes = cmd.fds[0];
+			i++;
+		}
 		free_tab(cmd.paths);
-		i++;
-    }
-	close_all_fds(&cmd);
-	wait_for_pids(pids, ac - 3);
-	free(pids);
-	return 0;
+		wait_for_pids(cmd.pids, ac - (3 + (cmd.heredoc == 1)));
+		free(cmd.pids);
+	}
 }

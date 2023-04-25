@@ -6,7 +6,7 @@
 #    By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 15:42:51 by nsalhi            #+#    #+#              #
-#    Updated: 2023/04/24 13:42:01 by nsalhi           ###   ########.fr        #
+#    Updated: 2023/04/25 17:44:49 by nsalhi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC = 	ft_isalpha.c \
 	ft_memcmp.c \
 	ft_strchr.c \
 	ft_strncmp.c \
+	ft_strcmp.c \
 	ft_toupper.c \
 	ft_isalnum.c \
 	ft_isprint.c \

@@ -6,12 +6,12 @@
 #    By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:37:00 by nassimsalhi       #+#    #+#              #
-#    Updated: 2023/04/24 15:10:35 by nsalhi           ###   ########.fr        #
+#    Updated: 2023/04/25 13:37:50 by nsalhi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
-NAME_BONUS = pipex
+NAME_BONUS = pipex_bonus
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_PATH = ./includes/libft/
@@ -23,21 +23,21 @@ SRC = ./src/child.c \
 	./src/free.c \
 	./src/main.c \
 
-#BONUS_SRC = ./bonus/pipex_bonus_bis.c \
+BONUS_SRC = ./bonus/pipex_bonus_bis.c \
 
 OBJ = $(SRC:.c=.o)
 
-#BONUSOBJ = $(BONUS_SRC:.c=.o)
+BONUSOBJ = $(BONUS_SRC:.c=.o)
 
 $(NAME) : $(OBJ)
 	make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
-#$(NAME_BONUS) : $(BONUSOBJ)
-#	make -C $(LIBFT_PATH)
-#	$(CC) $(CFLAGS) $(BONUSOBJ) $(LIBFT) -o $(NAME_BONUS)
+$(NAME_BONUS) : $(BONUSOBJ)
+	make -C $(LIBFT_PATH)
+	$(CC) $(CFLAGS) $(BONUSOBJ) $(LIBFT) -o $(NAME_BONUS)
 
-#bonus : $(NAME_BONUS)
+bonus : $(NAME_BONUS)
 
 all : $(NAME)
 
