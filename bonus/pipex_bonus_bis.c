@@ -67,7 +67,12 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 	return (ft_strjoin("", cmd));
 }
 
-
+char **extract_path(char **envp)
+{
+    char *paths = find_path(envp);
+    char **paths_splitted = ft_split(paths, ':');
+    return paths_splitted;
+}
 
 int execute_command(t_pipex *command, int i)
 {
@@ -75,10 +80,12 @@ int execute_command(t_pipex *command, int i)
 	char *full_path_command;
 	char **args;
 
+	
 	args = get_command_args(command->cmd);
     pid = fork();
     if (pid == 0)
     {
+		command->paths = extract_path(command->env);
 		if (i == 0)
 		{
 			if (command->heredoc == 0)
@@ -106,21 +113,30 @@ int execute_command(t_pipex *command, int i)
 			close_fd(&command->fds[1]);
 		}
 		full_path_command = get_cmd(command->paths, args[0]);
+		if (full_path_command == NULL)
+		{
+			write(2,"Command not found :\n", 20);
+			free_tab(command->paths);
+			free_tab(args);
+			free(command->pids);
+			exit (EXIT_FAILURE);
+		}
+		free_tab(command->paths);
 		execve(full_path_command, args, command->env);
-		free_tab(args);
-		free(full_path_command);
+		if (full_path_command[0] != '/')
+		{
+			free(full_path_command);
+		}
+			free_tab(args);
+			free(command->pids);
 		exit(EXIT_FAILURE);
     }
+	// close(command->previous_pipes);
 	free_tab(args);
 	return (pid);
 }
 
-char **extract_path(char **envp)
-{
-    char *paths = find_path(envp);
-    char **paths_splitted = ft_split(paths, ':');
-    return paths_splitted;
-}
+
 
 void wait_for_pids(int *pids, int size)
 {
@@ -150,6 +166,8 @@ void	here_doc(char *av, t_pipex *cmd)
 	close(cmd->fds[1]);
 	cmd->in = cmd->fds[0];
 }
+
+
 
 int	check_args(char **av, char **envp, int ac)
 {
@@ -196,7 +214,7 @@ void	init(t_pipex *cmd, char **av, int ac)
 	cmd->ac = ac - (3 + cmd->heredoc);
 	cmd->infile = av[1];
 	cmd->outfile = av[ac - 1];
-	cmd->pids = malloc(sizeof(int) * ac - (3 + cmd->heredoc == 1));
+	cmd->pids = ft_calloc(ac - (3 + cmd->heredoc == 1), sizeof(int));
 	if (cmd->pids == NULL)
 		exit(1);
 }
@@ -217,7 +235,7 @@ int main(int ac, char **av, char **envp)
 		if (envp[0])
 		{
 			cmd.env = envp;
-			cmd.paths = extract_path(envp);
+			//cmd.paths = extract_path(envp);
 		}
 		len = ac - (3 + cmd.heredoc); 
 		while (i < len)
@@ -232,13 +250,14 @@ int main(int ac, char **av, char **envp)
 			if (cmd.heredoc)
 			{
 				close_fd(&cmd.in);
+				close_fd(&cmd.out);
 				cmd.heredoc = 0;
 			}
 			cmd.previous_pipes = cmd.fds[0];
 			i++;
 		}
-		free_tab(cmd.paths);
 		wait_for_pids(cmd.pids, ac - (3 + (cmd.heredoc == 1)));
 		free(cmd.pids);
 	}
+	return (0);
 }
