@@ -5,43 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/25 14:03:00 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/04/25 14:32:38 by nsalhi           ###   ########.fr       */
+/*   Created: 2023/04/27 18:02:58 by nsalhi            #+#    #+#             */
+/*   Updated: 2023/04/27 19:17:20 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pipex_bonus_bis.h"
+#include "../includes/pipex_bonus.h"
 
-void	free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
-char **extract_path(char **envp)
-{
-    char *paths;
-    char **paths_splitted;
-
-	paths = find_path(envp);
-	paths_splitted = ft_split(paths, ':');
-    return paths_splitted;
-}
-
-char **get_command_args(char *command)
-{
-	char **args = ft_split(command, ' ');
-	return args;
-}
-
-static char	*get_cmd(char **cmd_path, char *cmd)
+char	*get_cmd(char **cmd_path, char *cmd)
 {
 	char	*tmp;
 	char	*command;
@@ -61,52 +32,83 @@ static char	*get_cmd(char **cmd_path, char *cmd)
 		free(command);
 		cmd_path++;
 	}
-	return (NULL);
+	return (ft_strjoin("", cmd));
 }
 
-int	check_args(av, envp, ac)
+char	**extract_path(char **envp)
 {
-	char	**paths;
-	char	**args;
-	char	*cmd;
-	int		i;
-	
-	paths = extract_path(envp);
-	while (i < ac -1)
+	char	*paths;
+	char	**paths_splitted;
+
+	paths = find_path(envp);
+	paths_splitted = ft_split(paths, ':');
+	return (paths_splitted);
+}
+
+void	wait_for_pids(int *pids, int size)
+{
+	int	i;
+
+	i = -1;
+	while (++i < size)
+		waitpid(pids[i], NULL, 0);
+}
+
+void	init(t_pipex *cmd, char **av, int ac)
+{
+	ft_memset(cmd, 0, sizeof(t_pipex));
+	if (ft_strcmp("here_doc", av[1]) == 0)
 	{
-		args = get_command_args(av[i]);
-		cmd = get_cmd(paths, args[0]);
-		if (cmd == 0)
-		{
-			free(cmd);
-			free_tab(paths);
-			free_tab(args);
-			return (0);
-		}
-		free_tab(args);
-		free(cmd);
-		i++;
+		if (ac < 6)
+			exit (0);
+		here_doc(av[2], cmd);
+		cmd->heredoc = 1;
 	}
-	free(cmd);
-	free_tab(paths);
-	free_tab(args);
-	return (1);
+	cmd->previous_pipes = -1;
+	cmd->ac = ac - (3 + cmd->heredoc);
+	cmd->infile = av[1];
+	cmd->outfile = av[ac - 1];
+	cmd->pids = ft_calloc(ac - (3 + cmd->heredoc == 1), sizeof(int));
+	if (cmd->pids == NULL)
+		exit(1);
 }
 
-int	check_nb_args(int ac, char **av)
-{
-	if (!av[1] || (ft_strncmp("here_doc", av[1], 9) == 0 && ac < 6))
-		return (0);
-	if (ac < 5)
-		return (0);
-	return (1);
-}
 
 int	main(int ac, char **av, char **envp)
 {
-	if (!envp[0])
-		return (0);
-	if (!check_nb_args(ac, av))
-		return (0);
-	
+	char	**commands;
+	t_pipex	cmd;
+	int		i;
+	int		len;
+
+	i = 0;
+	if (ac >= 5)
+	{
+		init(&cmd, av, ac);
+		commands = parse_command(av, cmd.heredoc);
+		if (envp[0])
+			cmd.env = envp;
+		len = ac - (3 + cmd.heredoc);
+		while (i < len)
+		{
+			cmd.cmd = commands[i];
+			if (i != ac - 4)
+				pipe(cmd.fds);
+			cmd.pids[i] = execute_command(&cmd, i);
+			close_fd(&cmd.fds[1]);
+			if (cmd.previous_pipes != -1)
+				close_fd(&cmd.previous_pipes);
+			if (cmd.heredoc)
+			{
+				close_fd(&cmd.in);
+				close_fd(&cmd.out);
+				cmd.heredoc = 0;
+			}
+			cmd.previous_pipes = cmd.fds[0];
+			i++;
+		}
+		wait_for_pids(cmd.pids, ac - (3 + (cmd.heredoc == 1)));
+		free(cmd.pids);
+	}
+	return (0);
 }

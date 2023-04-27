@@ -1,15 +1,34 @@
-==10066== Memcheck, a memory error detector
-==10066== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==10066== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==10066== Command: ../Pipex_true/pipex not-existing/deepthought.txt grep\ Now wc\ -w outs/test-08.txt
-==10066== 
-Infile: No such file or directory
-==10066== 
-==10066== HEAP SUMMARY:
-==10066==     in use at exit: 0 bytes in 0 blocks
-==10066==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==10066== 
-==10066== All heap blocks were freed -- no leaks are possible
-==10066== 
-==10066== For lists of detected and suppressed errors, rerun with: -s
-==10066== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1333550== Memcheck, a memory error detector
+==1333550== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1333550== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1333550== Command: ../Pipex_true/pipex not-existing/deepthought.txt grep\ Now wc\ -w outs/test-08.txt
+==1333550== 
+==1333553== Warning: invalid file descriptor -1 in syscall close()
+==1333553== Warning: invalid file descriptor -1 in syscall close()
+==1333553== 
+==1333553== HEAP SUMMARY:
+==1333553==     in use at exit: 0 bytes in 0 blocks
+==1333553==   total heap usage: 15 allocs, 15 frees, 266 bytes allocated
+==1333553== 
+==1333553== All heap blocks were freed -- no leaks are possible
+==1333553== 
+==1333553== For lists of detected and suppressed errors, rerun with: -s
+==1333553== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1333554== 
+==1333554== HEAP SUMMARY:
+==1333554==     in use at exit: 0 bytes in 0 blocks
+==1333554==   total heap usage: 18 allocs, 18 frees, 296 bytes allocated
+==1333554== 
+==1333554== All heap blocks were freed -- no leaks are possible
+==1333554== 
+==1333554== For lists of detected and suppressed errors, rerun with: -s
+==1333554== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1333550== 
+==1333550== HEAP SUMMARY:
+==1333550==     in use at exit: 0 bytes in 0 blocks
+==1333550==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
+==1333550== 
+==1333550== All heap blocks were freed -- no leaks are possible
+==1333550== 
+==1333550== For lists of detected and suppressed errors, rerun with: -s
+==1333550== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

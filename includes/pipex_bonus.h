@@ -1,67 +1,68 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   pipex_bonus.h                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 16:42:50 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/29 16:36:45 by nsalhi           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef PIPEX_BONUS_H
-# define PIPEX_BONUS_H
+#ifndef PIPEX_BONUS_BIS_H
+# define PIPEX_BONUS_BIS_H
 
 # include "./libft/libft.h"
 # include <unistd.h>
 # include <stdio.h>
-# include <stdlib.h>
 # include <string.h>
+# include <stdlib.h>
+# include <sys/types.h>
 # include <sys/wait.h>
-# include <fcntl.h>
+# include <errno.h>
 
-typedef struct s_struct
+typedef struct  s_pipex
 {
-	pid_t	pid[4096];
-    int		infile;
-    int		outfile;
-	char	**cmd_path;
-	char	*cmd;
-	char	**cmd_arg;
-	int		here_doc;
-	int		nb_cmd;
-	int		nb_pipe;
-	int		*pipe;
-	int 	pipe[2];
-	int		prev_pipes[2];
-	char	*env_path;
-	int		index;
-}	t_struct;
+    int     in;
+    int     ac;
+    int     dc_file;
+    int     previous_pipes;
+    int     heredoc;
+    int     out;
+    char    *cmd;
+    char    **env;
+    char    **paths;
+    int     *pids;
+    char    *infile;
+    char    *outfile;
+    int     fds[2];
+ 
+} t_pipex;
 
-//chidl_bonus.c
-void    child(t_struct pipex, char **av, char **envp);
+typedef struct  s_fork
+{
+    pid_t   pid;
+    int     in;
+    int     out;
+} t_fork;
 
-//error_bonus.c
-int		msg(char *error);
-void	msg_pipe(char *arg);
-void	msg_error(char *error);
+/* child.c*/
+int     execute_command(t_pipex *command, int i);
+void	child(t_pipex *command, int i, char **args);
 
-//free_bonus.c
-void    free_pipe(t_struct *pipex);
-void    free_parent(t_struct *pipex);
-void    free_child(t_struct *pipex);
+/*error_child_bonus.c*/
+void    error_full_path(t_pipex *command, char **args);
 
-//get_gile_bonus.c
-void	get_infile(char **av, t_struct *pipex);
-void	get_outfile(char *av, t_struct *pipex);
+/*pipex_bonus.c*/
 
-//heredoc_bonus.c
-void	here_doc(char *av, t_struct *pipex);
+char 	**extract_path(char **envp);
+char	*get_cmd(char **cmd_path, char *cmd);
+char 	**get_command_args(char *command);
 
-//main_bonus.c
-int		min_arg(char *av, t_struct *pipex);
+/* pipex_bonus_utils.c*/
+int		close_fd(int *fd);
+void	free_tab(char **tab);
+char    **parse_command(char **av, int doc);
 char	*find_path(char **envp);
-void	close_pipes(t_struct *pipex);
+char    **get_command_args(char *command);
+
+/*here_doc_bonus.c*/
+void	here_doc(char *av, t_pipex *cmd);
+
+/*free_bonus.c*/
+void	ft_free_child(t_pipex *command, char **args);
+
+/*check_args_bonus.c*/
+void	get_path(char *cmd, char **paths, char **args);
+int	check_args(char **av, char **envp, int ac);
 
 #endif

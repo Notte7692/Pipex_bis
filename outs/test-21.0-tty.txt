@@ -1,14 +1,23 @@
-==10213== Memcheck, a memory error detector
-==10213== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==10213== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==10213== Command: ../Pipex_true/pipex assets/deepthought.txt grep\ Now cat outs/test-21.txt
-==10213== 
-==10213== 
-==10213== HEAP SUMMARY:
-==10213==     in use at exit: 0 bytes in 0 blocks
-==10213==   total heap usage: 11 allocs, 11 frees, 197 bytes allocated
-==10213== 
-==10213== All heap blocks were freed -- no leaks are possible
-==10213== 
-==10213== For lists of detected and suppressed errors, rerun with: -s
-==10213== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1333731== Memcheck, a memory error detector
+==1333731== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1333731== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1333731== Command: ../Pipex_true/pipex assets/deepthought.txt grep\ Now cat outs/test-21.txt
+==1333731== 
+==1333737== 
+==1333737== HEAP SUMMARY:
+==1333737==     in use at exit: 0 bytes in 0 blocks
+==1333737==   total heap usage: 17 allocs, 17 frees, 286 bytes allocated
+==1333737== 
+==1333737== All heap blocks were freed -- no leaks are possible
+==1333737== 
+==1333737== For lists of detected and suppressed errors, rerun with: -s
+==1333737== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1333731== 
+==1333731== HEAP SUMMARY:
+==1333731==     in use at exit: 0 bytes in 0 blocks
+==1333731==   total heap usage: 6 allocs, 6 frees, 73 bytes allocated
+==1333731== 
+==1333731== All heap blocks were freed -- no leaks are possible
+==1333731== 
+==1333731== For lists of detected and suppressed errors, rerun with: -s
+==1333731== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

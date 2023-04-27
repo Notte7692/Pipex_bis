@@ -1,15 +1,32 @@
-==10446== Memcheck, a memory error detector
-==10446== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==10446== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==10446== Command: ../Pipex_true/pipex /dev/stdin cat cat ls outs/test-41.txt
-==10446== 
-Wrong numbers of args
-==10446== 
-==10446== HEAP SUMMARY:
-==10446==     in use at exit: 0 bytes in 0 blocks
-==10446==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==10446== 
-==10446== All heap blocks were freed -- no leaks are possible
-==10446== 
-==10446== For lists of detected and suppressed errors, rerun with: -s
-==10446== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1334021== Memcheck, a memory error detector
+==1334021== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1334021== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1334021== Command: ../Pipex_true/pipex /dev/stdin cat cat ls outs/test-41.txt
+==1334021== 
+==1334025== 
+==1334025== HEAP SUMMARY:
+==1334025==     in use at exit: 0 bytes in 0 blocks
+==1334025==   total heap usage: 16 allocs, 16 frees, 277 bytes allocated
+==1334025== 
+==1334025== All heap blocks were freed -- no leaks are possible
+==1334025== 
+==1334025== For lists of detected and suppressed errors, rerun with: -s
+==1334025== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1334026== 
+==1334026== HEAP SUMMARY:
+==1334026==     in use at exit: 0 bytes in 0 blocks
+==1334026==   total heap usage: 18 allocs, 18 frees, 296 bytes allocated
+==1334026== 
+==1334026== All heap blocks were freed -- no leaks are possible
+==1334026== 
+==1334026== For lists of detected and suppressed errors, rerun with: -s
+==1334026== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1334021== 
+==1334021== HEAP SUMMARY:
+==1334021==     in use at exit: 0 bytes in 0 blocks
+==1334021==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
+==1334021== 
+==1334021== All heap blocks were freed -- no leaks are possible
+==1334021== 
+==1334021== For lists of detected and suppressed errors, rerun with: -s
+==1334021== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

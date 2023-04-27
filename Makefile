@@ -6,12 +6,12 @@
 #    By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:37:00 by nassimsalhi       #+#    #+#              #
-#    Updated: 2023/04/25 13:37:50 by nsalhi           ###   ########.fr        #
+#    Updated: 2023/04/27 18:19:28 by nsalhi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
-NAME_BONUS = pipex_bonus
+NAME_BONUS = pipex
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_PATH = ./includes/libft/
@@ -23,7 +23,13 @@ SRC = ./src/child.c \
 	./src/free.c \
 	./src/main.c \
 
-BONUS_SRC = ./bonus/pipex_bonus_bis.c \
+BONUS_SRC = ./bonus/pipex_bonus.c \
+			./bonus/error_child_bonus.c \
+			./bonus/pipex_bonus_utils.c \
+			./bonus/child_bonus.c \
+			./bonus/here_doc_bonus.c \
+			./bonus/free_bonus.c \
+			./bonus/check_args_bonus.c \
 
 OBJ = $(SRC:.c=.o)
 
