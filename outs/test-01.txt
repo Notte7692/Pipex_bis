@@ -1,5 +1,5 @@
-make: Entering directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true'
+make: Entering directory '/home/nassim/Documents/Pipex_true'
 Makefile:43: warning: overriding recipe for target 'pipex'
 Makefile:39: warning: ignoring old recipe for target 'pipex'
 make: Nothing to be done for 'bonus'.
-make: Leaving directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true'
+make: Leaving directory '/home/nassim/Documents/Pipex_true'

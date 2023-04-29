@@ -73,6 +73,23 @@ void	init(t_pipex *cmd, char **av, int ac)
 		exit(1);
 }
 
+void	core(t_pipex *cmd, int ac, int i, char **commands)
+{
+	cmd->cmd = commands[i];
+	if (i != ac - 4)
+		pipe(cmd->fds);
+	cmd->pids[i] = execute_command(cmd, i);
+	close_fd(&cmd->fds[1]);
+	if (cmd->previous_pipes != -1)
+		close_fd(&cmd->previous_pipes);
+	if (cmd->heredoc)
+	{
+		close_fd(&cmd->in);
+		close_fd(&cmd->out);
+		cmd->heredoc = 0;
+	}
+	cmd->previous_pipes = cmd->fds[0];
+}
 
 int	main(int ac, char **av, char **envp)
 {
@@ -91,20 +108,7 @@ int	main(int ac, char **av, char **envp)
 		len = ac - (3 + cmd.heredoc);
 		while (i < len)
 		{
-			cmd.cmd = commands[i];
-			if (i != ac - 4)
-				pipe(cmd.fds);
-			cmd.pids[i] = execute_command(&cmd, i);
-			close_fd(&cmd.fds[1]);
-			if (cmd.previous_pipes != -1)
-				close_fd(&cmd.previous_pipes);
-			if (cmd.heredoc)
-			{
-				close_fd(&cmd.in);
-				close_fd(&cmd.out);
-				cmd.heredoc = 0;
-			}
-			cmd.previous_pipes = cmd.fds[0];
+			core(&cmd, ac, i, commands);
 			i++;
 		}
 		wait_for_pids(cmd.pids, ac - (3 + (cmd.heredoc == 1)));

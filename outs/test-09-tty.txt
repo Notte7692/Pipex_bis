@@ -1,34 +1,25 @@
-==1333559== Memcheck, a memory error detector
-==1333559== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1333559== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1333559== Command: ../Pipex_true/pipex not-existing/deepthought.txt grep\ Now wc\ -w outs/test-09.txt
-==1333559== 
-==1333564== Warning: invalid file descriptor -1 in syscall close()
-==1333564== Warning: invalid file descriptor -1 in syscall close()
-==1333564== 
-==1333564== HEAP SUMMARY:
-==1333564==     in use at exit: 0 bytes in 0 blocks
-==1333564==   total heap usage: 15 allocs, 15 frees, 266 bytes allocated
-==1333564== 
-==1333564== All heap blocks were freed -- no leaks are possible
-==1333564== 
-==1333564== For lists of detected and suppressed errors, rerun with: -s
-==1333564== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==1333565== 
-==1333565== HEAP SUMMARY:
-==1333565==     in use at exit: 0 bytes in 0 blocks
-==1333565==   total heap usage: 18 allocs, 18 frees, 296 bytes allocated
-==1333565== 
-==1333565== All heap blocks were freed -- no leaks are possible
-==1333565== 
-==1333565== For lists of detected and suppressed errors, rerun with: -s
-==1333565== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==1333559== 
-==1333559== HEAP SUMMARY:
-==1333559==     in use at exit: 0 bytes in 0 blocks
-==1333559==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
-==1333559== 
-==1333559== All heap blocks were freed -- no leaks are possible
-==1333559== 
-==1333559== For lists of detected and suppressed errors, rerun with: -s
-==1333559== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10320== Memcheck, a memory error detector
+==10320== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10320== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==10320== Command: ../Pipex_true/pipex not-existing/deepthought.txt grep\ Now wc\ -w outs/test-09.txt
+==10320== 
+==10323== Warning: invalid file descriptor -1 in syscall close()
+==10323== Warning: invalid file descriptor -1 in syscall close()
+==10323== 
+==10323== HEAP SUMMARY:
+==10323==     in use at exit: 0 bytes in 0 blocks
+==10323==   total heap usage: 15 allocs, 15 frees, 250 bytes allocated
+==10323== 
+==10323== All heap blocks were freed -- no leaks are possible
+==10323== 
+==10323== For lists of detected and suppressed errors, rerun with: -s
+==10323== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10320== 
+==10320== HEAP SUMMARY:
+==10320==     in use at exit: 0 bytes in 0 blocks
+==10320==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
+==10320== 
+==10320== All heap blocks were freed -- no leaks are possible
+==10320== 
+==10320== For lists of detected and suppressed errors, rerun with: -s
+==10320== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

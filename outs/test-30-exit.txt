@@ -1,2 +1,2 @@
-Exit status: 143
+Exit status: 0
 Expected: 0

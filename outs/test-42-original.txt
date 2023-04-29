@@ -9,11 +9,8 @@ outfile.keke
 outfile.zozo
 outs
 pipex
-PIPEXaminator
 pipex_bonus
 src
-test1
-test2
 tester.sh
 toto.keke
 was

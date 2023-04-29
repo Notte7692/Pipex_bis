@@ -1,0 +1,16 @@
+assets
+bonus
+includes
+infile
+infile.txt
+Makefile
+out
+outfile.keke
+outfile.zozo
+outs
+pipex
+pipex_bonus
+src
+tester.sh
+toto.keke
+was
