@@ -1,36 +1,36 @@
-==9259== Memcheck, a memory error detector
-==9259== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==9259== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==9259== Command: ../Pipex_true/pipex assets/deepthought.txt   outs/test-33.txt
-==9259== 
+==10318== Memcheck, a memory error detector
+==10318== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10318== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==10318== Command: ../Pipex_true/pipex assets/deepthought.txt   outs/test-33.txt
+==10318== 
 Command not found :
-==9262== Warning: invalid file descriptor -1 in syscall close()
+==10321== Warning: invalid file descriptor -1 in syscall close()
 Command not found :
-==9263== Warning: invalid file descriptor -1 in syscall close()
-==9262== 
-==9262== HEAP SUMMARY:
-==9262==     in use at exit: 0 bytes in 0 blocks
-==9262==   total heap usage: 23 allocs, 23 frees, 344 bytes allocated
-==9262== 
-==9262== All heap blocks were freed -- no leaks are possible
-==9262== 
-==9262== For lists of detected and suppressed errors, rerun with: -s
-==9262== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==9263== 
-==9263== HEAP SUMMARY:
-==9263==     in use at exit: 0 bytes in 0 blocks
-==9263==   total heap usage: 24 allocs, 24 frees, 352 bytes allocated
-==9263== 
-==9263== All heap blocks were freed -- no leaks are possible
-==9263== 
-==9263== For lists of detected and suppressed errors, rerun with: -s
-==9263== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==9259== 
-==9259== HEAP SUMMARY:
-==9259==     in use at exit: 0 bytes in 0 blocks
-==9259==   total heap usage: 3 allocs, 3 frees, 36 bytes allocated
-==9259== 
-==9259== All heap blocks were freed -- no leaks are possible
-==9259== 
-==9259== For lists of detected and suppressed errors, rerun with: -s
-==9259== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10322== Warning: invalid file descriptor -1 in syscall close()
+==10321== 
+==10321== HEAP SUMMARY:
+==10321==     in use at exit: 0 bytes in 0 blocks
+==10321==   total heap usage: 23 allocs, 23 frees, 344 bytes allocated
+==10321== 
+==10321== All heap blocks were freed -- no leaks are possible
+==10321== 
+==10321== For lists of detected and suppressed errors, rerun with: -s
+==10321== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10322== 
+==10322== HEAP SUMMARY:
+==10322==     in use at exit: 0 bytes in 0 blocks
+==10322==   total heap usage: 24 allocs, 24 frees, 352 bytes allocated
+==10322== 
+==10322== All heap blocks were freed -- no leaks are possible
+==10322== 
+==10322== For lists of detected and suppressed errors, rerun with: -s
+==10322== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==10318== 
+==10318== HEAP SUMMARY:
+==10318==     in use at exit: 0 bytes in 0 blocks
+==10318==   total heap usage: 3 allocs, 3 frees, 36 bytes allocated
+==10318== 
+==10318== All heap blocks were freed -- no leaks are possible
+==10318== 
+==10318== For lists of detected and suppressed errors, rerun with: -s
+==10318== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

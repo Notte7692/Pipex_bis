@@ -61,7 +61,7 @@ void	ft_free_child(t_pipex *command, char **args);
 
 /*check_args_bonus.c*/
 void	get_path(char *cmd, char **paths, char **args);
-int	check_args(char **av, char **envp, int ac);
+int	    check_args(char **av, char **envp, int ac);
 char	*get_cmd(char **cmd_path, char *cmd);
 
 #endif

@@ -12,29 +12,6 @@
 
 #include "../includes/pipex_bonus.h"
 
-char	*get_cmd(char **cmd_path, char *cmd)
-{
-	char	*tmp;
-	char	*command;
-
-	if (cmd != NULL && access(cmd, 0) == 0)
-		return (cmd);
-	while (*cmd_path)
-	{
-		tmp = ft_strjoin(*cmd_path, "/");
-		command = ft_strjoin(tmp, cmd);
-		if (command != NULL && access(command, 0) == 0)
-		{
-			free(tmp);
-			return (command);
-		}
-		free(tmp);
-		free(command);
-		cmd_path++;
-	}
-	return (ft_strjoin("", cmd));
-}
-
 char	**extract_path(char **envp)
 {
 	char	*paths;
