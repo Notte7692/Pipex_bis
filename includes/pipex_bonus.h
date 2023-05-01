@@ -43,9 +43,7 @@ void	child(t_pipex *command, int i, char **args);
 void    error_full_path(t_pipex *command, char **args);
 
 /*pipex_bonus.c*/
-
 char 	**extract_path(char **envp);
-char	*get_cmd(char **cmd_path, char *cmd);
 char 	**get_command_args(char *command);
 
 /* pipex_bonus_utils.c*/
@@ -64,5 +62,6 @@ void	ft_free_child(t_pipex *command, char **args);
 /*check_args_bonus.c*/
 void	get_path(char *cmd, char **paths, char **args);
 int	check_args(char **av, char **envp, int ac);
+char	*get_cmd(char **cmd_path, char *cmd);
 
 #endif

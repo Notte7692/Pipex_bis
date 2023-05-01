@@ -1,5 +1,5 @@
-==4600== Memcheck, a memory error detector
-==4600== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==4600== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==4600== Command: env -i ../Pipex_true/pipex assets/deepthought.txt grep\ Now wc\ -w outs/test-12.txt
-==4600== 
+==9011== Memcheck, a memory error detector
+==9011== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==9011== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==9011== Command: env -i ../Pipex_true/pipex assets/deepthought.txt grep\ Now wc\ -w outs/test-12.txt
+==9011== 

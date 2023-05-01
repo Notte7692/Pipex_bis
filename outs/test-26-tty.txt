@@ -1,23 +1,23 @@
-==4768== Memcheck, a memory error detector
-==4768== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==4768== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==4768== Command: ../Pipex_true/pipex assets/deepthought.txt cat notexisting outs/test-26.txt
-==4768== 
-==4772== 
-==4772== HEAP SUMMARY:
-==4772==     in use at exit: 0 bytes in 0 blocks
-==4772==   total heap usage: 37 allocs, 37 frees, 625 bytes allocated
-==4772== 
-==4772== All heap blocks were freed -- no leaks are possible
-==4772== 
-==4772== For lists of detected and suppressed errors, rerun with: -s
-==4772== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==4768== 
-==4768== HEAP SUMMARY:
-==4768==     in use at exit: 0 bytes in 0 blocks
-==4768==   total heap usage: 5 allocs, 5 frees, 68 bytes allocated
-==4768== 
-==4768== All heap blocks were freed -- no leaks are possible
-==4768== 
-==4768== For lists of detected and suppressed errors, rerun with: -s
-==4768== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==9179== Memcheck, a memory error detector
+==9179== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==9179== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==9179== Command: ../Pipex_true/pipex assets/deepthought.txt cat notexisting outs/test-26.txt
+==9179== 
+==9183== 
+==9183== HEAP SUMMARY:
+==9183==     in use at exit: 0 bytes in 0 blocks
+==9183==   total heap usage: 37 allocs, 37 frees, 625 bytes allocated
+==9183== 
+==9183== All heap blocks were freed -- no leaks are possible
+==9183== 
+==9183== For lists of detected and suppressed errors, rerun with: -s
+==9183== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==9179== 
+==9179== HEAP SUMMARY:
+==9179==     in use at exit: 0 bytes in 0 blocks
+==9179==   total heap usage: 5 allocs, 5 frees, 68 bytes allocated
+==9179== 
+==9179== All heap blocks were freed -- no leaks are possible
+==9179== 
+==9179== For lists of detected and suppressed errors, rerun with: -s
+==9179== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
