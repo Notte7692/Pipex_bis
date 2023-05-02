@@ -10,6 +10,7 @@ outfile.zozo
 outs
 pipex
 pipex_bonus
+save
 src
 tester.sh
 toto.keke

@@ -1,55 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 12:27:37 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/04/25 09:54:31 by nassimsalhi      ###   ########.fr       */
+/*   Created: 2023/04/27 17:35:44 by nsalhi            #+#    #+#             */
+/*   Updated: 2023/04/27 18:58:01 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	free_child(t_struct *pipex)
+void	ft_free_child(t_pipex *command, char **args)
 {
-	int	i;
-
-	i = 0;
-	while (pipex->cmd_arg[i])
-	{
-		free(pipex->cmd_arg[i]);
-		i++;
-	}
-	free(pipex->cmd_arg);
-	free(pipex->cmd);
+	if (command->in != 0)
+		close(command->in);
+	if (command->out != 0)
+		close(command->out);
+	if (command->previous_pipes != -1)
+		close(command->previous_pipes);
+	free_tab(args);
+	free_tab(command->paths);
+	free(command->pids);
+	exit(EXIT_FAILURE);
 }
 
-void	free_parent(t_struct *pipex)
-{
-	int	i;
-
-	i = 0;
-	close(pipex->infile);
-	close(pipex->outfile);
-	while (pipex->cmd_path[i])
-	{
-		free(pipex->cmd_path[i]);
-		i++;
-	}
-	free(pipex->cmd_path);
-}
-
-void	free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
+//void    free_here_doc.c

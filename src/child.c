@@ -1,80 +1,106 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   child.c                                            :+:      :+:    :+:   */
+/*   child_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 11:06:07 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/04/10 13:56:28 by nassimsalhi      ###   ########.fr       */
+/*   Created: 2023/04/27 12:11:18 by nsalhi            #+#    #+#             */
+/*   Updated: 2023/04/27 19:11:18 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-char	*get_cmd(char **cmd_path, char *cmd)
+void	child_start(t_pipex *command, char	**args)
 {
-	char	*tmp;
-	char	*command;
-
-	if (cmd != NULL && access(cmd, 0) == 0)
-		return (cmd);
-	while (*cmd_path)
+	command->in = open(command->infile, O_RDONLY);
+	if (command->heredoc == 0)
 	{
-		tmp = ft_strjoin(*cmd_path, "/");
-		command = ft_strjoin(tmp, cmd);
-		if (command != NULL && access(command, 0) == 0)
+		command->in = open(command->infile, O_RDONLY);
+		if (command->in == -1)
 		{
-			free(tmp);
-			return (command);
+			close(command->in);
+			ft_free_child(command, args);
 		}
-		free(tmp);
-		free(command);
-		cmd_path++;
 	}
-	return (NULL);
+	if (close_fd(&command->fds[0]) == -1)
+		ft_free_child(command, args);
+	if (dup2(command->in, STDIN_FILENO))
+		ft_free_child(command, args);
+	if (close_fd(&command->in) == -1)
+		ft_free_child(command, args);
+	if (dup2(command->fds[1], STDOUT_FILENO) == -1)
+		ft_free_child(command, args);
+	if (close_fd(&command->fds[1]) == -1)
+		ft_free_child(command, args);
 }
 
-void	first_child(t_struct pipex, char **av, char **envp)
+void	last_child(t_pipex *command, char **args)
 {
-	dup2(pipex.pipefd[1], 1);
-	close(pipex.pipefd[0]);
-	dup2(pipex.infile, 0);
-	close(pipex.infile);
-	pipex.cmd_arg = ft_split(av[2], ' ');
-	pipex.cmd = get_cmd(pipex.cmd_path, pipex.cmd_arg[0]);
-	if (!pipex.cmd)
+	command->out = open(command->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (command->out == -1)
 	{
-		free_child(&pipex);
-		close(pipex.infile);
-		close(pipex.outfile);
-		close(pipex.pipefd[0]);
-		close(pipex.pipefd[1]);
-		free_parent(&pipex);
-		mess_err("Error command not found\n");
-		exit(1);
+		ft_free_child(command, args);
 	}
-	execve(pipex.cmd, pipex.cmd_arg, envp);
+	if (dup2(command->previous_pipes, STDIN_FILENO) == -1)
+		ft_free_child(command, args);
+	if (close_fd(&command->previous_pipes) == -1)
+		ft_free_child(command, args);
+	if (dup2(command->out, STDOUT_FILENO) == -1)
+		ft_free_child(command, args);
+	if (close_fd(&command->out) == -1)
+		ft_free_child(command, args);
 }
 
-void	second_child(t_struct pipex, char **av, char **envp)
+void	child_mid(t_pipex *command, char **args)
 {
-	dup2(pipex.pipefd[0], 0);
-	close(pipex.pipefd[1]);
-	dup2(pipex.outfile, 1);
-	close(pipex.outfile);
-	pipex.cmd_arg = ft_split(av[3], ' ');
-	pipex.cmd = get_cmd(pipex.cmd_path, pipex.cmd_arg[0]);
-	if (!pipex.cmd)
+	if (close_fd(&command->fds[0]) == -1)
+		ft_free_child(command, args);
+	if (dup2(command->previous_pipes, STDIN_FILENO) == -1)
+		ft_free_child(command, args);
+	if (close_fd(&command->previous_pipes) == -1)
+		ft_free_child(command, args);
+	if (dup2(command->fds[1], STDOUT_FILENO) == -1)
+		ft_free_child(command, args);
+	if (close_fd(&command->fds[1]) == -1)
+		ft_free_child(command, args);
+}
+
+void	child(t_pipex *command, int i, char **args)
+{
+	char	*full_path_command;
+
+	command->paths = extract_path(command->env);
+	if (i == 0)
+		child_start(command, args);
+	else if (i == command-> ac - 1)
+		last_child(command, args);
+	else
+		child_mid(command, args);
+	full_path_command = get_cmd(command->paths, args[0]);
+	if (full_path_command == NULL)
+		error_full_path(command, args);
+	free_tab(command->paths);
+	execve(full_path_command, args, command->env);
+	if (full_path_command[0] != '/')
+		free(full_path_command);
+	free_tab(args);
+	free(command->pids);
+	exit(EXIT_FAILURE);
+}
+
+int	execute_command(t_pipex *command, int i)
+{
+	int		pid;
+	char	**args;
+
+	args = get_command_args(command->cmd);
+	pid = fork();
+	if (pid == 0)
 	{
-		free_child(&pipex);
-		close(pipex.infile);
-		close(pipex.outfile);
-		close(pipex.pipefd[0]);
-		close(pipex.pipefd[1]);
-		free_parent(&pipex);
-		mess_err("Error command not found\n");
-		exit(1);
+		child(command, i, args);
 	}
-	execve(pipex.cmd, pipex.cmd_arg, envp);
+	free_tab(args);
+	return (pid);
 }

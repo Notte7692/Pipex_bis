@@ -1,5 +1,5 @@
-#ifndef PIPEX_BONUS_BIS_H
-# define PIPEX_BONUS_BIS_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 # include "./libft/libft.h"
 # include <unistd.h>

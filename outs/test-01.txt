@@ -1,5 +1,14 @@
 make: Entering directory '/home/nassim/Documents/Pipex_true'
-Makefile:43: warning: overriding recipe for target 'pipex'
-Makefile:39: warning: ignoring old recipe for target 'pipex'
-make: Nothing to be done for 'bonus'.
+gcc -Wall -Wextra -Werror -g   -c -o bonus/pipex_bonus.o bonus/pipex_bonus.c
+gcc -Wall -Wextra -Werror -g   -c -o bonus/error_child_bonus.o bonus/error_child_bonus.c
+gcc -Wall -Wextra -Werror -g   -c -o bonus/pipex_bonus_utils.o bonus/pipex_bonus_utils.c
+gcc -Wall -Wextra -Werror -g   -c -o bonus/child_bonus.o bonus/child_bonus.c
+gcc -Wall -Wextra -Werror -g   -c -o bonus/here_doc_bonus.o bonus/here_doc_bonus.c
+gcc -Wall -Wextra -Werror -g   -c -o bonus/free_bonus.o bonus/free_bonus.c
+gcc -Wall -Wextra -Werror -g   -c -o bonus/check_args_bonus.o bonus/check_args_bonus.c
+make -C ./includes/libft/
+make[1]: Entering directory '/home/nassim/Documents/Pipex_true/includes/libft'
+make[1]: 'libft.a' is up to date.
+make[1]: Leaving directory '/home/nassim/Documents/Pipex_true/includes/libft'
+gcc -Wall -Wextra -Werror -g ./bonus/pipex_bonus.o ./bonus/error_child_bonus.o ./bonus/pipex_bonus_utils.o ./bonus/child_bonus.o ./bonus/here_doc_bonus.o ./bonus/free_bonus.o ./bonus/check_args_bonus.o ./includes/libft/libft.a -o pipex_bonus
 make: Leaving directory '/home/nassim/Documents/Pipex_true'

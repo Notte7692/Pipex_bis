@@ -11,17 +11,20 @@
 # **************************************************************************** #
 
 NAME = pipex
-NAME_BONUS = pipex
+NAME_BONUS = pipex_bonus
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_PATH = ./includes/libft/
 
 LIBFT = $(LIBFT_PATH)libft.a
 
-SRC = ./src/child.c \
-	./src/error.c \
+SRC = ./src/check_args.c \
+	./src/child.c \
+	./src/error_child.c \
 	./src/free.c \
-	./src/main.c \
+	./src/here_doc.c \
+	./src/pipex.c \
+	./src/pipex_bonus.c \
 
 BONUS_SRC = ./bonus/pipex_bonus.c \
 			./bonus/error_child_bonus.c \
