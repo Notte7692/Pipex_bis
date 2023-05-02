@@ -18,13 +18,14 @@ LIBFT_PATH = ./includes/libft/
 
 LIBFT = $(LIBFT_PATH)libft.a
 
-SRC = ./src/check_args.c \
-	./src/child.c \
+SRC = ./src/pipex.c \
 	./src/error_child.c \
-	./src/free.c \
+	./src/pipex_utils.c \
+	./src/child.c \
 	./src/here_doc.c \
-	./src/pipex.c \
-	./src/pipex_bonus.c \
+	./src/free.c \
+	./src/check_args.c \
+
 
 BONUS_SRC = ./bonus/pipex_bonus.c \
 			./bonus/error_child_bonus.c \
