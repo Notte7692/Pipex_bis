@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:02:58 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/03 14:05:42 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/03 15:48:53 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int	main(int ac, char **av, char **envp)
 	if (ac >= 5)
 	{
 		init(&cmd, av, ac);
-		close cmd.fds[1];
 		commands = parse_command(av, cmd.heredoc);
 		if (envp[0])
 			cmd.env = envp;

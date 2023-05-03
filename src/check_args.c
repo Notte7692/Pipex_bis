@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:15:00 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/02 19:15:12 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/05/03 15:36:15 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*get_cmd(char **cmd_path, char *cmd)
 	char	*command;
 
 	if (cmd != NULL && access(cmd, 0) == 0)
-		return (cmd);
+		return (ft_strjoin("", cmd));
 	while (*cmd_path)
 	{
 		tmp = ft_strjoin(*cmd_path, "/");

@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:08:15 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/04/27 18:27:08 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/03 15:45:37 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*get_cmd(char **cmd_path, char *cmd)
 	char	*command;
 
 	if (cmd != NULL && access(cmd, 0) == 0)
-		return (cmd);
+		return (ft_strjoin("", cmd));
 	while (*cmd_path)
 	{
 		tmp = ft_strjoin(*cmd_path, "/");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:33 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/02 19:16:37 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/05/03 15:47:09 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,3 @@ void	ft_free_child(t_pipex *command, char **args)
 	free(command->pids);
 	exit(EXIT_FAILURE);
 }
-
-//void    free_here_doc.c

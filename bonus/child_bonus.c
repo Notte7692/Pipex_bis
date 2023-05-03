@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:11:18 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/03 14:16:35 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/03 15:53:13 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	child(t_pipex *command, int i, char **args)
 	if (full_path_command[0] != '/')
 		free(full_path_command);
 	free_tab(args);
+	args = NULL;
 	free(command->pids);
 	exit(EXIT_FAILURE);
 }
@@ -100,6 +101,7 @@ int	execute_command(t_pipex *command, int i)
 	{
 		child(command, i, args);
 	}
-	free_tab(args);
+	if (args)
+		free_tab(args);
 	return (pid);
 }
