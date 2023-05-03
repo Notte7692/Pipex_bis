@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   child.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:15:35 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/02 19:15:40 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/05/03 14:16:23 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	child_start(t_pipex *command, char	**args)
 {
-	command->in = open(command->infile, O_RDONLY);
 	if (command->heredoc == 0)
 	{
 		command->in = open(command->infile, O_RDONLY);

@@ -6,12 +6,13 @@ infile.txt
 Makefile
 out
 outfile.keke
+outfile.toto
 outfile.zozo
 outs
 pipex
-pipex_bonus
 save
 src
 tester.sh
+toto
 toto.keke
 was

@@ -1,46 +1,46 @@
-==11149== Memcheck, a memory error detector
-==11149== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==11149== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==11149== Command: ../Pipex_true/pipex assets/deepthought.txt    outs/test-36.txt
-==11149== 
+==1376065== Memcheck, a memory error detector
+==1376065== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1376065== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1376065== Command: ../Pipex_true/pipex assets/deepthought.txt    outs/test-36.txt
+==1376065== 
 Command not found :
-==11152== Warning: invalid file descriptor -1 in syscall close()
+==1376068== Warning: invalid file descriptor -1 in syscall close()
 Command not found :
 Command not found :
-==11154== Warning: invalid file descriptor -1 in syscall close()
-==11153== 
-==11153== HEAP SUMMARY:
-==11153==     in use at exit: 0 bytes in 0 blocks
-==11153==   total heap usage: 24 allocs, 24 frees, 356 bytes allocated
-==11153== 
-==11153== All heap blocks were freed -- no leaks are possible
-==11153== 
-==11153== For lists of detected and suppressed errors, rerun with: -s
-==11153== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==11152== 
-==11152== HEAP SUMMARY:
-==11152==     in use at exit: 0 bytes in 0 blocks
-==11152==   total heap usage: 23 allocs, 23 frees, 348 bytes allocated
-==11152== 
-==11152== All heap blocks were freed -- no leaks are possible
-==11152== 
-==11152== For lists of detected and suppressed errors, rerun with: -s
-==11152== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==11154== 
-==11154== HEAP SUMMARY:
-==11154==     in use at exit: 0 bytes in 0 blocks
-==11154==   total heap usage: 25 allocs, 25 frees, 364 bytes allocated
-==11154== 
-==11154== All heap blocks were freed -- no leaks are possible
-==11154== 
-==11154== For lists of detected and suppressed errors, rerun with: -s
-==11154== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==11149== 
-==11149== HEAP SUMMARY:
-==11149==     in use at exit: 0 bytes in 0 blocks
-==11149==   total heap usage: 4 allocs, 4 frees, 48 bytes allocated
-==11149== 
-==11149== All heap blocks were freed -- no leaks are possible
-==11149== 
-==11149== For lists of detected and suppressed errors, rerun with: -s
-==11149== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1376070== Warning: invalid file descriptor -1 in syscall close()
+==1376068== 
+==1376068== HEAP SUMMARY:
+==1376068==     in use at exit: 0 bytes in 0 blocks
+==1376068==   total heap usage: 23 allocs, 23 frees, 380 bytes allocated
+==1376068== 
+==1376068== All heap blocks were freed -- no leaks are possible
+==1376068== 
+==1376068== For lists of detected and suppressed errors, rerun with: -s
+==1376068== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1376069== 
+==1376069== HEAP SUMMARY:
+==1376069==     in use at exit: 0 bytes in 0 blocks
+==1376069==   total heap usage: 24 allocs, 24 frees, 388 bytes allocated
+==1376069== 
+==1376069== All heap blocks were freed -- no leaks are possible
+==1376069== 
+==1376069== For lists of detected and suppressed errors, rerun with: -s
+==1376069== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1376070== 
+==1376070== HEAP SUMMARY:
+==1376070==     in use at exit: 0 bytes in 0 blocks
+==1376070==   total heap usage: 25 allocs, 25 frees, 396 bytes allocated
+==1376070== 
+==1376070== All heap blocks were freed -- no leaks are possible
+==1376070== 
+==1376070== For lists of detected and suppressed errors, rerun with: -s
+==1376070== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1376065== 
+==1376065== HEAP SUMMARY:
+==1376065==     in use at exit: 0 bytes in 0 blocks
+==1376065==   total heap usage: 4 allocs, 4 frees, 48 bytes allocated
+==1376065== 
+==1376065== All heap blocks were freed -- no leaks are possible
+==1376065== 
+==1376065== For lists of detected and suppressed errors, rerun with: -s
+==1376065== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

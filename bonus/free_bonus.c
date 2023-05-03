@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:35:44 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/04/27 18:58:01 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/03 14:02:23 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,3 @@ void	ft_free_child(t_pipex *command, char **args)
 	free(command->pids);
 	exit(EXIT_FAILURE);
 }
-
-//void    free_here_doc.c

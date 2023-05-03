@@ -1,23 +1,23 @@
-==11021== Memcheck, a memory error detector
-==11021== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==11021== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==11021== Command: ../Pipex_true/pipex assets/deepthought.txt cat notexisting outs/test-25.txt
-==11021== 
-==11026== 
-==11026== HEAP SUMMARY:
-==11026==     in use at exit: 0 bytes in 0 blocks
-==11026==   total heap usage: 37 allocs, 37 frees, 625 bytes allocated
-==11026== 
-==11026== All heap blocks were freed -- no leaks are possible
-==11026== 
-==11026== For lists of detected and suppressed errors, rerun with: -s
-==11026== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==11021== 
-==11021== HEAP SUMMARY:
-==11021==     in use at exit: 0 bytes in 0 blocks
-==11021==   total heap usage: 5 allocs, 5 frees, 68 bytes allocated
-==11021== 
-==11021== All heap blocks were freed -- no leaks are possible
-==11021== 
-==11021== For lists of detected and suppressed errors, rerun with: -s
-==11021== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1375929== Memcheck, a memory error detector
+==1375929== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1375929== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1375929== Command: ../Pipex_true/pipex assets/deepthought.txt cat notexisting outs/test-25.txt
+==1375929== 
+==1375933== 
+==1375933== HEAP SUMMARY:
+==1375933==     in use at exit: 0 bytes in 0 blocks
+==1375933==   total heap usage: 37 allocs, 37 frees, 673 bytes allocated
+==1375933== 
+==1375933== All heap blocks were freed -- no leaks are possible
+==1375933== 
+==1375933== For lists of detected and suppressed errors, rerun with: -s
+==1375933== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1375929== 
+==1375929== HEAP SUMMARY:
+==1375929==     in use at exit: 0 bytes in 0 blocks
+==1375929==   total heap usage: 5 allocs, 5 frees, 68 bytes allocated
+==1375929== 
+==1375929== All heap blocks were freed -- no leaks are possible
+==1375929== 
+==1375929== For lists of detected and suppressed errors, rerun with: -s
+==1375929== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

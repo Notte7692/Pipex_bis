@@ -1,14 +1,13 @@
-make: Entering directory '/home/nassim/Documents/Pipex_true'
+make: Entering directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true'
 gcc -Wall -Wextra -Werror -g   -c -o bonus/pipex_bonus.o bonus/pipex_bonus.c
-gcc -Wall -Wextra -Werror -g   -c -o bonus/error_child_bonus.o bonus/error_child_bonus.c
-gcc -Wall -Wextra -Werror -g   -c -o bonus/pipex_bonus_utils.o bonus/pipex_bonus_utils.c
-gcc -Wall -Wextra -Werror -g   -c -o bonus/child_bonus.o bonus/child_bonus.c
-gcc -Wall -Wextra -Werror -g   -c -o bonus/here_doc_bonus.o bonus/here_doc_bonus.c
-gcc -Wall -Wextra -Werror -g   -c -o bonus/free_bonus.o bonus/free_bonus.c
-gcc -Wall -Wextra -Werror -g   -c -o bonus/check_args_bonus.o bonus/check_args_bonus.c
-make -C ./includes/libft/
-make[1]: Entering directory '/home/nassim/Documents/Pipex_true/includes/libft'
-make[1]: 'libft.a' is up to date.
-make[1]: Leaving directory '/home/nassim/Documents/Pipex_true/includes/libft'
-gcc -Wall -Wextra -Werror -g ./bonus/pipex_bonus.o ./bonus/error_child_bonus.o ./bonus/pipex_bonus_utils.o ./bonus/child_bonus.o ./bonus/here_doc_bonus.o ./bonus/free_bonus.o ./bonus/check_args_bonus.o ./includes/libft/libft.a -o pipex_bonus
-make: Leaving directory '/home/nassim/Documents/Pipex_true'
+bonus/pipex_bonus.c: In function ‘main’:
+bonus/pipex_bonus.c:82:3: error: statement with no effect [-Werror=unused-value]
+   82 |   close cmd.fds[1];
+      |   ^~~~~
+bonus/pipex_bonus.c:82:8: error: expected ‘;’ before ‘cmd’
+   82 |   close cmd.fds[1];
+      |        ^~~~
+      |        ;
+cc1: all warnings being treated as errors
+make: *** [<builtin>: bonus/pipex_bonus.o] Error 1
+make: Leaving directory '/mnt/nfs/homes/nsalhi/Documents/Pipex_true'

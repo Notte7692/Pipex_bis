@@ -1,36 +1,36 @@
-==11114== Memcheck, a memory error detector
-==11114== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==11114== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==11114== Command: ../Pipex_true/pipex assets/deepthought.txt   outs/test-33.txt
-==11114== 
+==1376025== Memcheck, a memory error detector
+==1376025== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1376025== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1376025== Command: ../Pipex_true/pipex assets/deepthought.txt   outs/test-33.txt
+==1376025== 
 Command not found :
-==11117== Warning: invalid file descriptor -1 in syscall close()
+==1376031== Warning: invalid file descriptor -1 in syscall close()
 Command not found :
-==11118== Warning: invalid file descriptor -1 in syscall close()
-==11117== 
-==11117== HEAP SUMMARY:
-==11117==     in use at exit: 0 bytes in 0 blocks
-==11117==   total heap usage: 23 allocs, 23 frees, 344 bytes allocated
-==11117== 
-==11117== All heap blocks were freed -- no leaks are possible
-==11117== 
-==11117== For lists of detected and suppressed errors, rerun with: -s
-==11117== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==11118== 
-==11118== HEAP SUMMARY:
-==11118==     in use at exit: 0 bytes in 0 blocks
-==11118==   total heap usage: 24 allocs, 24 frees, 352 bytes allocated
-==11118== 
-==11118== All heap blocks were freed -- no leaks are possible
-==11118== 
-==11118== For lists of detected and suppressed errors, rerun with: -s
-==11118== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==11114== 
-==11114== HEAP SUMMARY:
-==11114==     in use at exit: 0 bytes in 0 blocks
-==11114==   total heap usage: 3 allocs, 3 frees, 36 bytes allocated
-==11114== 
-==11114== All heap blocks were freed -- no leaks are possible
-==11114== 
-==11114== For lists of detected and suppressed errors, rerun with: -s
-==11114== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1376032== Warning: invalid file descriptor -1 in syscall close()
+==1376031== 
+==1376031== HEAP SUMMARY:
+==1376031==     in use at exit: 0 bytes in 0 blocks
+==1376031==   total heap usage: 23 allocs, 23 frees, 376 bytes allocated
+==1376031== 
+==1376031== All heap blocks were freed -- no leaks are possible
+==1376031== 
+==1376031== For lists of detected and suppressed errors, rerun with: -s
+==1376031== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1376032== 
+==1376032== HEAP SUMMARY:
+==1376032==     in use at exit: 0 bytes in 0 blocks
+==1376032==   total heap usage: 24 allocs, 24 frees, 384 bytes allocated
+==1376032== 
+==1376032== All heap blocks were freed -- no leaks are possible
+==1376032== 
+==1376032== For lists of detected and suppressed errors, rerun with: -s
+==1376032== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1376025== 
+==1376025== HEAP SUMMARY:
+==1376025==     in use at exit: 0 bytes in 0 blocks
+==1376025==   total heap usage: 3 allocs, 3 frees, 36 bytes allocated
+==1376025== 
+==1376025== All heap blocks were freed -- no leaks are possible
+==1376025== 
+==1376025== For lists of detected and suppressed errors, rerun with: -s
+==1376025== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

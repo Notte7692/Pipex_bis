@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:11:18 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/04/27 19:11:18 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/03 14:16:35 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	child_start(t_pipex *command, char	**args)
 {
-	command->in = open(command->infile, O_RDONLY);
 	if (command->heredoc == 0)
 	{
 		command->in = open(command->infile, O_RDONLY);
