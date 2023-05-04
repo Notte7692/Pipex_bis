@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:23:14 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/02 19:23:18 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/05/03 19:01:20 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	child(t_pipex *command, int i, char **args);
 
 /*error_child_bonus.c*/
 void	error_full_path(t_pipex *command, char **args);
+void	command_not_found(char *cmd);
 
 /*pipex_bonus.c*/
 char	**extract_path(char **envp);

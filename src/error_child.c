@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_child.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nassimsalhi <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:03 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/02 19:16:09 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/05/04 17:32:38 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,25 @@
 
 void	error_full_path(t_pipex *command, char **args)
 {
-	write(2, "Command not found :\n", 20);
 	ft_free_child(command, args);
 	exit (127);
+}
+
+void	command_not_found(char *cmd)
+{
+	char	*str;
+	
+	
+	if (cmd != NULL && (cmd[0] == ' ' || !cmd[0]))
+	{
+		str = ft_strjoin(cmd, ": Command not found");
+		write(2 , str, ft_strlen(str));
+		write(2, "\n", 1);
+		free(str);
+	}
+	else if (cmd && ft_strchr(cmd, '/') != NULL)
+			write (1, "No such file or directory \n", 27);
+	else 
+		write(2, "Command not found \n", 19);
+		
 }

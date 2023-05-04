@@ -1,0 +1,45 @@
+==1577099== Memcheck, a memory error detector
+==1577099== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1577099== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1577099== Command: ../Pipex_true/pipex assets/deepthought.txt    outs/test-35.txt
+==1577099== 
+Command not found 
+Command not found 
+Command not found 
+close: Bad file descriptor
+==1577102== 
+==1577102== HEAP SUMMARY:
+==1577102==     in use at exit: 0 bytes in 0 blocks
+==1577102==   total heap usage: 23 allocs, 23 frees, 380 bytes allocated
+==1577102== 
+==1577102== All heap blocks were freed -- no leaks are possible
+==1577102== 
+==1577102== For lists of detected and suppressed errors, rerun with: -s
+==1577102== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1577104== 
+==1577104== HEAP SUMMARY:
+==1577104==     in use at exit: 0 bytes in 0 blocks
+==1577104==   total heap usage: 25 allocs, 25 frees, 396 bytes allocated
+==1577104== 
+==1577104== All heap blocks were freed -- no leaks are possible
+==1577104== 
+==1577104== For lists of detected and suppressed errors, rerun with: -s
+==1577104== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1577103== 
+==1577103== HEAP SUMMARY:
+==1577103==     in use at exit: 0 bytes in 0 blocks
+==1577103==   total heap usage: 24 allocs, 24 frees, 388 bytes allocated
+==1577103== 
+==1577103== All heap blocks were freed -- no leaks are possible
+==1577103== 
+==1577103== For lists of detected and suppressed errors, rerun with: -s
+==1577103== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1577099== 
+==1577099== HEAP SUMMARY:
+==1577099==     in use at exit: 0 bytes in 0 blocks
+==1577099==   total heap usage: 4 allocs, 4 frees, 48 bytes allocated
+==1577099== 
+==1577099== All heap blocks were freed -- no leaks are possible
+==1577099== 
+==1577099== For lists of detected and suppressed errors, rerun with: -s
+==1577099== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

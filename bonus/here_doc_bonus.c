@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:30:44 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/03 15:47:28 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/04 17:35:01 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	here_doc(char *av, t_pipex *cmd)
 	}
 	free(buf);
 	get_next_line(0, 1);
-	close(cmd->fds[1]);
+	close_fd(cmd->fds[1]);
 	cmd->in = cmd->fds[0];
 }

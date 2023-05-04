@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name" : "pipex_bonus", 
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/pipex",
+            "stopAtEntry": true,
+            "args": [
+                "/dev/stdin",
+                " ",
+                "",
+                "",
+                "/dev/stdout"
+            ],
+            "cwd": "${workspaceRoot}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb"
+          }
+    ]
+}

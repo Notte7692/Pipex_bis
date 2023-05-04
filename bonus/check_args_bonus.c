@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:08:15 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/03 15:45:37 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/03 19:03:39 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ char	*get_cmd(char **cmd_path, char *cmd)
 		free(command);
 		cmd_path++;
 	}
-	return (ft_strjoin("", cmd));
+	command_not_found(cmd);
+	return (NULL);
 }
 
 int	check_args(char **av, char **envp, int ac)

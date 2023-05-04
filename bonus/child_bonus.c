@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:11:18 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/03 15:53:13 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/04 12:09:59 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	child_start(t_pipex *command, char	**args)
 		command->in = open(command->infile, O_RDONLY);
 		if (command->in == -1)
 		{
-			close(command->in);
+			perror(command->infile);
 			ft_free_child(command, args);
 		}
 	}

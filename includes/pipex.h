@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:44:04 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/03/20 13:42:24 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/04 10:41:49 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	child(t_pipex *command, int i, char **args);
 
 /*error_child.c*/
 void	error_full_path(t_pipex *command, char **args);
+void	command_not_found(char *cmd);
 
 /*pipex.c*/
 char	**extract_path(char **envp);
