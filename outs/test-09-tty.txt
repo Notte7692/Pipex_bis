@@ -1,24 +1,24 @@
-==1576767== Memcheck, a memory error detector
-==1576767== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1576767== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1576767== Command: ../Pipex_true/pipex not-existing/deepthought.txt grep\ Now wc\ -w outs/test-09.txt
-==1576767== 
+==1579591== Memcheck, a memory error detector
+==1579591== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1579591== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1579591== Command: ../Pipex_true/pipex not-existing/deepthought.txt grep\ Now wc\ -w outs/test-09.txt
+==1579591== 
 not-existing/deepthought.txt: No such file or directory
-==1576774== 
-==1576774== HEAP SUMMARY:
-==1576774==     in use at exit: 0 bytes in 0 blocks
-==1576774==   total heap usage: 15 allocs, 15 frees, 266 bytes allocated
-==1576774== 
-==1576774== All heap blocks were freed -- no leaks are possible
-==1576774== 
-==1576774== For lists of detected and suppressed errors, rerun with: -s
-==1576774== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==1576767== 
-==1576767== HEAP SUMMARY:
-==1576767==     in use at exit: 0 bytes in 0 blocks
-==1576767==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
-==1576767== 
-==1576767== All heap blocks were freed -- no leaks are possible
-==1576767== 
-==1576767== For lists of detected and suppressed errors, rerun with: -s
-==1576767== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1579594== 
+==1579594== HEAP SUMMARY:
+==1579594==     in use at exit: 0 bytes in 0 blocks
+==1579594==   total heap usage: 15 allocs, 15 frees, 266 bytes allocated
+==1579594== 
+==1579594== All heap blocks were freed -- no leaks are possible
+==1579594== 
+==1579594== For lists of detected and suppressed errors, rerun with: -s
+==1579594== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==1579591== 
+==1579591== HEAP SUMMARY:
+==1579591==     in use at exit: 0 bytes in 0 blocks
+==1579591==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
+==1579591== 
+==1579591== All heap blocks were freed -- no leaks are possible
+==1579591== 
+==1579591== For lists of detected and suppressed errors, rerun with: -s
+==1579591== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,9 +1,7 @@
 assets
 bonus
 includes
-infile
 Makefile
-out
 outfile
 outs
 pipex

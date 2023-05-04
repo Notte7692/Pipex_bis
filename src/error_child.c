@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:03 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/04 17:32:38 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/04 18:03:23 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,4 @@ void	command_not_found(char *cmd)
 			write (1, "No such file or directory \n", 27);
 	else 
 		write(2, "Command not found \n", 19);
-		
 }
