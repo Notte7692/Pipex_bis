@@ -2,16 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name" : "pipex_bonus", 
+            "name" : "pipex", 
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/pipex",
             "stopAtEntry": true,
             "args": [
                 "/dev/stdin",
-                " ",
-                "",
-                "",
+                "cat"
+                "ls",
                 "/dev/stdout"
             ],
             "cwd": "${workspaceRoot}",

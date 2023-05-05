@@ -17,6 +17,8 @@ char	**extract_path(char **envp)
 	char	*paths;
 	char	**paths_splitted;
 
+	if (!envp || !envp[0])
+		return (NULL);
 	paths = find_path(envp);
 	paths_splitted = ft_split(paths, ':');
 	return (paths_splitted);

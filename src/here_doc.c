@@ -31,6 +31,6 @@ void	here_doc(char *av, t_pipex *cmd)
 	free(buf);
 	free(limiteur);
 	get_next_line(0, 1);
-	close(cmd->fds[1]);
+	close_fd(&cmd->fds[1]);
 	cmd->in = cmd->fds[0];
 }

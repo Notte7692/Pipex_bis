@@ -20,8 +20,10 @@ void	ft_free_child(t_pipex *command, char **args)
 		close_fd(&command->out);
 	if (command->previous_pipes != -1 && command->previous_pipes != 0)
 		close_fd(&command->previous_pipes);
-	free_tab(args);
-	free_tab(command->paths);
+	if (args)
+		free_tab(args);
+	if (command->paths)
+		free_tab(command->paths);
 	free(command->pids);
 	close_fd(&command->fds[0]);
 	close_fd(&command->fds[1]);

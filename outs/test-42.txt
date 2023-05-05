@@ -1,10 +1,13 @@
 assets
 bonus
 includes
+infile.txt
 Makefile
 outfile
+outfile.keke
 outs
 pipex
+pipex_nas.tar
 save
 src
 supp.supp

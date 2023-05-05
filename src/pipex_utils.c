@@ -44,9 +44,21 @@ char	**parse_command(char **av, int doc)
 
 char	*find_path(char **envp)
 {
-	while (ft_strncmp("PATH", *envp, 4))
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (envp[len])
+		len++;
+	while (i < len)
+	{
+		if (ft_strncmp("PATH", *envp, 4) == 0)
+			return (*envp + 5);
 		envp++;
-	return (*envp + 5);
+		i++;
+	}
+	return (NULL);
 }
 
 char	**get_command_args(char *command)

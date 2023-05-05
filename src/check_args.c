@@ -24,20 +24,24 @@ char	*get_cmd(char **cmd_path, char *cmd)
 	char	*tmp;
 	char	*command;
 
+	
 	if (cmd != NULL && access(cmd, 0) == 0)
 		return (ft_strjoin("", cmd));
-	while (*cmd_path)
+	if (cmd_path != NULL && cmd_path[0] != NULL)
 	{
-		tmp = ft_strjoin(*cmd_path, "/");
-		command = ft_strjoin(tmp, cmd);
-		if (command != NULL && access(command, 0) == 0)
+		while (*cmd_path && cmd_path != NULL)
 		{
+			tmp = ft_strjoin(*cmd_path, "/");
+			command = ft_strjoin(tmp, cmd);
+			if (command != NULL && access(command, 0) == 0)
+			{
+				free(tmp);
+				return (command);
+			}
 			free(tmp);
-			return (command);
+			free(command);
+			cmd_path++;
 		}
-		free(tmp);
-		free(command);
-		cmd_path++;
 	}
 	command_not_found(cmd);
 	return (NULL);
