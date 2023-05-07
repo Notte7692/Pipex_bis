@@ -19,12 +19,25 @@ void	get_path(char *cmd, char **paths, char **args)
 	free_tab(args);
 }
 
+int	verif_cmd(char *cmd)
+{
+	int	i;
+
+	i = 0;
+	while (i < (int)ft_strlen(cmd))
+	{
+		if (cmd[i] == '/' && cmd[i + 1] == '/')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 char	*get_cmd(char **cmd_path, char *cmd)
 {
 	char	*tmp;
 	char	*command;
 
-	
 	if (cmd != NULL && access(cmd, 0) == 0)
 		return (ft_strjoin("", cmd));
 	if (cmd_path != NULL && cmd_path[0] != NULL)
@@ -33,7 +46,7 @@ char	*get_cmd(char **cmd_path, char *cmd)
 		{
 			tmp = ft_strjoin(*cmd_path, "/");
 			command = ft_strjoin(tmp, cmd);
-			if (command != NULL && access(command, 0) == 0)
+			if (command != NULL && access(command, 0) == 0 && verif_cmd(command))
 			{
 				free(tmp);
 				return (command);
