@@ -81,8 +81,7 @@ void	child(t_pipex *command, int i, char **args)
 	full_path_command = get_cmd(command->paths, args[0]);
 	if (full_path_command == NULL)
 		error_full_path(command, args);
-	if (command->paths)
-		free_tab(command->paths);
+	free_tab(command->paths);
 	execve(full_path_command, args, command->env);
 	if (full_path_command[0] != '/')
 		free(full_path_command);

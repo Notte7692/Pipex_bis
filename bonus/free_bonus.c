@@ -12,7 +12,7 @@
 
 #include "../includes/pipex_bonus.h"
 
-void	ft_free_child(t_pipex *command, char **args)
+void	ft_free_child(t_pipex *command, char **args, int i)
 {
 	if (command->in != 0 && command->in != -1)
 		close_fd(command->in);
@@ -26,5 +26,5 @@ void	ft_free_child(t_pipex *command, char **args)
 		free_tab(command->paths);
 	free(command->pids);
 	close_fd(command->fds)
-	exit(EXIT_FAILURE);
+	exit_code(i);
 }

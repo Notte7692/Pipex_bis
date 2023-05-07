@@ -20,19 +20,19 @@ void	child_start(t_pipex *command, char	**args)
 		if (command->in == -1)
 		{
 			perror(command->infile);
-			ft_free_child(command, args);
+			ft_free_child(command, args, 1);
 		}
 	}
 	if (close_fd(&command->fds[0]) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->in, STDIN_FILENO))
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->in) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->fds[1], STDOUT_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->fds[1]) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 }
 
 void	last_child(t_pipex *command, char **args)
@@ -40,30 +40,30 @@ void	last_child(t_pipex *command, char **args)
 	command->out = open(command->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (command->out == -1)
 	{
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	}
 	if (dup2(command->previous_pipes, STDIN_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->previous_pipes) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->out, STDOUT_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->out) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 }
 
 void	child_mid(t_pipex *command, char **args)
 {
 	if (close_fd(&command->fds[0]) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->previous_pipes, STDIN_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->previous_pipes) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->fds[1], STDOUT_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->fds[1]) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 }
 
 void	child(t_pipex *command, int i, char **args)
