@@ -30,8 +30,13 @@ void	command_not_found(char *cmd)
 		write(2, "\n", 1);
 		free(str);
 	}
-	else if (cmd && ft_strchr(cmd, '/'))
-			write (1, "No such file or directory \n", 27);
+	else if (cmd && ft_strchr(cmd, '/') != NULL)
+	{
+			str = ft_strjoin(cmd, ": No such file or directory \n");
+			write (2, str, ft_strlen(str));
+			write(2, "\n", 1);
+			free(str);
+	}
 	else 
 		write(2, "Command not found \n", 19);
 }

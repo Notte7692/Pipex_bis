@@ -1,8 +1,8 @@
-==13537== Memcheck, a memory error detector
-==13537== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==13537== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==13537== Command: env -i ../Pipex_true/pipex assets/deepthought.txt grep\ Now wc\ -w outs/test-12.txt
-==13537== 
+==7198== Memcheck, a memory error detector
+==7198== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7198== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==7198== Command: env -i ../Pipex_true/pipex assets/deepthought.txt grep\ Now wc\ -w outs/test-12.txt
+==7198== 
 Command not found 
 Command not found 
 close: Bad file descriptor
