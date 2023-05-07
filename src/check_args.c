@@ -33,7 +33,7 @@ char	*get_cmd(char **cmd_path, char *cmd)
 		{
 			tmp = ft_strjoin(*cmd_path, "/");
 			command = ft_strjoin(tmp, cmd);
-			if (command != NULL && access(command, 0) == 0)
+			if (command != NULL && access(command, X_OK) == 0)
 			{
 				free(tmp);
 				return (command);
