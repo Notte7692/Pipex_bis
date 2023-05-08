@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:03 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/04 18:03:23 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/08 10:07:29 by nassimsalhi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	error_full_path(t_pipex *command, char **args)
 void	command_not_found(char *cmd)
 {
 	char	*str;
-	
-	
+
 	if (cmd != NULL && (cmd[0] == ' ' || !cmd[0]))
 	{
 		str = ft_strjoin(cmd, ": Command not found");
@@ -32,11 +31,11 @@ void	command_not_found(char *cmd)
 	}
 	else if (cmd && ft_strchr(cmd, '/') != NULL)
 	{
-			str = ft_strjoin(cmd, ": No such file or directory \n");
-			write (2, str, ft_strlen(str));
-			write(2, "\n", 1);
-			free(str);
+		str = ft_strjoin(cmd, ": No such file or directory \n");
+		write (2, str, ft_strlen(str));
+		write(2, "\n", 1);
+		free(str);
 	}
-	else 
+	else
 		write(2, "Command not found \n", 19);
 }
