@@ -1,14 +1,14 @@
-==7116== Memcheck, a memory error detector
-==7116== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==7116== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==7116== Command: ../Pipex_true/pipex
-==7116== 
-==7116== 
-==7116== HEAP SUMMARY:
-==7116==     in use at exit: 0 bytes in 0 blocks
-==7116==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==7116== 
-==7116== All heap blocks were freed -- no leaks are possible
-==7116== 
-==7116== For lists of detected and suppressed errors, rerun with: -s
-==7116== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4873== Memcheck, a memory error detector
+==4873== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4873== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==4873== Command: ../Pipex_true/pipex
+==4873== 
+==4873== 
+==4873== HEAP SUMMARY:
+==4873==     in use at exit: 0 bytes in 0 blocks
+==4873==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==4873== 
+==4873== All heap blocks were freed -- no leaks are possible
+==4873== 
+==4873== For lists of detected and suppressed errors, rerun with: -s
+==4873== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

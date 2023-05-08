@@ -1,24 +1,24 @@
-==7329== Memcheck, a memory error detector
-==7329== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==7329== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==7329== Command: ../Pipex_true/pipex assets/deepthought.txt notexisting wc outs/test-23.txt
-==7329== 
+==5084== Memcheck, a memory error detector
+==5084== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==5084== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==5084== Command: ../Pipex_true/pipex assets/deepthought.txt notexisting wc outs/test-23.txt
+==5084== 
 Command not found 
-==7332== 
-==7332== HEAP SUMMARY:
-==7332==     in use at exit: 0 bytes in 0 blocks
-==7332==   total heap usage: 34 allocs, 34 frees, 593 bytes allocated
-==7332== 
-==7332== All heap blocks were freed -- no leaks are possible
-==7332== 
-==7332== For lists of detected and suppressed errors, rerun with: -s
-==7332== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==7329== 
-==7329== HEAP SUMMARY:
-==7329==     in use at exit: 0 bytes in 0 blocks
-==7329==   total heap usage: 5 allocs, 5 frees, 67 bytes allocated
-==7329== 
-==7329== All heap blocks were freed -- no leaks are possible
-==7329== 
-==7329== For lists of detected and suppressed errors, rerun with: -s
-==7329== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==5087== 
+==5087== HEAP SUMMARY:
+==5087==     in use at exit: 0 bytes in 0 blocks
+==5087==   total heap usage: 34 allocs, 34 frees, 593 bytes allocated
+==5087== 
+==5087== All heap blocks were freed -- no leaks are possible
+==5087== 
+==5087== For lists of detected and suppressed errors, rerun with: -s
+==5087== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==5084== 
+==5084== HEAP SUMMARY:
+==5084==     in use at exit: 0 bytes in 0 blocks
+==5084==   total heap usage: 5 allocs, 5 frees, 67 bytes allocated
+==5084== 
+==5084== All heap blocks were freed -- no leaks are possible
+==5084== 
+==5084== For lists of detected and suppressed errors, rerun with: -s
+==5084== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
