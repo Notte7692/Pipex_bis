@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:44:04 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/04 10:41:49 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/09 13:21:08 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		execute_command(t_pipex *command, int i);
 void	child(t_pipex *command, int i, char **args);
 
 /*error_child.c*/
-void	error_full_path(t_pipex *command, char **args);
+void	error_full_path(t_pipex *command, char **args, int i);
 void	command_not_found(char *cmd);
 
 /*pipex.c*/
@@ -69,7 +69,7 @@ char	**get_command_args(char *command);
 void	here_doc(char *av, t_pipex *cmd);
 
 /*free.c*/
-void	ft_free_child(t_pipex *command, char **args);
+void	ft_free_child(t_pipex *command, char **args, int i);
 
 /*check_args.c*/
 void	get_path(char *cmd, char **paths, char **args);

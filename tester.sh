@@ -12,7 +12,7 @@
 
 #!/bin/bash
 
-PROJECT_DIRECTORY="../Pipex_true"
+PROJECT_DIRECTORY="../pipex_bis"
 
 NC="\033[0m"
 BOLD="\033[1m"

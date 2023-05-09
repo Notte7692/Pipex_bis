@@ -3,11 +3,11 @@ bonus
 includes
 infile.txt
 Makefile
+out_file
 outfile
 outfile.keke
 outs
 pipex
-pipex_nas.tar
 save
 src
 supp.supp

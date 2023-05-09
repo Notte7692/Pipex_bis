@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:17:36 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/04 15:31:50 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/09 13:24:15 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	close_fd(int *fd)
 	if (*fd < 0)
 		return (-1);
 	if (close(*fd) == -1)
-		return (perror("close"), -1);
+		return (-1);
 	*fd = -1;
 	return (0);
 }

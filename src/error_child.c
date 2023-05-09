@@ -6,16 +6,15 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:03 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/08 10:07:29 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/05/09 13:23:11 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	error_full_path(t_pipex *command, char **args)
+void	error_full_path(t_pipex *command, char **args, int i)
 {
-	ft_free_child(command, args);
-	exit (127);
+	ft_free_child(command, args, i);
 }
 
 void	command_not_found(char *cmd)

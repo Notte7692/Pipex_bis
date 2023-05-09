@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:15:35 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/04 15:27:19 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/09 13:22:56 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ void	child_start(t_pipex *command, char	**args)
 		if (command->in == -1)
 		{
 			perror(command->infile);
-			ft_free_child(command, args);
+			ft_free_child(command, args, 1);
 		}
 	}
 	if (close_fd(&command->fds[0]) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->in, STDIN_FILENO))
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->in) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->fds[1], STDOUT_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->fds[1]) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 }
 
 void	last_child(t_pipex *command, char **args)
@@ -41,30 +41,30 @@ void	last_child(t_pipex *command, char **args)
 	if (command->out == -1)
 	{
 		perror(command->outfile);
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	}
 	if (dup2(command->previous_pipes, STDIN_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->previous_pipes) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->out, STDOUT_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->out) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 }
 
 void	child_mid(t_pipex *command, char **args)
 {
 	if (close_fd(&command->fds[0]) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->previous_pipes, STDIN_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->previous_pipes) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (dup2(command->fds[1], STDOUT_FILENO) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 	if (close_fd(&command->fds[1]) == -1)
-		ft_free_child(command, args);
+		ft_free_child(command, args, 1);
 }
 
 void	child(t_pipex *command, int i, char **args)
@@ -80,7 +80,7 @@ void	child(t_pipex *command, int i, char **args)
 		child_mid(command, args);
 	full_path_command = get_cmd(command->paths, args[0]);
 	if (full_path_command == NULL)
-		error_full_path(command, args);
+		error_full_path(command, args, 127);
 	free_tab(command->paths);
 	execve(full_path_command, args, command->env);
 	if (full_path_command[0] != '/')

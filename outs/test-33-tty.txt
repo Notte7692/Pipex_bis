@@ -1,35 +1,34 @@
-==5195== Memcheck, a memory error detector
-==5195== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==5195== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==5195== Command: ../Pipex_true/pipex assets/deepthought.txt   outs/test-33.txt
-==5195== 
+==703647== Memcheck, a memory error detector
+==703647== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==703647== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==703647== Command: ../pipex_bis/pipex assets/deepthought.txt   outs/test-33.txt
+==703647== 
 Command not found 
 Command not found 
-close: Bad file descriptor
-==5198== 
-==5198== HEAP SUMMARY:
-==5198==     in use at exit: 0 bytes in 0 blocks
-==5198==   total heap usage: 23 allocs, 23 frees, 344 bytes allocated
-==5198== 
-==5198== All heap blocks were freed -- no leaks are possible
-==5198== 
-==5198== For lists of detected and suppressed errors, rerun with: -s
-==5198== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==5199== 
-==5199== HEAP SUMMARY:
-==5199==     in use at exit: 0 bytes in 0 blocks
-==5199==   total heap usage: 24 allocs, 24 frees, 352 bytes allocated
-==5199== 
-==5199== All heap blocks were freed -- no leaks are possible
-==5199== 
-==5199== For lists of detected and suppressed errors, rerun with: -s
-==5199== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==5195== 
-==5195== HEAP SUMMARY:
-==5195==     in use at exit: 0 bytes in 0 blocks
-==5195==   total heap usage: 3 allocs, 3 frees, 36 bytes allocated
-==5195== 
-==5195== All heap blocks were freed -- no leaks are possible
-==5195== 
-==5195== For lists of detected and suppressed errors, rerun with: -s
-==5195== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==703651== 
+==703651== HEAP SUMMARY:
+==703651==     in use at exit: 0 bytes in 0 blocks
+==703651==   total heap usage: 23 allocs, 23 frees, 376 bytes allocated
+==703651== 
+==703651== All heap blocks were freed -- no leaks are possible
+==703651== 
+==703651== For lists of detected and suppressed errors, rerun with: -s
+==703651== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==703652== 
+==703652== HEAP SUMMARY:
+==703652==     in use at exit: 0 bytes in 0 blocks
+==703652==   total heap usage: 24 allocs, 24 frees, 384 bytes allocated
+==703652== 
+==703652== All heap blocks were freed -- no leaks are possible
+==703652== 
+==703652== For lists of detected and suppressed errors, rerun with: -s
+==703652== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==703647== 
+==703647== HEAP SUMMARY:
+==703647==     in use at exit: 0 bytes in 0 blocks
+==703647==   total heap usage: 3 allocs, 3 frees, 36 bytes allocated
+==703647== 
+==703647== All heap blocks were freed -- no leaks are possible
+==703647== 
+==703647== For lists of detected and suppressed errors, rerun with: -s
+==703647== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
