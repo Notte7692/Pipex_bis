@@ -47,6 +47,7 @@ void	init(t_pipex *cmd, char **av, int ac)
 			exit (0);
 		here_doc(av[2], cmd);
 		cmd->heredoc = 1;
+		cmd->here = 1;
 	}
 	cmd->previous_pipes = -1;
 	cmd->ac = ac - (3 + cmd->heredoc);
@@ -62,6 +63,8 @@ void	core(t_pipex *cmd, int ac, int i, char **commands)
 	cmd->cmd = commands[i];
 	if (i != ac - 4)
 		pipe(cmd->fds);
+	if (i == ac -4 - cmd->here)
+		close_fd(&cmd->fds[1]);
 	cmd->pids[i] = execute_command(cmd, i);
 	close_fd(&cmd->fds[1]);
 	if (cmd->previous_pipes != -1)

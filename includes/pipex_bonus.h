@@ -38,6 +38,7 @@ typedef struct s_pipex
 	char	*outfile;
 	int		fds[2];
 	int		wstatus;
+	int		here;
 }	t_pipex;
 
 typedef struct s_fork
