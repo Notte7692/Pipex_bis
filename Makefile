@@ -6,14 +6,14 @@
 #    By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 15:37:00 by nassimsalhi       #+#    #+#              #
-#    Updated: 2023/04/27 18:19:28 by nsalhi           ###   ########.fr        #
+#    Updated: 2023/05/09 15:53:32 by nsalhi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 NAME_BONUS = pipex_bonus
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 LIBFT_PATH = ./includes/libft/
 
 LIBFT = $(LIBFT_PATH)libft.a
@@ -25,7 +25,6 @@ SRC = ./src/pipex.c \
 	./src/here_doc.c \
 	./src/free.c \
 	./src/check_args.c \
-
 
 BONUS_SRC = ./bonus/pipex_bonus.c \
 			./bonus/error_child_bonus.c \

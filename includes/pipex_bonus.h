@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 19:23:14 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/03 19:01:20 by nsalhi           ###   ########.fr       */
+/*   Created: 2023/05/09 15:36:45 by nsalhi            #+#    #+#             */
+/*   Updated: 2023/05/09 15:38:01 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_pipex
 	char	*infile;
 	char	*outfile;
 	int		fds[2];
+	int		wstatus;
 }	t_pipex;
 
 typedef struct s_fork
@@ -46,19 +47,19 @@ typedef struct s_fork
 	int		out;
 }	t_fork;
 
-/* child.c*/
+/* child_bonus.c*/
 int		execute_command(t_pipex *command, int i);
 void	child(t_pipex *command, int i, char **args);
 
 /*error_child_bonus.c*/
-void	error_full_path(t_pipex *command, char **args);
+void	error_full_path(t_pipex *command, char **args, int i);
 void	command_not_found(char *cmd);
 
 /*pipex_bonus.c*/
 char	**extract_path(char **envp);
 char	**get_command_args(char *command);
 
-/* pipex_bonus_utils.c*/
+/* pipex_utils_bonus.c*/
 int		close_fd(int *fd);
 void	free_tab(char **tab);
 char	**parse_command(char **av, int doc);
@@ -69,7 +70,7 @@ char	**get_command_args(char *command);
 void	here_doc(char *av, t_pipex *cmd);
 
 /*free_bonus.c*/
-void	ft_free_child(t_pipex *command, char **args);
+void	ft_free_child(t_pipex *command, char **args, int i);
 
 /*check_args_bonus.c*/
 void	get_path(char *cmd, char **paths, char **args);

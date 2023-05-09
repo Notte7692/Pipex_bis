@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:08:15 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/03 19:03:39 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:32:58 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,20 @@ void	get_path(char *cmd, char **paths, char **args)
 	free_tab(args);
 }
 
+int	verif_cmd(char *cmd)
+{
+	int	i;
+
+	i = 0;
+	while (i < (int)ft_strlen(cmd))
+	{
+		if (cmd[i] == '/' && cmd[i + 1] == '/')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 char	*get_cmd(char **cmd_path, char *cmd)
 {
 	char	*tmp;
@@ -26,18 +40,22 @@ char	*get_cmd(char **cmd_path, char *cmd)
 
 	if (cmd != NULL && access(cmd, 0) == 0)
 		return (ft_strjoin("", cmd));
-	while (*cmd_path)
+	if (cmd_path != NULL && cmd_path[0] != NULL)
 	{
-		tmp = ft_strjoin(*cmd_path, "/");
-		command = ft_strjoin(tmp, cmd);
-		if (command != NULL && access(command, 0) == 0)
+		while (*cmd_path && cmd_path != NULL)
 		{
+			tmp = ft_strjoin(*cmd_path, "/");
+			command = ft_strjoin(tmp, cmd);
+			if (command != NULL && access(command, 0) == 0
+				&& verif_cmd(command))
+			{
+				free(tmp);
+				return (command);
+			}
 			free(tmp);
-			return (command);
+			free(command);
+			cmd_path++;
 		}
-		free(tmp);
-		free(command);
-		cmd_path++;
 	}
 	command_not_found(cmd);
 	return (NULL);

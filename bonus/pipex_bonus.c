@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:02:58 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/03 15:48:53 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:30:40 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,18 @@ char	**extract_path(char **envp)
 	return (paths_splitted);
 }
 
-void	wait_for_pids(int *pids, int size)
+void	wait_for_pids(int *pids, int size, t_pipex *cmd)
 {
 	int	i;
+	int	wstatus;
 
 	i = -1;
 	while (++i < size)
-		waitpid(pids[i], NULL, 0);
+	{
+		waitpid(pids[i], &wstatus, 0);
+		if (WIFEXITED(wstatus))
+			cmd->wstatus = WEXITSTATUS(wstatus);
+	}	
 }
 
 void	init(t_pipex *cmd, char **av, int ac)
@@ -78,6 +83,7 @@ int	main(int ac, char **av, char **envp)
 	int		len;
 
 	i = 0;
+	cmd.wstatus = 0;
 	if (ac >= 5)
 	{
 		init(&cmd, av, ac);
@@ -90,8 +96,8 @@ int	main(int ac, char **av, char **envp)
 			core(&cmd, ac, i, commands);
 			i++;
 		}
-		wait_for_pids(cmd.pids, ac - (3 + (cmd.heredoc == 1)));
+		wait_for_pids(cmd.pids, ac - (3 + (cmd.heredoc == 1)), &cmd);
 		free(cmd.pids);
 	}
-	return (0);
+	return (cmd.wstatus);
 }

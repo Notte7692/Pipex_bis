@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:16:03 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/09 13:23:11 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:26:53 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	command_not_found(char *cmd)
 	if (cmd != NULL && (cmd[0] == ' ' || !cmd[0]))
 	{
 		str = ft_strjoin(cmd, ": Command not found");
-		write(2 , str, ft_strlen(str));
+		write(2, str, ft_strlen(str));
 		write(2, "\n", 1);
 		free(str);
 	}
