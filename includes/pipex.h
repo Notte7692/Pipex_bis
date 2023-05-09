@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 15:44:04 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/09 14:13:26 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/09 18:42:13 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_pipex
 	char	*outfile;
 	int		fds[2];
 	int		wstatus;
+	int		here;
 }	t_pipex;
 
 typedef struct s_fork

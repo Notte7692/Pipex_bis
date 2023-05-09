@@ -8,8 +8,9 @@
             "program": "${workspaceRoot}/pipex",
             "stopAtEntry": true,
             "args": [
-                "/dev/stdin",
-                "/cat"
+                "here_doc",
+                "eof"
+                "cat"
                 "ls",
                 "/dev/stdout"
             ],

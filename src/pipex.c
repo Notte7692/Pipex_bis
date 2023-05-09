@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:17:14 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/09 15:27:20 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/09 19:32:43 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	init(t_pipex *cmd, char **av, int ac)
 			exit (0);
 		here_doc(av[2], cmd);
 		cmd->heredoc = 1;
+		cmd->here = 1;
 	}
 	cmd->previous_pipes = -1;
 	cmd->ac = ac - (3 + cmd->heredoc);
@@ -62,6 +63,8 @@ void	core(t_pipex *cmd, int ac, int i, char **commands)
 	cmd->cmd = commands[i];
 	if (i != ac - 4)
 		pipe(cmd->fds);
+	if (i == ac -4 - cmd->here)
+		close_fd(&cmd->fds[1]);
 	cmd->pids[i] = execute_command(cmd, i);
 	close_fd(&cmd->fds[1]);
 	if (cmd->previous_pipes != -1)

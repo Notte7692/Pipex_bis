@@ -6,12 +6,12 @@
 #    By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 15:42:51 by nsalhi            #+#    #+#              #
-#    Updated: 2023/05/09 15:39:07 by nsalhi           ###   ########.fr        #
+#    Updated: 2023/05/09 18:58:11 by nsalhi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 	libft.a
-CC = 	cc
+CC = 	gcc
 AR =	ar rcs
 SRC = 	ft_isalpha.c \
 	ft_memcpy.c \
@@ -73,7 +73,7 @@ ifeq (bonus, $(findstring bonus, $(MAKECMDGOALS)))
 	SRC = $(BONUSSRC)
 endif
 
-CFLAGS += -Werror -Wextra -Wall
+CFLAGS += -Werror -Wextra -Wall -g3
 
 OBJ = $(SRC:.c=.o)
 
