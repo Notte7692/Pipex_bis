@@ -1,24 +1,24 @@
-==703347== Memcheck, a memory error detector
-==703347== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==703347== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==703347== Command: ../pipex_bis/pipex assets/deepthought.txt grep\ Now wc\ -w not-existing/test-10.txt
-==703347== 
+==712281== Memcheck, a memory error detector
+==712281== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==712281== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==712281== Command: ../pipex_bis/pipex assets/deepthought.txt grep\ Now wc\ -w not-existing/test-10.txt
+==712281== 
 not-existing/test-10.txt: No such file or directory
-==703351== 
-==703351== HEAP SUMMARY:
-==703351==     in use at exit: 0 bytes in 0 blocks
-==703351==   total heap usage: 18 allocs, 18 frees, 296 bytes allocated
-==703351== 
-==703351== All heap blocks were freed -- no leaks are possible
-==703351== 
-==703351== For lists of detected and suppressed errors, rerun with: -s
-==703351== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==703347== 
-==703347== HEAP SUMMARY:
-==703347==     in use at exit: 0 bytes in 0 blocks
-==703347==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
-==703347== 
-==703347== All heap blocks were freed -- no leaks are possible
-==703347== 
-==703347== For lists of detected and suppressed errors, rerun with: -s
-==703347== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==712285== 
+==712285== HEAP SUMMARY:
+==712285==     in use at exit: 0 bytes in 0 blocks
+==712285==   total heap usage: 18 allocs, 18 frees, 296 bytes allocated
+==712285== 
+==712285== All heap blocks were freed -- no leaks are possible
+==712285== 
+==712285== For lists of detected and suppressed errors, rerun with: -s
+==712285== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==712281== 
+==712281== HEAP SUMMARY:
+==712281==     in use at exit: 0 bytes in 0 blocks
+==712281==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
+==712281== 
+==712281== All heap blocks were freed -- no leaks are possible
+==712281== 
+==712281== For lists of detected and suppressed errors, rerun with: -s
+==712281== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

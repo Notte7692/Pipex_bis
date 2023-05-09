@@ -1,14 +1,14 @@
-==703611== Memcheck, a memory error detector
-==703611== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==703611== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==703611== Command: ../pipex_bis/pipex /dev/urandom cat head\ -1 outs/test-30.txt
-==703611== 
-==703611== 
-==703611== HEAP SUMMARY:
-==703611==     in use at exit: 0 bytes in 0 blocks
-==703611==   total heap usage: 6 allocs, 6 frees, 72 bytes allocated
-==703611== 
-==703611== All heap blocks were freed -- no leaks are possible
-==703611== 
-==703611== For lists of detected and suppressed errors, rerun with: -s
-==703611== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==712542== Memcheck, a memory error detector
+==712542== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==712542== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==712542== Command: ../pipex_bis/pipex /dev/urandom cat head\ -1 outs/test-30.txt
+==712542== 
+==712542== 
+==712542== HEAP SUMMARY:
+==712542==     in use at exit: 0 bytes in 0 blocks
+==712542==   total heap usage: 6 allocs, 6 frees, 72 bytes allocated
+==712542== 
+==712542== All heap blocks were freed -- no leaks are possible
+==712542== 
+==712542== For lists of detected and suppressed errors, rerun with: -s
+==712542== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

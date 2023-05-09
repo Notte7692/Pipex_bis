@@ -1,14 +1,14 @@
-==703447== Memcheck, a memory error detector
-==703447== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==703447== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==703447== Command: ../pipex_bis/pipex assets/deepthought.txt grep\ Now wc\ -w outs/test-18.txt
-==703447== 
-==703447== 
-==703447== HEAP SUMMARY:
-==703447==     in use at exit: 0 bytes in 0 blocks
-==703447==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
-==703447== 
-==703447== All heap blocks were freed -- no leaks are possible
-==703447== 
-==703447== For lists of detected and suppressed errors, rerun with: -s
-==703447== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==712378== Memcheck, a memory error detector
+==712378== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==712378== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==712378== Command: ../pipex_bis/pipex assets/deepthought.txt grep\ Now wc\ -w outs/test-18.txt
+==712378== 
+==712378== 
+==712378== HEAP SUMMARY:
+==712378==     in use at exit: 0 bytes in 0 blocks
+==712378==   total heap usage: 7 allocs, 7 frees, 83 bytes allocated
+==712378== 
+==712378== All heap blocks were freed -- no leaks are possible
+==712378== 
+==712378== For lists of detected and suppressed errors, rerun with: -s
+==712378== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
