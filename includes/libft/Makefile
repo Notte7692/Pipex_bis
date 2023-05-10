@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = 	libft.a
-CC = 	gcc
+CC = 	cc
 AR =	ar rcs
 SRC = 	ft_isalpha.c \
 	ft_memcpy.c \
@@ -73,7 +73,7 @@ ifeq (bonus, $(findstring bonus, $(MAKECMDGOALS)))
 	SRC = $(BONUSSRC)
 endif
 
-CFLAGS += -Werror -Wextra -Wall -g3
+CFLAGS += -Werror -Wextra -Wall
 
 OBJ = $(SRC:.c=.o)
 
