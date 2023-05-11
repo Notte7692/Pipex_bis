@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:15:35 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/11 16:17:41 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:28:53 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ void	child_start(t_pipex *command, char	**args)
 void	last_child(t_pipex *command, char **args)
 {
 	if (command->here)
-		command->out = open(command->outfile, O_WRONLY | O_CREAT | O_APPEND, 0644);
+		command->out = open(command->outfile, O_WRONLY | O_CREAT
+				| O_APPEND, 0644);
 	else
-		command->out = open(command->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		command->out = open(command->outfile, O_WRONLY | O_CREAT
+				| O_TRUNC, 0644);
 	if (command->out == -1)
 	{
 		perror(command->outfile);
@@ -75,11 +77,6 @@ void	child(t_pipex *command, int i, char **args)
 	char	*full_path_command;
 
 	command->paths = extract_path(command->env);
-	// if (!command->paths || !*command->paths)
-	// {
-	// 	fprintf(stderr, "Command not found\n");
-	// 	exit(1);
-	// }
 	if (i == 0)
 		child_start(command, args);
 	else if (i == command-> ac - 1)

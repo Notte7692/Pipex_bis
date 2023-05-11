@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:08:15 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/11 16:02:26 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:30:09 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*get_cmd(char **cmd_path, char *cmd)
 	char	*tmp;
 	char	*command;
 
-	if (cmd != NULL && access(cmd, 0) == 0)
+	if (cmd != NULL && ft_strchr(cmd, '/') && access(cmd, 0) == 0)
 		return (ft_strjoin("", cmd));
 	if (cmd_path != NULL && cmd_path[0] != NULL)
 	{
@@ -75,11 +75,6 @@ int	check_args(char **av, char **envp, int ac)
 	while (i < ac -1)
 	{
 		args = get_command_args(av[i]);
-		if (!args || !*args)
-		{
-			fprintf(stderr, "command not found\n");
-			exit(1);
-		}
 		cmd = get_cmd(paths, args[0]);
 		if (cmd == 0)
 		{
