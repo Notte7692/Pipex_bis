@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:15:35 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/09 13:22:56 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:17:41 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ void	child_start(t_pipex *command, char	**args)
 
 void	last_child(t_pipex *command, char **args)
 {
-	command->out = open(command->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (command->here)
+		command->out = open(command->outfile, O_WRONLY | O_CREAT | O_APPEND, 0644);
+	else
+		command->out = open(command->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (command->out == -1)
 	{
 		perror(command->outfile);
@@ -72,6 +75,11 @@ void	child(t_pipex *command, int i, char **args)
 	char	*full_path_command;
 
 	command->paths = extract_path(command->env);
+	// if (!command->paths || !*command->paths)
+	// {
+	// 	fprintf(stderr, "Command not found\n");
+	// 	exit(1);
+	// }
 	if (i == 0)
 		child_start(command, args);
 	else if (i == command-> ac - 1)
@@ -81,7 +89,8 @@ void	child(t_pipex *command, int i, char **args)
 	full_path_command = get_cmd(command->paths, args[0]);
 	if (full_path_command == NULL)
 		error_full_path(command, args, 127);
-	free_tab(command->paths);
+	if (command->paths)
+		free_tab(command->paths);
 	execve(full_path_command, args, command->env);
 	if (full_path_command[0] != '/')
 		free(full_path_command);

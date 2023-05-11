@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:17:36 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/09 13:24:15 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/11 14:36:26 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ char	**get_command_args(char *command)
 {
 	char	**args;
 
-	args = ft_split(command, ' ');
-	return (args);
+	if (command != NULL && command[0])
+	{
+		args = ft_split(command, ' ');
+		return (args);
+	}
+	return (NULL);
 }

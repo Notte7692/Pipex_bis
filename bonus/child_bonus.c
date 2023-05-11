@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:11:18 by nsalhi            #+#    #+#             */
-/*   Updated: 2023/05/09 15:32:35 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:05:35 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ void	child_start(t_pipex *command, char	**args)
 
 void	last_child(t_pipex *command, char **args)
 {
-	command->out = open(command->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (command->here)
+		command->out = open(command->outfile, O_WRONLY | O_CREAT | O_APPEND, 0644);
+	else
+		command->out = open(command->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (command->out == -1)
 	{
 		perror(command->outfile);
@@ -81,7 +84,8 @@ void	child(t_pipex *command, int i, char **args)
 	full_path_command = get_cmd(command->paths, args[0]);
 	if (full_path_command == NULL)
 		error_full_path(command, args, 127);
-	free_tab(command->paths);
+	if (command->paths)
+		free_tab(command->paths);
 	execve(full_path_command, args, command->env);
 	if (full_path_command[0] != '/')
 		free(full_path_command);

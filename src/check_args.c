@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:15:00 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/08 10:09:11 by nassimsalhi      ###   ########.fr       */
+/*   Updated: 2023/05/11 15:53:56 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ char	*get_cmd(char **cmd_path, char *cmd)
 	char	*tmp;
 	char	*command;
 
-	if (cmd != NULL && access(cmd, 0) == 0)
+	fprintf(stderr, "%i\n", __LINE__);
+	if (cmd != NULL && ft_strchr(cmd, '/') && access(cmd, 0) == 0)
 		return (ft_strjoin("", cmd));
+	fprintf(stderr, "%i\n", __LINE__);
 	if (cmd_path != NULL && cmd_path[0] != NULL)
 	{
 		while (*cmd_path && cmd_path != NULL)
