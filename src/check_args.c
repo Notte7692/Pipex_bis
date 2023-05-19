@@ -6,7 +6,7 @@
 /*   By: nsalhi <nsalhi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 19:15:00 by nassimsalhi       #+#    #+#             */
-/*   Updated: 2023/05/11 16:29:31 by nsalhi           ###   ########.fr       */
+/*   Updated: 2023/05/19 16:31:23 by nsalhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*get_cmd(char **cmd_path, char *cmd)
 	char	*tmp;
 	char	*command;
 
-	if (cmd != NULL && ft_strchr(cmd, '/') && access(cmd, 0) == 0)
+	if (cmd != NULL && ft_strchr(cmd, '/') && access(cmd, X_OK) == 0)
 		return (ft_strjoin("", cmd));
 	if (cmd_path != NULL && cmd_path[0] != NULL)
 	{
@@ -46,7 +46,7 @@ char	*get_cmd(char **cmd_path, char *cmd)
 		{
 			tmp = ft_strjoin(*cmd_path, "/");
 			command = ft_strjoin(tmp, cmd);
-			if (command != NULL && access(command, 0) == 0
+			if (command != NULL && access(command, X_OK) == 0
 				&& verif_cmd(command))
 			{
 				free(tmp);
